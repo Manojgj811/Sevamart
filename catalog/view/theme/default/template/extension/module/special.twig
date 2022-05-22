@@ -1,0 +1,209 @@
+ <style>
+
+  
+  .incre{
+ 
+    margin-top: 0px;
+  }
+
+    .cmp{
+      
+      width: 50%;
+      border-left: 1px solid #ddd;
+      border: none;
+      display: inline-block;
+      float: left;
+      background-color: #eee;
+      color: #888;
+      line-height: 38px;
+      font-weight: bold;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+  .input-group .form-control[name^=quantity] {
+    min-width: 50px;
+    margin-left: -51px;
+    margin-top: 0px;
+    }
+   
+    .input-group-btn>.btn {
+        position: relative;
+        height: 39px;
+        border-radius:0px;
+    }
+
+    .input-group .form-control:not(:first-child):not(:last-child), .input-group-addon:not(:first-child):not(:last-child), .input-group-btn:not(:first-child):not(:last-child) {
+        border-radius: 0;
+        height: 39px;
+        margin-right:-44px;
+    }
+
+
+      .heart {
+      
+      width: 50%;
+        border-left: 1px solid #ddd;
+        border: none;
+        display: inline-block;
+        float: left;
+        background-color: #eee;
+        color: #888;
+        line-height: 38px;
+        font-weight: bold;
+        text-align: center;
+        text-transform: uppercase;
+
+        }
+    
+    .input-group-btn:first-child>.btn, .input-group-btn:first-child>.btn-group {
+      margin-right: -3px;
+      margin-top: 0px;
+    }
+
+        
+    .input-number{
+      text-align: center;
+    }
+   
+
+@media (max-width: 600px) {
+  .input-group .form-control:not(:first-child):not(:last-child){
+     margin-right: -135px ! important; 
+}
+.addcartnumber{
+  width:97% ! important;
+}
+}
+  </style>
+
+
+<h3>{{ heading_title }}</h3>
+<div class="row"> {% for product in products %}
+  <div class="product-layout col-lg-3 col-md-3 col-sm-6 col-xs-12">
+    <div class="product-thumb transition">
+      <div class="image"><a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive" /></a></div>
+      <div class="caption">
+        <h4><a href="{{ product.href }}">{{ product.name }}</a></h4>
+        <p>{{ product.description }}</p>
+        {% if product.rating %}
+        <div class="rating">{% for i in 1..5 %}
+          {% if product.rating < i %} <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> {% else %} <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> {% endif %}
+          {% endfor %}</div>
+        {% endif %}
+        {% if product.price %}
+        <p class="price"> {% if not product.special %}
+          {{ product.price }}
+          {% else %} <span class="price-new">{{ product.special }}</span> <span class="price-old">{{ product.price }}</span> {% endif %}
+          {% if product.tax %} <span class="price-tax">{{ text_tax }} {{ product.tax }}</span> {% endif %} </p>
+        {% endif %} 
+        </div>
+
+
+      <div class="form-group required"  >
+        
+      <input type="text" name="quantity" value="{{ product.minimum }}"  id="{{product.product_id}}product" class="form-control" style ="display:none" />
+          
+      <input type="hidden" name="product_id" value="{{ product.product_id }}" />
+
+      </div>
+
+       <div class="button-grid"   id="{{product.product_id}}incdeccart"  >
+
+      {% if  product.product_id  in  key %}
+
+               <!-- <p>{{product.product_id}} </p>
+               -->
+
+             {% for cartProduct in openids %}
+
+           {% if cartProduct.product_id==product.product_id %}
+        
+
+  <div class="input-group"  style="margin-left: 0px; margin-top: 0px;"  id="{{product.product_id}}autospecial"  >
+
+            <span class="input-group-btn">
+       
+     <button  class="dec qtybtn btn btn-default btn-number minus" data-toggle="tooltip" title="decrement" style="margin-top:0px; height: 40px; border: 0px solid #cccccc;" id="{{product.product_id}}" onclick="cartUPDATE('{{ product.product_id }}')"    >
+       
+              <span class="glyphicon glyphicon-minus"></span>
+       
+              </button>
+       
+       
+            </span>
+
+
+  <input  type="number" style ="margin-left:3px; margin-top:0px; text-align: center; width:80px"   name="quantity[{{ cartProduct.cart_id }}]" value="{{ cartProduct.quantity }}"  max="{{product.quantity}}"  id="{{product.product_id}}productquantityspecial" class="form-control input-number addcartnumber"  disabled/>
+         
+             <span class="input-group-btn">
+            <button  class="incre qtybtn btn btn-default" data-toggle="tooltip"   title="increment" style="margin-top:0px; height: 40px; border: 0px solid #cccccc;" id="{{product.product_id}}" onclick="cartAdd('{{ product.product_id }}')" >
+            <span class="glyphicon glyphicon-plus"></span>
+					  </button>
+          </span>
+          
+
+                <div>
+                <button type="button" class="wishlist heart" data-toggle="tooltip" title="{{ button_wishlist }}"  style="border-left: 1px solid #ddd; width: 50%;"  onclick="wishlist.add('{{ product.product_id }}');"><i class="fa fa-heart"></i></button>
+            
+                <button type="button" class="compare cmp"  data-toggle="tooltip" title="{{ button_compare }}" style="border-left: 1px solid #ddd; width: 50%;" onclick="compare.add('{{ product.product_id }}');"><i class="fa fa-exchange"></i></button>
+            
+               </div>
+         
+           
+             </div>  
+
+       
+           {% endif %} 
+          
+            {% endfor %}
+
+
+           {% else %}
+
+
+           <h3 hidden> not in cart </h3>
+
+      
+         <div class="button-group"  id="{{product.product_id}}special"   >
+     
+      <button type="button" class="button-cart"  id="{{product.product_id}}"   ><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">{{ button_cart }}</span></button>
+              
+         <!--<button type="button" class="button-cart"  id="{{product.product_id}}"   ><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">{{ button_cart }}</span></button>
+       <button type="button" onclick="product.add('{{ product.product_id }}', '{{ product.minimum }}');"><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">{{ button_cart }}</span></button>
+       
+      -->
+        <button type="button" data-toggle="tooltip" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');"><i class="fa fa-heart"></i></button>
+        
+        <button type="button" data-toggle="tooltip" title="{{ button_compare }}" onclick="compare.add('{{ product.product_id }}');"><i class="fa fa-exchange"></i></button>
+        
+          </div>
+
+            {% endif %} 
+
+        </div>
+
+
+         <div class="button-group"   id="{{product.product_id}}special"   hidden   >
+
+          <button type="button" class="button-cart"    id="{{product.product_id}}"> <i class="fa fa-shopping-cart"> </i> <span class="hidden-xs hidden-sm hidden-md"> {{ button_cart }} </span> </button >
+      
+          <button type="button" data-toggle="tooltip" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');"><i class="fa fa-heart"></i></button>
+          
+          <button type="button" data-toggle="tooltip" title="{{ button_compare }}" onclick="compare.add('{{ product.product_id }}');"><i class="fa fa-exchange"></i></button>
+        
+            </div>
+                    
+          </div>
+
+          </div>
+
+     {% endfor %}
+
+    </div>
+    
+
+
+
+    
+

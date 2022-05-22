@@ -1,0 +1,726 @@
+
+{{ header }}{{ column_left }}
+ 
+<div class="col-sm-4">{{ search }}</div>
+        
+    <div class="col-sm-12">{{ cart }}</div>
+
+    <div class="col-sm-12 v">
+
+    <p ><i class="fa fa-user-circle-o fa-fw"></i>{{ Name }}</p>
+
+     </div>  
+
+     <div class=" col-sm-12" >  {{ menu }}   
+
+      </div>
+
+      
+       
+    <style>
+
+     .v{
+
+        margin-left:870px; 
+        margin-top:-49px;  
+        font-size:21px
+
+    }
+
+      .incre{
+
+      margin-top: 19px;
+      }
+
+
+  .input-group .form-control[name^=quantity] {
+    min-width: 50px;
+    margin-left: -51px;
+    margin-top: 19px;
+    }
+
+  .input-group-btn>.btn {
+      position: relative;
+      height: 39px;
+      border-radius:0px;
+  }
+
+    .input-group .form-control:not(:first-child):not(:last-child), .input-group-addon:not(:first-child):not(:last-child), .input-group-btn:not(:first-child):not(:last-child) {
+        border-radius: 0;
+        height: 39px;
+        margin-right:-44px;
+    }
+
+
+      
+    .input-group-btn:first-child>.btn, .input-group-btn:first-child>.btn-group {
+      margin-right: -3px;
+      margin-top: 19px;
+    }
+
+      
+    .input-number{
+      text-align: center;
+    }
+
+    .row {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.col-lg-4 {
+    width: 33.33333333%;
+}
+.product-thumb {
+    border: 1px solid #ddd;
+    margin-bottom: 20px;
+    overflow: auto;
+}
+
+body {
+	font-family: 'Open Sans', sans-serif;
+	font-weight: 400;
+	color: #666;
+	font-size: 12px;
+	line-height: 20px;
+	width: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+	color: #444;
+}
+/* default font size */
+.fa {
+	font-size: 14px;
+}
+
+.col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-xs-1, .col-xs-10, .col-xs-11, .col-xs-12, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9 {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.product-grid .product-thumb .image {
+    float: none;
+}
+.product-thumb .image {
+    text-align: center;
+}
+.form-group {
+    margin-bottom: 15px;
+}
+.product-thumb .button-group {
+    border-top: 1px solid #ddd;
+    background-color: #eee;
+   
+}
+
+.product-thumb .button-group button {
+    width: 100%;
+    border: none;
+    display: inline-block;
+    float: left;
+    background-color: #eee;
+    color: #888;
+    line-height: 25px;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+        display: block;
+}
+button, input, select, textarea {
+    font-family: inherit;
+    font-size: inherit;
+    line-height: inherit;
+}
+
+.product-thumb .image img {
+    margin-left: auto;
+    margin-right: auto;
+}
+.img-responsive, .thumbnail a>img, .thumbnail>img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+img {
+    vertical-align: middle;
+}
+img {
+    border: 0;
+}
+.product-thumb .caption {
+    padding: 0 20px;
+    min-height: 180px;
+}
+.product-thumb h4 {
+    font-weight: 700;
+}
+h4 {
+    font-size: 15px;
+}
+p {
+    margin: 0 0 10px;
+}
+.product-thumb .price {
+    color: #444;
+}
+
+.row {
+    margin-right: -15px;
+    margin-left: -15px;
+}
+.fa {
+    font-size: 20px;
+}
+    </style>
+
+
+  <div class="col-sm-8" style="margin-left:286px; margin-top:150px;">
+  
+        {% for product in newproducts %}
+
+        <div class="product-layout product-list col-xs-4 col-md-4 col-lg-4 col-4"  >
+
+         <div class="product-thumb"> 
+
+            <div class="image" ><img src="{{ product.image }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive" /></div>
+            
+                <div>
+                
+         <div class="caption">
+
+        <h2>{{ product.name }}</h2>
+
+        <p>{{ product.description }}</p>
+
+        {% if product.price %}
+
+        <p class="price"> {{ product.price }} </p>
+        
+        {% endif %}
+
+         </div>
+
+        <div class="form-group required"  >
+      
+        <input type="text" name="quantity" value="{{ product.minimum }}"  id="{{product.product_id}}product" class="form-control" style ="display:none" />
+            
+        <input type="hidden" name="product_id" value="{{ product.product_id }}" />
+
+        </div>
+
+        
+    <div class="button-grid"   id="{{product.product_id}}incdeccart"  >
+
+    {% if  product.product_id  in  key %}
+
+      <!-- <p>{{product.product_id}} </p>
+      -->
+
+    {% for cartProduct in openids %}
+
+      {% if cartProduct.product_id==product.product_id %}
+  
+   <div class="input-group"  style="margin-left: 0px; margin-top: 0px;"  id="{{product.product_id}}cartdatabtn"  >
+
+            <span class="input-group-btn">
+              <button  class="dec qtybtn btn btn-default btn-number minus" data-toggle="tooltip" title="decrement" style="margin-top:0px; height: 40px; border: 0px solid #cccccc;" id="{{product.product_id}}"  onclick="cartUPDATEUP('{{ product.product_id }}')"    >
+              <span class="glyphicon glyphicon-minus"></span>
+              </button>
+            </span>
+
+
+          <input  type="number" style ="margin-left:3px; margin-top:0px; text-align: center; width:190px"   name="quantity[{{ cartProduct.cart_id }}]" value="{{ cartProduct.quantity }}"  max="{{product.quantity}}"  id="{{product.product_id}}productquantity" class="form-control input-number addcartnumber"  disabled/>
+         
+         
+          <span class="input-group-btn">
+            <button  class="incre qtybtn btn btn-default" data-toggle="tooltip"   title="increment" style="margin-top:0px; height: 40px; border: 0px solid #cccccc;" id="{{product.product_id}}" onclick="cartaddup('{{ product.product_id }}')" >
+            <span class="glyphicon glyphicon-plus"></span>
+					  </button>
+          </span>
+          
+     </div>  
+
+      {% endif %} 
+
+      {% endfor %}
+
+        {% else %}
+
+      <h3 hidden> not in cart </h3>
+
+      <div class="button-group"   id="{{product.product_id}}">
+
+      <button type="button" class="button-cart  btn btn-primary"  data-toggle="tooltip" title="add to cart"  id="{{product.product_id}}"  style="margin-top:-24px"> <i class="fa fa-shopping-cart"> </i> <span class="hidden-xs hidden-sm hidden-md"> {{ button_cart }} ADD to Cart</span> </button >
+
+        </div>
+
+    {% endif %} 
+      
+    </div>
+
+    <div class="button-group"   id="{{product.product_id}}dynamic"   hidden   >
+
+    <button type="button" class="button-cart2 btn btn-primary"    id="{{product.product_id}}"> <i class="fa fa-shopping-cart"> </i> <span class="hidden-xs hidden-sm hidden-md"> {{ button_cart }} Add To Cart</span> </button >
+    
+     </div>
+
+        </div>
+        
+
+        </div>
+
+        </div>
+
+        
+
+    {% endfor %}
+
+
+    </div>
+
+  
+    {{ footer }} 
+
+            
+          <!-- on load refresh page  update cart items -->
+    
+      <script type="text/javascript">
+
+          function cartUPDATEUP(id)
+          {
+            // alert('cartupdate  up  up is  '+id);
+
+            const currentId=id;
+            
+            var minsajax=$("#"+id+"productquantity").val();
+
+          let updatedValue=minsajax-1;
+
+            $("#"+id+"productquantity").val(parseInt(updatedValue));
+
+              if(updatedValue ==0)
+              { 
+                 $('#'+currentId+"cartdatabtn").hide(); 
+                 //alert('true');
+
+                let textbox=$("#"+id+"productquantity").val();
+
+                 $("#"+id+"productquantity").val(parseInt(textbox)+1);
+       
+                $.ajax({
+                url: 'index.php?route=sale/poscart/remove&user_token={{ user_token }}',
+                type: 'post',
+                data: 'key=' + id ,
+                dataType: 'json',
+         
+            success: function(json) {
+      
+              if(json['success']) {
+
+       //     alert(json['success']);
+
+            $('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
+
+          $('#cart > ul ').load('index.php?route=sale/poscart/info&user_token={{ user_token }} ul li');
+
+                  }
+ 
+         $('#'+currentId+"dynamic").show(); 
+
+              }
+                });
+
+          }
+
+          if(updatedValue)
+          {
+
+          let input = document.querySelector(".input");  
+
+         //alert('input  value is '+input);
+     
+          let textbox=$("#"+id+"productquantity").val();
+
+           $.ajax({
+           url: 'index.php?route=sale/poscart/update&user_token={{ user_token }}',
+            type: 'post',
+            data: 'product_id=' + id + '&quantity=' + updatedValue,
+            dataType: 'json',
+          
+          success: function(json) {
+
+          if(json['success']) {
+
+            var productMinimum=json['minimum'];
+
+        if(textbox <json['minimum'] )
+              {
+
+                $('#'+currentId+"cartdatabtn").hide();   
+              
+              let textbox=$("#"+id+"productquantity").val();
+
+                $("#"+id+"productquantity").val(parseInt(textbox)+1);
+
+            $.ajax({
+            url: 'index.php?route=sale/poscart/remove&user_token={{ user_token }}',
+            type: 'post',
+            data: 'key=' + id ,
+            dataType: 'json',
+
+            success: function() {
+        
+            if(json['success'])
+            
+            {
+             $('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
+
+       $('#cart > ul ').load('index.php?route=sale/poscart/info&user_token={{ user_token }} ul li');
+
+              }
+
+               
+
+         // $('#'+currentId+"incdeccart").hide();   
+
+            $('#'+currentId+"dynamic").show(); 
+              }
+                   
+              });
+
+              }
+
+           else
+             {
+
+          $('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
+         
+           $('#cart > ul ').load('index.php?route=sale/poscart/info&user_token={{ user_token }} ul li');
+
+            }
+
+             }
+      
+            }
+
+
+           });
+
+           }
+
+         }
+                  
+
+     </script>
+
+
+   
+ 
+      <!-- on load refresh -->
+        
+    <script type="text/javascript">
+        function cartaddup(id)
+        {
+          
+     
+        var  plusajax=$("#"+id+"productquantity").val();
+        
+        let updatedValue=(parseInt(plusajax)+1);
+
+     $("#"+id+"productquantity").val(parseInt(plusajax)+1);
+
+         if(updatedValue)
+          {
+            //alert('updatedvalue is ');
+             $.ajax({
+          url: 'index.php?route=sale/poscart/update&user_token={{ user_token }}',
+            type: 'post',
+            data: 'product_id=' + id + '&quantity=' + updatedValue,
+            dataType: 'json',
+            
+            success: function(json) { 
+
+            if(json['success']) {
+
+              $('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
+
+          $('#cart > ul ').load('index.php?route=sale/poscart/info&user_token={{ user_token }} ul li');
+
+               }
+
+               }
+
+             });
+
+            }
+
+            }
+
+     </script>
+
+ 
+    <script type="text/javascript">
+        function cartAdd(id)
+        {
+         // alert('id is '+id);
+         var  plusajax=$("#"+id+"productquantity").val();
+        
+        let updatedValue=(parseInt(plusajax)+1);
+
+        $("#"+id+"productquantity").val(parseInt(plusajax)+1);
+
+         if(updatedValue)
+          {
+            //alert('updatedvalue is ');
+             $.ajax({
+            url: 'index.php?route=sale/poscart/update&user_token={{ user_token }}',
+            type: 'post',
+            data: 'product_id=' + id + '&quantity=' + updatedValue,
+            dataType: 'json',
+            
+            success: function(json) { 
+
+            
+        
+            if(json['success']) {
+
+      
+             $('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
+
+              $('html, body').animate({ scrollTop: 30 }, 'slow');
+
+          $('#cart > ul ').load('index.php?route=sale/poscart/info&user_token={{ user_token }} ul li');
+
+              }
+
+              }
+
+         });
+
+    }
+
+    }
+
+     </script>
+
+      
+      <script type="text/javascript">
+
+        function cartUPDATE(id)
+        {
+            const currentId=id;
+           
+           var minsajax=$("#"+id+"productquantity").val();
+
+      let updatedValue=minsajax-1;
+
+     
+
+        $("#"+id+"productquantity").val(parseInt(updatedValue));
+
+          if(updatedValue ==0)
+          { 
+             $('#'+currentId+"auto").hide(); 
+            $.ajax({
+          url: 'index.php?route=sale/poscart/remove&user_token={{ user_token }}',
+         type: 'post',
+        data: 'key=' + id ,
+        dataType: 'json',
+         
+         success: function(json) {
+   
+        if(json['success']) 
+        {
+             $('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
+
+              $('html, body').animate({ scrollTop: 0 }, 'slow');
+
+             $('#cart > ul ').load('index.php?route=sale/poscart/info&user_token={{ user_token }} ul li');
+
+         }
+ 
+          
+
+           $('#'+currentId).show();
+
+         
+  
+           }
+               
+         });
+
+      }
+
+          if(updatedValue)
+          {
+
+          let input = document.querySelector(".input");  
+
+         //alert('input  value is '+input);
+     
+          let textbox=$("#"+id+"productquantity").val();
+
+             $.ajax({
+            url: 'index.php?route=sale/poscart/update&user_token={{ user_token }}',
+            type: 'post',
+            data: 'product_id=' + id + '&quantity=' + updatedValue,
+            dataType: 'json',
+          
+            success: function(json) {
+
+            if(json['success']) {
+
+             var productMinimum=json['minimum'];
+
+            if(textbox <json['minimum'] )
+            {
+               $('#'+currentId+"auto").hide(); 
+                 $.ajax({
+                url: 'index.php?route=sale/poscart/remove&user_token={{ user_token }}',
+                type: 'post',
+                data: 'key=' + id ,
+                dataType: 'json',
+
+           success: function(json) {
+      
+            if(json['success'])
+             {
+
+            $('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
+
+             $('html, body').animate({ scrollTop: 0 }, 'slow');
+
+         $('#cart > ul ').load('index.php?route=sale/poscart/info&user_token={{ user_token }} ul li');
+
+              }
+
+             $('#'+currentId).show();
+
+         //$('#'+currentId+"dynamic").show(); 
+
+              }
+                   
+              });
+
+              }
+
+           else
+             {
+
+                $('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
+
+                $('html, body').animate({ scrollTop: 30 }, 'slow');
+          
+                $('#cart > ul ').load('index.php?route=sale/poscart/info&user_token={{ user_token }} ul li');
+
+            }
+
+            }
+      
+            }
+
+
+           });
+
+           }
+
+         }
+                  
+
+     </script>
+
+         
+<!--- after refreshing-->
+
+   <script type="text/javascript"><!--
+      $('.button-cart2').on('click', function() {
+
+      let varc=this.id;
+          $('#'+varc+"dynamic").hide();
+
+        $.ajax({
+      url: 'index.php?route=sale/poscart/add&user_token={{ user_token }}',
+    type: 'post',
+    data: 'product_id=' + this.id + '&quantity=' + $("#"+this.id+"product").val() + '&customerid=' + {{ posCustomerId }} +   '&store_id=' + {{ store_id }} ,
+    dataType: 'json',
+         
+		success: function(json) {
+
+     if(json['producttotal'] )
+      {
+        var b=json['producttotal'];
+
+        var cartajaxid=json['productID'];
+
+        var quantityProduct=json['productQuantity'];  
+
+        var productMinimum=json['minimum'];  
+
+  
+
+       $('#'+varc+"cartdatabtn").show();  
+      
+         }     
+
+      if (json['success'])
+      {
+
+        $('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
+
+        $('html, body').animate({ scrollTop: 30 }, 'slow');
+
+       $('#cart > ul ').load('index.php?route=sale/poscart/info&user_token={{ user_token }} ul li');
+        }
+  
+      },
+
+          error: function(xhr, ajaxOptions, thrownError) {
+              alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+              }
+      });
+    });
+    //--></script> 
+
+
+
+    <script type="text/javascript">
+
+      $('.button-cart').on('click', function() {
+
+      let varc=this.id;
+
+       $('#'+varc).hide();
+                      
+        $.ajax({
+          url:'index.php?route=sale/poscart/add&user_token={{ user_token }}',
+          type: 'post',
+          data: 'product_id=' + this.id + '&quantity=' + $("#"+this.id+"product").val() + '&customerid=' + {{ posCustomerId }} +   '&store_id=' + {{ store_id }} ,
+          dataType:'json',
+      
+          success:function(json)
+          {
+
+          var b=json['producttotal'];
+
+          var quantityProduct=json['productQuantity'];  
+
+          var cartajaxid=json['productID'];
+
+           $('#'+varc).after('<div class="input-group" id="'+json['productID']+'auto"  style="margin-left: 0px;"  id="">'+
+        '<span class="input-group-btn">'+'<button  class="dec qtybtn btn btn-default btn-number minus" id="'+json['productID']+'"  data-toggle="tooltip"   title="decrement" style="margin-top:0px; height: 40px; border: 0px solid #cccccc;"   onclick="cartUPDATE('+json['productID']+');")"><span class="glyphicon glyphicon-minus"></span></button>'+'</span>'+
+        '<input  type="number" style ="margin-left:3px;  margin-top:0px; text-align: center; width:190px;  "   name="quantity"   value="'+json['producttotal']+'" min="'+json['minimum']+'"   id="'+json['productID']+'productquantity" class="input form-control addcartnumber "  disabled/>'+
+        '<span class="input-group-btn">'+'<button  class="incre qtybtn btn btn-default"  id="'+json['productID']+'"  data-toggle="tooltip"   title="increment" style="margin-top:0px; height: 40px; border: 0px solid #cccccc;" onclick="cartAdd('+json['productID']+');"><span class="glyphicon glyphicon-plus"></span></button>'+'</span>'
+      
+      );
+           },
+
+            error: function(xhr, ajaxOptions, thrownError) 
+            {
+               alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+
+              }
+
+            });
+            });
+
+        </script>

@@ -1,0 +1,176 @@
+<style>
+
+
+.btn-inverse {
+    color: #ffffff;
+    text-shadow: 0 -1px 0 rgb(0 0 0 / 25%);
+    background-color: #363636;
+    background-image: linear-gradient(to bottom, #444444, #222222);
+    background-repeat: repeat-x;
+    border-color: #222222 #222222 #000000;
+}
+
+
+#cart .dropdown-menu table {
+    margin-bottom: 10px;
+}
+.table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 20px;
+}
+table {
+    background-color: transparent;
+}
+table {
+    border-spacing: 0;
+    border-collapse: collapse;
+}
+
+
+ul.dropdown-menu.pull-right {
+    width: 420px;
+    margin-right: 45px;
+}
+
+/* cart */
+#cart {
+	margin-bottom: 10px;
+}
+#cart > .btn {
+	font-size: 12px;
+	line-height: 18px;
+	color: #FFF;
+}
+#cart.open > .btn {
+	background-image: none;
+	background-color: #FFFFFF;
+	border: 1px solid #E6E6E6;
+	color: #666;
+	box-shadow: none;
+	text-shadow: none;
+}
+#cart.open > .btn:hover {
+	color: #444;
+}
+#cart .dropdown-menu {
+	background: #eee;
+	z-index: 1001;
+}
+#cart .dropdown-menu {
+	
+	overflow-y: auto;
+	max-height: 800px;
+	scrollbar-width: thin;
+	overflow-x: hidden;
+}
+@media (max-width: 478px) {
+	#cart .dropdown-menu {
+		width: 100%;
+	}
+}
+#cart .dropdown-menu table {
+	margin-bottom: 10px;
+}
+#cart .dropdown-menu li > div {
+	min-width: 427px;
+	padding: 0 10px;
+}
+@media (max-width: 478px) {
+	#cart .dropdown-menu li > div {
+		min-width: 100%;
+	}
+}
+#cart .dropdown-menu li p {
+	margin: 20px 0;
+}
+</style>
+ 
+ 
+ 
+ <div id="cart" class="c"  style="width: 160px ; margin-top:14px ; margin-left:700px ; ">
+      <button type="button" data-toggle="dropdown" data-loading-text="{{ text_loading }}" class="btn btn-inverse btn-block btn-lg dropdown-toggle"  style="margin-left:400px ; margin-top:-55px">
+      <i class="fa fa-shopping-cart"></i> <span id="cart-total">{{ text_items }}</span></button>
+      <ul class="dropdown-menu pull-right">
+    {% if posproducts or vouchers %}
+    <li>
+      <table class="table table-striped">
+        {% for product in posproducts %}
+        <tr>
+          
+          <td class="text-center">{% if product.thumb %}
+          <img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-thumbnail" /> {% endif %}
+          </td>
+
+          <td class="text-left">{{ product.name }}
+
+            {% if product.recurring %} <br />
+            - <small>{{ text_recurring }} {{ product.recurring }}</small> {% endif %}</td>
+          <td class="text-right">x {{ product.quantity }}</td>
+          <td class="text-right">{{ product.total }}</td>
+          <td class="text-center"><button type="button" onclick="cartDelete('{{product.product_id}}');" title="{{ button_remove }}" class="btn btn-danger btn-xs"><i class="fa fa-times"></i></button></td>
+        </tr>
+        {% endfor %}
+
+        </table>
+    </li>
+    <li>
+      <div>
+        <table class="table table-bordered">
+          {% for total in totals %}
+          <tr>
+            <td class="text-right"><strong>{{ total.title }}</strong></td>
+            <td class="text-right">{{ total.text }}</td>
+          </tr>
+          {% endfor %}
+        </table>
+        <p class="text-left  data-toggle="tooltip"  title="Checkout Here">&nbsp;&nbsp;&nbsp;
+        <a href="{{ checkout }}"><strong><i class="fa fa-share"></i> Checkout</strong></a></p>
+      </div>
+    </li>
+    {% else %}
+    <li>
+      <p class="text-center">No Items</p>
+    </li>
+    {% endif %}
+  </ul>
+</div>
+
+
+     <script type="text/javascript" >
+  
+        function cartDelete(product_id)
+        {
+          //alert('id is '+product_id);
+     
+            $.ajax({
+          url: 'index.php?route=sale/poscart/remove&user_token={{ user_token }}',
+            type: 'post',
+            data: 'key=' + product_id,
+            dataType: 'json',
+            
+            success: function(json) { 
+
+            //  alert('success is '+id);
+        
+            if(json['success']) {
+
+          //    alert(json['success']); // location.reload();
+
+              $('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
+
+            	$('#cart > ul ').load('index.php?route=sale/poscart/info&user_token={{ user_token }} ul li');
+
+              location.reload();
+
+         }
+
+       }
+
+             });
+
+            }
+
+           
+
+     </script>

@@ -1,0 +1,239 @@
+<style>
+div#sendOtpDiv {
+    margin-top: 90px;
+}
+
+div#verifcationDiv{
+   margin-top: 90px;
+}
+.orcol {
+    position: relative;
+    top: 165px;
+}
+.phonecol {
+    padding: 0px;
+    position: relative;
+    top: 4px;
+    left: -32px;
+}
+@media only screen and (width: 768px) and (height: 1024px) and (orientation:portrait) {
+ .phonecol {
+    padding: 0px 9px 0px 0px;
+    position: relative;
+    top: 34px;
+    left: -6px;
+}
+.orcol {
+    position: relative;
+    top: 193px;
+    left: -6px;
+}
+}
+@media only screen and (min-device-width: 834px) and (orientation: portrait) {
+ .phonecol {
+    padding: 0px 22px 0px 0px;
+    position: relative;
+    top: 6px;
+    left: 3px;
+}
+ }
+@media screen and (max-width: 600px){
+  .orcol {
+    position: relative;
+    top: 9px;
+    left: 39%;
+}
+.phonecol {
+    padding: 0px 32px 0px 0px;
+    position: relative;
+    top: -68px;
+    left: 13px;
+}
+}
+</style>
+<div class="row">
+  <div class="col-sm-4">
+    <h2>{{ text_new_customer }}</h2>
+    <p>{{ text_checkout }}</p>
+    <div class="radio">
+      <label> {% if account == 'register' %}
+        <input type="radio" name="account" value="register" checked="checked" />
+        {% else %}
+        <input type="radio" name="account" value="register" />
+        {% endif %}
+        {{ text_register }}</label>
+    </div>
+    {% if checkout_guest %}
+    <div class="radio">
+      <label> {% if account == 'guest' %}
+        <input type="radio" name="account" value="guest" checked="checked" />
+        {% else %}
+        <input type="radio" name="account" value="guest" />
+        {% endif %}
+        {{ text_guest }}</label>
+    </div>
+    {% endif %}
+    <p>{{ text_register_account }}</p>
+    <input type="button" value="{{ button_continue }}" id="button-account" data-loading-text="{{ text_loading }}" class="btn btn-primary" />
+  </div>
+
+  <div class="col-sm-4">
+    <h2>{{ text_returning_customer }}</h2>
+    <p>{{ text_i_am_returning_customer }}</p>
+    <form action="{{ action }}" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+      <label class="control-label" for="input-email">{{ entry_email }}</label>
+      <input type="text" name="email" value="" placeholder="{{ entry_email }}" id="input-email" class="form-control" />
+    </div>
+    <div class="form-group">
+      <label class="control-label" for="input-password">{{ entry_password }}</label>
+      <input type="password" name="password" value="" placeholder="{{ entry_password }}" id="input-password" class="form-control" />
+      <a href="{{ forgotten }}">{{ text_forgotten }}</a></div>
+    <input type="button" value="{{ button_login }}" id="button-login" data-loading-text="{{ text_loading }}" class="btn btn-primary" />
+  </div>
+
+  <div class="col-sm-1 orcol">
+  OR
+  </div>
+    <div class="col-sm-3">
+      <div class="form-group" id="sendOtpDiv">
+        <label class="control-label" for="input-password">Mobile No:</label>
+          <label  id="otpError"  style="color:red"></label>
+          <input type="number" name="mobile"  id="phoneNumber" value="{{mobile}}"   placeholder="mobile number"  class="form-control"  min="1"  />
+          </br>
+          <input type="button"  id="sendOtp"  onclick="phone.check();" name="otp"  value="Send OTP" class="btn btn-primary" />
+      </div>
+
+      <div class="form-group" id="verifcationDiv" style="display:none">
+      <label class="control-label" id="verifyLabel"> </label> <a onclick="switchToSendOtpDiv()"> Change</a>
+        <input type="number" name="enteredOtp" id="Otp"    placeholder="Enter OTP"  class="form-control" min="1"  />
+        </br>
+          <input type="submit"  id="verifyOtp"   name="otp"  value="Verify OTP" class="btn btn-primary"  onclick="enteredotp()" />  <span>Not received your code?<a> Resend code</a></span>
+      </div>
+
+        </div>
+
+      </form>
+    </div>
+
+    <script type="text/javascript">
+
+      function enteredotp()
+      {
+         let otp= $('#Otp').val();
+
+          let otp2= $('#phoneNumber').val();
+
+       // alert(otp);
+
+       // alert(otp2);
+
+       // alert('enteredotp=' + otp+ '&phoneno=' + $('#phoneNumber').val());
+
+      $.ajax({
+      url: 'index.php?route=checkout/login/otpcompare',
+      type: 'post',
+      data: 'enteredotp=' + otp +'&phoneno='+$('#phoneNumber').val(),
+      dataType: 'json',
+
+      success: function(json)
+      {
+            if (json['redirect'])
+            {
+              location = json['redirect'];
+
+            }
+
+            else if(json['incorrectOTP'])
+            {
+                     document.getElementById('verifyLabel').innerHTML= json['incorrectOTP'];
+
+                    document.getElementById('verifyLabel').style.color='red';
+
+                    document.getElementById('Otp').value='';
+
+           }
+
+      },
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+
+     });
+
+        }
+
+    </script>
+
+
+<script type="text/javascript"><!--
+
+  var phone = {
+
+ 'check': function() {
+
+  document.getElementById('otpError').innerHTML = '';
+    var phoneNo=$('#phoneNumber').val();
+      phoneNo = phoneNo.trim();
+
+    if(phoneNo === "" || phoneNo.length < 10 ||  phoneNo.length > 10 )
+    {
+
+     document.getElementById('otpError').innerHTML='Please enter valid Mobile number';
+      return;
+    }
+
+
+
+    $.ajax({
+		url: 'index.php?route=checkout/login/phoneNumberValidation',
+
+		type: 'post',
+    data: 'phoneNo=' + phoneNo ,
+
+
+      dataType: 'json',
+
+
+	success: function(json) {
+
+
+      if(json['response'] === "Invaild phone number"){
+
+         document.getElementById('otpError').innerHTML='Please enter valid Mobile number';
+
+      }
+      else if(json['response'] === "vaild phone number"){
+
+          $("#sendOtpDiv").hide();
+          var phoneNo=$('#phoneNumber').val();
+             phoneNo = phoneNo.trim();
+
+             document.getElementById('verifyLabel').innerHTML= 'Please enter the OTP sent to '+phoneNo+' (otp - '+json['responseOtp']+')';
+          $("#verifcationDiv").show();
+
+
+
+      }
+
+		},
+        error: function(err) {
+            alert("Something went wrong");
+        }
+	});
+
+
+    }
+
+  }
+
+    function switchToSendOtpDiv()
+    {
+      $("#sendOtpDiv").show();
+      $("#verifcationDiv").hide();
+    }
+//--></script>
+
+
+
+{{ footer }}

@@ -1,0 +1,836 @@
+{{ header }}
+<div id="product-manufacturer" class="container">
+  <ul class="breadcrumb">
+    {% for breadcrumb in breadcrumbs %}
+    <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+    {% endfor %}
+  </ul>
+
+
+    
+    <style>
+
+  .incre{
+ 
+    margin-top: 0px;
+  }
+
+    .cmp{
+      
+      width: 50%;
+      border-left: 1px solid #ddd;
+      border: none;
+      display: inline-block;
+      float: left;
+      background-color: #eee;
+      color: #888;
+      line-height: 38px;
+      font-weight: bold;
+      text-align: center;
+      text-transform: uppercase;
+    }
+
+  .input-group .form-control[name^=quantity] {
+    min-width: 50px;
+    margin-left: -51px;
+    margin-top: 0px;
+    }
+   
+    .input-group-btn>.btn {
+        position: relative;
+        height: 39px;
+        border-radius:0px;
+    }
+
+    .input-group .form-control:not(:first-child):not(:last-child), .input-group-addon:not(:first-child):not(:last-child), .input-group-btn:not(:first-child):not(:last-child) {
+        border-radius: 0;
+        height: 39px;
+        margin-right:-44px;
+    }
+
+
+      .heart {
+      
+      width: 50%;
+        border-left: 1px solid #ddd;
+        border: none;
+        display: inline-block;
+        float: left;
+        background-color: #eee;
+        color: #888;
+        line-height: 38px;
+        font-weight: bold;
+        text-align: center;
+        text-transform: uppercase;
+
+        }
+    
+    .input-group-btn:first-child>.btn, .input-group-btn:first-child>.btn-group {
+      margin-right: -3px;
+      margin-top: 0px;
+    }
+
+        
+      .input-number{
+        text-align: center;
+      }
+      .input-group .form-control:not(:first-child):not(:last-child){
+      border-radius: 0;
+      height: 39px;
+      margin-right: -136px;
+  }
+  .addcartnumber{
+    width:100% ! important;
+  }
+   
+
+@media (max-width: 600px) {
+  .input-group .form-control:not(:first-child):not(:last-child){
+     margin-right: -135px ! important; 
+}
+.addcartnumber{
+  width:97% ! important;
+}
+}
+
+  </style>
+
+
+
+  <div class="row">{{ column_left }}
+    {% if column_left and column_right %}
+    {% set class = 'col-sm-6' %}
+    {% elseif column_left or column_right %}
+    {% set class = 'col-sm-9' %}
+    {% else %}
+    {% set class = 'col-sm-12' %}
+    {% endif %}
+    <div id="content" class="{{ class }}">{{ content_top }}
+      <h2>{{ heading_title }}</h2>
+      {% if products %}
+      <div class="row">
+        <div class="col-md-2 col-sm-6 hidden-xs">
+          <div class="btn-group btn-group-sm">
+            <button type="button" id="list-view" class="btn btn-default" data-toggle="tooltip" title="{{ button_list }}"><i class="fa fa-th-list"></i></button>
+            <button type="button" id="grid-view" class="btn btn-default" data-toggle="tooltip" title="{{ button_grid }}"><i class="fa fa-th"></i></button>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-6">
+          <div class="form-group"> <a href="{{ compare }}" id="compare-total" class="btn btn-link">{{ text_compare }}</a> </div>
+        </div>
+        <div class="col-md-4 col-xs-6">
+          <div class="form-group input-group input-group-sm">
+            <label class="input-group-addon" for="input-sort">{{ text_sort }}</label>
+            <select id="input-sort" class="form-control" onchange="location = this.value;">
+              
+              {% for sorts in sorts %}
+              {% if sorts.value == '%s-%s'|format(sort, order) %}
+              
+              <option value="{{ sorts.href }}" selected="selected">{{ sorts.text }}</option>
+              
+              {% else %}
+              
+              <option value="{{ sorts.href }}">{{ sorts.text }}</option>
+              
+              {% endif %}
+              {% endfor %}
+            
+            </select>
+          </div>
+        </div>
+        <div class="col-md-3 col-xs-6">
+          <div class="form-group input-group input-group-sm">
+            <label class="input-group-addon" for="input-limit">{{ text_limit }}</label>
+            <select id="input-limit" class="form-control" onchange="location = this.value;">
+              
+              {% for limits in limits %}
+              {% if limits.value == limit %}
+              
+              <option value="{{ limits.href }}" selected="selected">{{ limits.text }}</option>
+              
+              {% else %}
+              
+              <option value="{{ limits.href }}">{{ limits.text }}</option>
+              
+              {% endif %}
+              {% endfor %}
+            
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="row"  style="width:139%"> {% for product in products %}
+        <div class="product-layout product-list col-xs-12">
+          <div class="product-thumb">
+            <div class="image"><a href="{{ product.href }}"><img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive" /></a></div>
+            <div>
+              <div class="caption">
+                <h4><a href="{{ product.href }}">{{ product.name }}</a></h4>
+                <p>{{ product.description }}</p>
+                {% if product.price %}
+                <p class="price"> {% if not product.special %}
+                  {{ product.price }}
+                  {% else %} <span class="price-new">{{ product.special }}</span> <span class="price-old">{{ product.price }}</span> {% endif %}
+                  {% if product.tax %} <span class="price-tax">{{ text_tax }} {{ product.tax }}</span> {% endif %} </p>
+                {% endif %}
+                {% if product.rating %}
+                <div class="rating">
+                  {% for i in 1..5 %}
+                  {% if product.rating < i %} <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span> {% else %} <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span> {% endif %}
+                  {% endfor %} </div>
+                {% endif %} </div>
+
+
+         <div class="form-group required"  >
+        
+            <input type="text" name="quantity" value="{{ product.minimum }}"  id="{{product.product_id}}product" class="form-control" style ="display:none" />
+                
+            <input type="hidden" name="product_id" value="{{ product.product_id }}" />
+
+        </div>
+
+
+    <div class="button-grid"   id="{{product.product_id}}incdeccart"  >
+  
+         {% if  product.product_id  in  key %}
+
+               <!-- <p>{{product.product_id}} </p>
+               -->
+
+              {% for cartProduct in openids %}
+
+            {% if cartProduct.product_id==product.product_id %}
+          
+             <div class="input-group"  style="margin-left: 0px; margin-top: 0px;"  id="{{product.product_id}}autoproductmanufacture"  >
+
+           <span class="input-group-btn">
+        
+      <button  class="dec qtybtn btn btn-default btn-number minus" data-toggle="tooltip" title="decrement" style="margin-top:0px; height: 40px; border: 0px solid #cccccc;" id="{{product.product_id}}"      >
+        
+              <span class="glyphicon glyphicon-minus"></span>
+        
+              </button>
+        
+            </span>
+
+
+          <input  type="number" style ="margin-left:3px; margin-top:0px; text-align: center;"   name="quantity[{{ cartProduct.cart_id }}]" value="{{ cartProduct.quantity }}"  max="{{product.quantity}}"  id="{{product.product_id}}productquantity" class="form-control input-number addcartnumber"  disabled/>
+         
+         
+          <span class="input-group-btn">
+            <button  class="incre qtybtn btn btn-default" data-toggle="tooltip"   title="increment" style="margin-top:0px; height: 40px; border: 0px solid #cccccc;" id="{{product.product_id}}" onclick="cart.add('{{ product.product_id }}')" >
+            <span class="glyphicon glyphicon-plus"></span>
+					  </button>
+          </span>
+          
+
+                <div>
+                <button type="button" class="wishlist heart" data-toggle="tooltip" title="{{ button_wishlist }}"  style="border-left: 1px solid #ddd; width: 50%;"  onclick="wishlist.add('{{ product.product_id }}');"><i class="fa fa-heart"></i></button>
+            
+                <button type="button" class="compare cmp"  data-toggle="tooltip" title="{{ button_compare }}" style="border-left: 1px solid #ddd; width: 50%;" onclick="compare.add('{{ product.product_id }}');"><i class="fa fa-exchange"></i></button>
+            
+               </div>
+         
+           
+             </div>  
+
+       
+           {% endif %} 
+          
+            {% endfor %}
+
+
+           {% else %}
+
+
+           <h3 hidden> not in cart </h3>
+
+       
+         <div class="button-group"  id="{{product.product_id}}"   >
+     
+         <button type="button" class="button-cartmanufacture"  id="{{product.product_id}}"   ><i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">{{ button_cart }}</span></button>
+          
+          <button type="button" data-toggle="tooltip" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');"><i class="fa fa-heart"></i></button>
+          
+          <button type="button" data-toggle="tooltip" title="{{ button_compare }}" onclick="compare.add('{{ product.product_id }}');"><i class="fa fa-exchange"></i></button>
+          
+          </div>
+
+          
+         {% endif %} 
+
+        </div>
+
+
+      <div class="button-group"   id="{{product.product_id}}productmanufacture"   hidden>
+
+          <button type="button" class="button-cart2manufacture"    id="{{product.product_id}}"> <i class="fa fa-shopping-cart"> </i> <span class="hidden-xs hidden-sm hidden-md"> {{ button_cart }} </span> </button >
+      
+          <button type="button" data-toggle="tooltip" title="{{ button_wishlist }}" onclick="wishlist.add('{{ product.product_id }}');"><i class="fa fa-heart"></i></button>
+          
+          <button type="button" data-toggle="tooltip" title="{{ button_compare }}" onclick="compare.add('{{ product.product_id }}');"><i class="fa fa-exchange"></i></button>
+        
+            </div>
+      
+
+            </div>
+          </div>
+        </div>
+        {% endfor %} </div>
+      <div class="row">
+        <div class="col-sm-6 text-left">{{ pagination }}</div>
+        <div class="col-sm-6 text-right">{{ results }}</div>
+      </div>
+      {% else %}
+      <p>{{ text_empty }}</p>
+      <div class="buttons">
+        <div class="pull-right"><a href="{{ continue }}" class="btn btn-primary">{{ button_continue }}</a></div>
+      </div>
+      {% endif %}
+      {{ content_bottom }}</div>
+    {{ column_right }}</div>
+</div>
+{{ footer }}
+
+
+  <!-- on load refresh page  update cart items -->
+
+  
+
+  <script type="text/javascript">
+    $('.dec ').on('click', function() { 
+
+    let varmins=this.id;
+
+    let cartqtyvalue=$("#"+varmins+"productquantity").val();
+
+    let updatedValue=cartqtyvalue-1;
+
+        if(updatedValue==0)
+          { 
+
+             let textbox=$("#"+varmins+"productquantity").val();
+
+            $("#"+varmins+"productquantity").val(parseInt(textbox)+1);
+       
+          $.ajax({
+          url: 'index.php?route=checkout/cart/remove',
+          type: 'post',
+          data: 'key=' + this.id ,
+          dataType: 'json',
+          beforeSend: function() {
+            $('#varmins').button('loading');
+          },
+          complete: function() {
+            $('#varmins').button('reset');
+          },
+          success: function(json) {
+      
+           if(json['success']) 
+            {
+
+            $('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
+          
+          	$('#cart > ul').load('index.php?route=common/cart/info ul li');
+
+            }
+
+              // alert($("#"+this.id+"product").val());  $('#'+varmins+'button').show();
+
+            
+                //$('#'+this.id).show();
+
+                $('#'+varmins+"autoproductmanufacture").hide();   
+
+              $('#'+varmins+'productmanufacture').show();
+
+           }
+
+                });
+
+          }
+
+           
+            if(updatedValue)
+          {
+           // alert('not for zero tb value');
+              let cartqtyvalue2=$("#"+varmins+"productquantity").val();
+
+      //   alert('cartqtyvalue2 is abc'+cartqtyvalue2);
+
+            $.ajax({
+            url: 'index.php?route=checkout/cart/update',
+            type: 'post',
+            data: 'product_id=' + this.id + '&quantity=' + updatedValue,
+            dataType: 'json',
+            beforeSend: function() {
+              $('#varmins').button('loading');
+            },
+            complete: function() {
+              $('#varmins').button('reset');
+            },
+            success: function(json) {
+
+              if(json['success']) {
+
+              var productMinimum=json['minimum'];
+
+              // alert('key=' +  varmins);
+
+              if( parseInt( $("#"+varmins+"productquantity").val() )< productMinimum )
+              {
+
+                    $('#'+varmins+"autoproductmanufacture").hide();  
+
+                 let textbox=$("#"+varmins+"productquantity").val();
+
+                  $("#"+varmins+"productquantity").val(parseInt(textbox)+1);
+               
+                $.ajax({
+                url: 'index.php?route=checkout/cart/remove',
+                type: 'post',
+              data: 'key=' +  varmins ,
+                dataType: 'json',
+
+            success: function(json) {
+      
+              if(json['success'])
+             {
+              $('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
+
+              $('#cart > ul').load('index.php?route=common/cart/info ul li');
+
+              }
+
+
+        
+
+             
+
+               $('#'+varmins+'productmanufacture').show();
+          
+              }
+                   
+              });
+
+              }
+
+             else
+             {
+                  
+             $('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
+    
+          	$('#cart > ul').load('index.php?route=common/cart/info ul li');
+
+             }
+
+             }
+
+                }
+                  });
+             }
+          
+          });
+
+        </script>
+
+
+
+         <script type="text/javascript">
+        function cartAdd(id)
+        {
+         // alert('id is '+id);
+     
+
+         var  plusajax=$("#"+id+"productquantity").val();
+        
+        let updatedValue=(parseInt(plusajax)+1);
+
+     $("#"+id+"productquantity").val(parseInt(plusajax)+1);
+
+         if(updatedValue)
+          {
+            //alert('updatedvalue is ');
+             $.ajax({
+            url: 'index.php?route=checkout/cart/update',
+            type: 'post',
+            data: 'product_id=' + id + '&quantity=' + updatedValue,
+            dataType: 'json',
+            
+            success: function(json) { 
+
+             // alert('success is '+id);
+        
+            if(json['success']) {
+
+      
+             $('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
+
+          	$('#cart > ul').load('index.php?route=common/cart/info ul li');
+
+               }
+
+               }
+
+             });
+
+            }
+
+            }
+
+     </script>
+
+      
+      <script type="text/javascript">
+
+        function cartUPDATE(id)
+        {
+          //alert('cartadd '+id);
+
+          const currentId=id;
+           
+           var minsajax=$("#"+id+"productquantity").val();
+
+      let updatedValue=minsajax-1;
+
+        $("#"+id+"productquantity").val(parseInt(updatedValue));
+
+          if(updatedValue ==0)
+          { 
+             $('#'+currentId+"autoproductmanufacture").hide(); 
+
+            $.ajax({
+            url: 'index.php?route=checkout/cart/remove',
+            type: 'post',
+            data: 'key=' + id ,
+            dataType: 'json',
+         
+         success: function(json) {
+   
+            if(json['success']) 
+            {
+
+               $('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
+
+            	$('#cart > ul').load('index.php?route=common/cart/info ul li');
+
+              }
+ 
+            
+
+           $('#'+currentId).show();
+
+             //$('#'+currentId+"auto2").hide(); 
+
+           }
+                });
+
+          }
+
+          if(updatedValue)
+          {
+
+          let input = document.querySelector(".input");  
+
+         //alert('input  value is '+input);
+     
+          let textbox=$("#"+id+"productquantity").val();
+
+
+              $.ajax({
+            url: 'index.php?route=checkout/cart/update',
+            type: 'post',
+            data: 'product_id=' + id + '&quantity=' + updatedValue,
+            dataType: 'json',
+          
+            success: function(json) {
+
+            if(json['success']) {
+
+           var productMinimum=json['minimum'];
+
+              //alert("minimum of this product is"+productMinimum);
+
+            if(  parseInt(textbox) <json['minimum'] )
+
+           {
+              $('#'+currentId+"autoproductmanufacture").hide()
+               //alert("yes minimum");
+
+               $.ajax({
+                url: 'index.php?route=checkout/cart/remove',
+                type: 'post',
+                data: 'key=' + id ,
+                dataType: 'json',
+
+           success: function(json) {
+      
+            if(json['success'])
+             {
+              $('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
+
+              $('#cart > ul').load('index.php?route=common/cart/info ul li');
+
+              }
+
+
+         ; 
+
+         $('#'+currentId).show();
+
+        //  $('#'+currentId+"auto2").hide(); 
+
+              }
+                   
+              });
+
+              }
+
+           else
+             {
+
+             $('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
+         
+          	$('#cart > ul').load('index.php?route=common/cart/info ul li');
+
+            }
+
+            }
+      
+            }
+
+
+           });
+
+           }
+
+         }
+                  
+
+     </script>
+
+      
+            <script type="text/javascript">
+
+          $('.qtybtn').on('click', function() {
+
+              let b=this.id;
+
+              //alert('id is b '+b);
+
+            var cartqtyvalue=$("#"+b+"productquantity").val();
+          
+            if($(this).hasClass('incre'))
+            {
+              
+              $("#"+b+"productquantity").val(parseInt(cartqtyvalue)+1);
+
+            }
+
+           else
+            {
+            $("#"+b+"productquantity").val(parseInt(cartqtyvalue)-1);
+             
+            }
+
+            });
+              
+        </script>
+
+  
+<!--- after refreshing-->
+
+   <script type="text/javascript"><!-- 
+       $('.button-cart2manufacture').on('click', function() {
+
+      let varc=this.id;
+
+        $('#'+varc+"productmanufacture").hide();
+
+        $.ajax({
+          url: 'index.php?route=checkout/cart/add',
+          type: 'post',
+          data: 'product_id=' + this.id + '&quantity=' + $("#"+this.id+"product").val(),
+          dataType: 'json',
+          beforeSend: function() {
+            $(varc).button('loading');
+              },
+        complete: function() {
+          $(varc).button('reset');
+        },
+		success: function(json) {
+
+        if(json['producttotal'] )
+      {
+          var b=json['producttotal'];
+
+          var cartajaxid=json['productID'];
+
+        var quantityProduct=json['productQuantity'];  
+
+          var productMinimum=json['minimum'];  
+
+    $('#'+varc+"autoproductmanufacture").show();  
+
+    // $('#'+varc+"dynamic").after('<div class="input-group" id="'+json['productID']+'auto"  style="width:150px">'+'<button  class="dec qtybtn btn btn-primary"   id="'+json['productID']+'"  data-toggle="tooltip"   title="decrement"   style="width:35px;color:red;"  onclick="cartUPDATE('+json['productID']+');" ><i class="fa fa-minus"></i></button>'+'<span class="input-group-btn">'
+    //+'<input type="number"  name="quantity" value="'+json['producttotal']+'" min="'+json['minimum']+'" id="'+json['productID']+'productquantity" class="input form-control "   style="width:188px;"/>'+
+    //'<button  class="incre qtybtn btn btn-primary"  id="'+json['productID']+'"  data-toggle="tooltip"   title="increment"  style="margin-left:1px; width:35px;   color:blue;  margin-top: 1px;"   onclick= "cart.add('+json['productID']+');"><i class="fa fa-plus"></i></button></span>'+'</div>');
+      
+      }     
+
+     	$('.alert-dismissible, .text-danger').remove();
+			$('.form-group').removeClass('has-error');
+
+			if (json['error']) {
+				if (json['error']['option']) {
+					for (i in json['error']['option']) {
+						var element = $('#input-option' + i.replace('_', '-'));
+
+						if (element.parent().hasClass('input-group')) {
+							element.parent().after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
+						} else {
+							element.after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
+						}
+					}
+				}
+
+				if (json['error']['recurring']) {
+					$('select[name=\'recurring_id\']').after('<div class="text-danger">' + json['error']['recurring'] + '</div>');
+				}
+
+				// Highlight any found errors
+				$('.text-danger').parent().addClass('has-error');
+			}
+
+        if (json['success']) 
+        {
+          $('.breadcrumb').after('<div class="alert alert-success alert-dismissible">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+
+          $('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
+
+            
+
+          //	$('html, body').animate({ scrollTop: 0 }, 'slow');
+
+          $('#cart > ul').load('index.php?route=common/cart/info ul li');
+        }
+    
+     		},
+
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+	});
+});
+//--></script> 
+
+
+
+    <script type="text/javascript"><!--
+  
+    $('.button-cartmanufacture').on('click', function() {
+
+    let varc=this.id;
+
+         $('#'+varc).hide();
+
+  //alert('product_id=' + this.id + '&quantity=' + $("#"+this.id+"product").val());
+                 
+      $.ajax({
+      url: 'index.php?route=checkout/cart/add',
+      type: 'post',
+      data: 'product_id=' + this.id + '&quantity=' + $("#"+this.id+"product").val(),
+      dataType: 'json',
+
+      beforeSend: function() {
+        $(varc).button('loading');
+      },
+      complete: function() {
+        $(varc).button('reset');
+      },
+
+		success: function(json) {
+
+       if(json['producttotal'] )
+        {
+        var b=json['producttotal'];
+
+        var cartajaxid=json['productID'];
+
+      // alert('cartajaxid is '+cartajaxid);
+
+      var quantityProduct=json['productQuantity'];  
+
+      var productMinimum=json['minimum'];  
+
+      var max=json['maximumquantity'];
+
+      if(b>max)
+      {
+        alert("quantity is less");
+      }
+
+      $('#'+varc).after('<div class="input-group" id="'+json['productID']+'autoproductmanufacture"  style="margin-left: 0px;"  >'+
+    '<span class="input-group-btn">'+'<button  class="dec qtybtn btn btn-default btn-number minus" id="'+json['productID']+'"  data-toggle="tooltip"   title="decrement" style="margin-top:0px; height: 40px; border: 0px solid #cccccc;"   onclick="cartUPDATE('+json['productID']+');")"><span class="glyphicon glyphicon-minus"></span></button>'+'</span>'+
+    '<input  type="number" style ="margin-left:3px;  margin-top:0px; text-align: center;"   name="quantity"   value="'+json['producttotal']+'" min="'+json['minimum']+'"   id="'+json['productID']+'productquantity" class="input form-control addcartnumber "  disabled/>'+
+    '<span class="input-group-btn">'+'<button  class="incre qtybtn btn btn-default"  id="'+json['productID']+'"  data-toggle="tooltip"   title="increment" style="margin-top:0px; height: 40px; border: 0px solid #cccccc;" onclick="cartAdd('+json['productID']+');"><span class="glyphicon glyphicon-plus"></span></button>'+'</span>'+
+    '<div>'+' <button type="button" class="wishlist heart" data-toggle="tooltip" title="{{ button_wishlist }}" style="border-left: 1px solid #ddd; width: 50%;" onclick="wishlist.add('+json['productID']+');"><i class="fa fa-heart"></i></button>'+
+    '<button type="button"  class="compare cmp" data-toggle="tooltip" title="{{ button_compare }}" style="border-left: 1px solid #ddd; width: 50%;"   onclick="compare.add('+json['productID']+');"><i class="fa fa-exchange"></i></button>'+'</div>'+
+    '</div>'
+
+    );
+ 
+   
+      }
+
+     
+    
+     
+  //+'<button class="wishlist heart" data-toggle="tooltip" title="{{ button_wishlist }}"  style="margin-top:74px; margin-left:-52px;  margin-right:4px; width:32px"   onclick="wishlist.add('+json['productID']+');"><i class="fa fa-heart"></i></button>
+   // +'<button   class="compare cmp" data-toggle="tooltip" title="{{ button_compare }}"    style="margin-top:65px; margin-left:-14px;  margin-right:1px;  width:32px;"    onclick="compare.add('+json['productID']+');"><i class="fa fa-exchange"></i></button></span>'+'</div>');
+
+
+   
+
+     	$('.alert-dismissible, .text-danger').remove();
+			$('.form-group').removeClass('has-error');
+
+			if (json['error']) {
+				if (json['error']['option']) {
+					for (i in json['error']['option']) {
+						var element = $('#input-option' + i.replace('_', '-'));
+
+						if (element.parent().hasClass('input-group')) {
+							element.parent().after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
+						} else {
+							element.after('<div class="text-danger">' + json['error']['option'][i] + '</div>');
+						}
+					}
+				}
+
+				if (json['error']['recurring']) {
+					$('select[name=\'recurring_id\']').after('<div class="text-danger">' + json['error']['recurring'] + '</div>');
+				}
+
+				// Highlight any found errors
+				$('.text-danger').parent().addClass('has-error');
+			}
+
+			if (json['success']) {
+				$('.breadcrumb').after('<div class="alert alert-success alert-dismissible">' + json['success'] + '<button type="button" class="close" data-dismiss="alert">&times;</button></div>');
+
+				$('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
+
+           
+				$('#cart > ul').load('index.php?route=common/cart/info ul li');
+			}
+ 
+   	},
+        error: function(xhr, ajaxOptions, thrownError) {
+            alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+        }
+      });
+    });
+//--></script> 
+
+

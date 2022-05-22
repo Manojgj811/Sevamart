@@ -1,0 +1,146 @@
+{{ header }}
+<div id="account-return" class="container">
+  <ul class="breadcrumb">
+    {% for breadcrumb in breadcrumbs %}
+    <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+    {% endfor %}
+  </ul>
+   {% if error_warning %}
+  <div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}</div>
+  {% endif %}
+  <div class="row">{{ column_left }}
+    {% if column_left and column_right %}
+    {% set class = 'col-sm-6' %}
+    {% elseif column_left or column_right %}
+    {% set class = 'col-sm-9' %}
+    {% else %}
+    {% set class = 'col-sm-12' %}
+    {% endif %}
+    <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-product-return">
+    <div id="content" class="{{ class }}">{{ content_top }}
+    <div class="form-group required" style="display:none">
+            <label class="col-sm-2 control-label" for="input-order-id">Order Id</label>
+            <div class="col-sm-10">
+              <input type="text" name="order_id" value="{{ order_id }}" placeholder="{{ entry_order_id }}" id="input-order-id" class="form-control" readonly/>
+            </div>
+            </div>
+       <h1>{{ heading_title_request_list }}</h1>
+       <hr>
+       <h2>Order (#{{ order_id }})</h2>
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+          <thead>
+            <tr>
+              <td style="width: 1px;" class="text-center"><input type="checkbox" id="header_checkbox" onclick="" /></td>
+
+             
+              <td class="text-center" >{{ column_product }}</td>
+              <td class="text-center">{{ column_quantity }}</td>
+              <td class="text-center">{{ column_price }}</td>
+              <td class="text-center">{{ column_method }}</td>
+              <td class="text-center">{{ column_return_reason }}</td>
+            </tr>
+          </thead>
+          <tbody>
+          {% for product in products %}
+            <tr>
+            <td> <input type="checkbox" name="selected[]" value="{{ product.product_id }}" id="{{product.product_id}}checkbox" class="check_box"/></td>
+            
+
+              <td class="text-center">{{ product.name }}</td>
+              <td class="text-center">{{ product.quantity }}</td>
+              <td class="text-center">{{ product.price }}</td>
+              <td><div class="radio"><label>
+                     <input type="radio" name="{{product.product_id}}method" id = "{{product.product_id}}replace" class="replace" value="Replacement"  />
+                    Replacement</label>
+                     &nbsp
+                    <label>
+              <input type="radio" name="{{product.product_id}}method" id = "{{product.product_id}}refund" class="refund" value="Refund"  />
+                    Refund</label></div></td>
+              <td class="text-center"> 
+              <select name="{{product.product_id}}reason" class="form-control" id="{{product.product_id}}reason" disabled>
+                  <option>Select Reason</option>
+                  {% for return_reason in return_reasons %}
+             
+                      <option value="{{ return_reason.return_reason_id }}">{{ return_reason.name }}</option>
+                  {% endfor %} 
+           
+
+              </select>
+              </td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      </div>
+
+         <div class="buttons clearfix">
+          <div class="pull-left"><a href="{{ back }}" class="btn btn-default">{{ button_back }}</a></div>
+          <div class="pull-right"><input type="submit" value="{{ button_submit }}" class="btn btn-primary" /></div>
+        </div>
+
+      {{ content_bottom }}</div></form>
+    {{ column_right }}</div>
+
+ <script type="text/javascript"><!--
+
+
+$(".replace").on('change', function() {
+
+ var id = this.name.replace("method","");
+  $("#"+id+"checkbox").prop('checked', true);
+  $("#"+id+"reason" ).prop('disabled', false);
+  
+
+});
+
+$(".refund").on('change', function() {
+
+ var id = this.name.replace("method","");
+  $("#"+id+"checkbox").prop('checked', true);
+  $("#"+id+"reason" ).prop('disabled', false);
+  
+
+});
+
+$(".check_box").on('change', function() {
+  var id = this.id.replace("checkbox","");
+  
+  if(this.checked){
+  $("#"+id+"replace" ).prop('checked', true);
+  $("#"+id+"reason" ).prop('disabled', false);
+  }
+  else{
+     $("#"+id+"replace" ).prop('checked', false);
+      $("#"+id+"refund" ).prop('checked', false);
+      $("#"+id+"reason" ).prop('disabled', true);
+  }
+});
+
+$("#header_checkbox").on('click', function(){
+
+ $('input[name*=\'selected\']').prop('checked', this.checked);
+
+if(this.checked){
+
+ $('input[type=checkbox]').each(function () {
+    var id = this.id.replace("checkbox","");
+    $("#"+id+"replace" ).prop('checked', true);
+  $("#"+id+"reason" ).prop('disabled', false);
+   });
+}
+ else{
+   $('input[type=checkbox]').each(function () {
+    var id = this.id.replace("checkbox","");
+    $("#"+id+"replace" ).prop('checked', false);
+    $("#"+id+"refund" ).prop('checked', false);
+    $("#"+id+"reason" ).val('Select Reason');
+    $("#"+id+"reason" ).prop('disabled', true);
+    });
+}
+});
+
+
+
+ //--></script></div>
+{{ footer }}  

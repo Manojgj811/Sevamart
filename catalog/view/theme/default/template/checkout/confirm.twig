@@ -1,0 +1,187 @@
+{% if not redirect %}
+<div class="table-responsive">
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <td class="text-left" rowspan="2">{{ column_name }}</td>
+      
+        <td class="text-right"  rowspan="2">{{ column_quantity }}</td>
+        <td class="text-right"  rowspan="2">{{ column_price }}</td>
+        <td class="text-right"    rowspan="2">{{ column_total }}</td>
+            <th class="text-right" colspan="2">CGST AMOUNT</th>
+             <th class="text-right" colspan="2">SGST AMOUNT</th>
+              <th class="text-right">Gross Total(inc.GST)</th>
+              
+      </tr>
+
+    <tr>
+          <th>Rate</th>
+          <th>Amount</th>
+         
+
+         
+          <th>Rate</th>
+          <th>Amount</th>
+          </tr>
+      
+    </thead>
+    <tbody>
+    
+        {% for product in products %}
+        <tr>
+      <td class="text-left"><a href="{{ product.href }}">{{ product.name }}</a> {% for option in product.option %} <br />
+        &nbsp;<small> - {{ option.name }}: {{ option.value }}</small> {% endfor %}
+        {% if product.recurring %} <br />
+        <span class="label label-info">{{ text_recurring_item }}</span> <small>{{ product.recurring }}</small> {% endif %}</td>
+     
+      <td class="text-right">{{ product.quantity }}</td>
+      <td class="text-right">{{ product.prices }}</td>
+      <td class="text-right">{{ product.subtotal }}</td>
+         <td class="text-right">{{product.cgstrate}}</td>
+        <td class="text-right">{{product.cgstamount}}</td>
+        <td class="text-right">{{product.sgstrate}}</td>
+        <td class="text-right">{{product.sgstamount}}</td>
+         <td class="text-right">{{ product.total}}</td>
+         
+      </tr>
+    {% endfor %}
+
+      
+    {% for voucher in vouchers %}
+    <tr>
+      <td class="text-left">{{ voucher.description }}</td>
+      <td class="text-left"></td>
+      <td class="text-right">1</td>
+      <td class="text-right">{{ voucher.amount }}</td>
+      <td class="text-right">{{ voucher.amount }}</td>
+    </tr>
+    {% endfor %}
+      </tbody>
+    
+     <tr>
+                    <td class="text-left"  colspan="3">GRAND  TOTAL</td>
+                      
+                          <td class="text-right" >{{totalamountgrandtotal}}</td>  
+
+                        <td class="text-right" colspan="2" >{{cgstgrandtotal}}</td>
+
+                      <td class="text-right" colspan="2" >{{sgstgrandtotal}}</td>
+                         <td class="text-right">{{gstgrandtotal}}</td>
+
+                
+                        </tr>
+    <tfoot>
+
+      {% for chargetotal in deliverydetailtotals %}
+    <tr>
+      <td colspan="10" class="text-right" ><strong >{{chargetotal.title}}:</strong></td>
+     
+      <td class="text-right">{{ chargetotal.text }}</td>
+    </tr>
+    {% endfor %}
+
+    
+    
+          {% for cgstshippingtotal  in cgstdeliverytotalsum %}
+    
+      <tr>
+        <td colspan="10" class="text-right" ><strong >{{ cgstshippingtotal.title }}</strong></td>
+        
+        <td class="text-right">{{ cgstshippingtotal.cgstvalue }}</td>
+ 
+
+      </tr>
+      
+      {% endfor %}
+
+
+      {% for sgstshippingtotal  in sgstdeliverytotalsum %}
+    
+      <tr>
+        <td colspan="10" class="text-right" ><strong >{{ sgstshippingtotal.title }}</strong></td>
+        
+        <td class="text-right">{{ sgstshippingtotal.sgstvalue }}</td>
+ 
+
+      </tr>
+      
+      {% endfor %}
+
+
+
+
+    <!--
+      {% for total in totals %}
+        
+          <tr>
+            <td colspan="10" class="text-right" ><strong >{{ total.title }}</strong></td>
+            
+            <td class="text-right">{{ total.text }}</td>
+
+          </tr>
+          
+          {% endfor %}
+          -->
+
+
+           
+      
+    {% for subtotals in subtotal %}
+    
+      <tr>
+        <td colspan="10" class="text-right" ><strong >{{ subtotals.name }}</strong></td>
+        
+        <td class="text-right">{{ subtotals.value }}</td>
+ 
+
+      </tr>
+      
+      {% endfor %}
+
+
+
+          {% for total in cgsttotalsum %}
+              <tr>
+                <td colspan="10" class="text-right"><strong>{{ total.title }}</strong></td>
+                <td class="text-right">{{ total.cgstvalue }}</td>
+              </tr>
+            {% endfor %}
+
+              {% for total in sgsttotalsum %}
+              <tr>
+                <td colspan="10" class="text-right"><strong>{{ total.title }}</strong></td>
+                <td class="text-right">{{ total.sgstvalue }}</td>
+              </tr>
+            {% endfor %}
+
+
+
+      {% for bill in totalchargeamount %}
+        <tr>
+          <td colspan="10" class="text-right" ><strong >{{ bill.titleamount }}:</strong></td>
+          
+          <td class="text-right">{{ bill.bill }}</td>
+
+        </tr>
+        {% endfor %}
+
+
+       {% for gstrate in ratetax %}
+        <tr>
+          <td colspan="9" class="text-right" ><strong >{{ gstrate.cgstrat }}:</strong></td>
+          
+          <td class="text-right">{{ gstrate.amot }}</td>
+
+        </tr>
+        {% endfor %}
+
+    </tfoot>
+    
+  </table>
+</div>
+{{ payment }}
+{% else %} 
+<script type="text/javascript"><!--
+location = '{{ redirect }}';
+//--></script> 
+{% endif %} 

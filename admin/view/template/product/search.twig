@@ -1,0 +1,648 @@
+ {{ header }}
+
+   <div class="col-sm-4">{{ possearch }}</div>
+
+   <div class="col-md-12">{{ cart }}</div>
+
+  <div class="col-md-12"  style="margin-left:940px ; margin-top:-48px ; font-size:25px" >{{ loginposcustomername }}</div>
+
+<div class=" col-lg-12">{{ posmenu }}</div>
+
+ <div id="product-search" class="container">
+  
+
+  <div class="row">{{ column_left }}
+    {% if column_left and column_right %}
+    {% set class = 'col-sm-6' %}
+      
+    {% elseif column_left or column_right %}
+      
+    {% set class = 'col-sm-9' %}
+    {% else %}
+      
+  {% set class = 'col-sm-12' %}
+  {% endif %}
+  <div id="content" class="{{ class }}">{{ content_top }}
+  <h1>{{ heading_title }}</h1>
+  <label class="control-label" for="input-search">{{ entry_search }}</label>
+  <div class="row">
+    <div class="col-sm-4">
+      <input type="text" name="search" value="{{ search }}" placeholder="{{ text_keyword }}" id="input-search" class="form-control" />
+    </div>
+    
+        <div class="col-sm-3">
+          <select name="category_id" class="form-control">
+            <option value="0">{{ text_category }}</option>
+            {% for category_1 in categories %}
+            {% if category_1.category_id == category_id %}
+            <option value="{{ category_1.category_id }}" selected="selected">{{ category_1.name }}</option>
+            {% else %}
+            <option value="{{ category_1.category_id }}">{{ category_1.name }}</option>
+            {% endif %}
+            {% for category_2 in category_1.children %}
+            {% if category_2.category_id == category_id %}
+            <option value="{{ category_2.category_id }}" selected="selected">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ category_2.name }}</option>
+            {% else %}
+            <option value="{{ category_2.category_id }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ category_2.name }}</option>
+            {% endif %}
+            {% for category_3 in category_2.children %}
+            {% if category_3.category_id == category_id %}
+            <option value="{{ category_3.category_id }}" selected="selected">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ category_3.name }}</option>
+            {% else %}
+            <option value="{{ category_3.category_id }}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ category_3.name }}</option>
+            {% endif %}
+            {% endfor %}
+            {% endfor %}
+            {% endfor %}
+          </select>
+        </div>
+
+          <div class="col-sm-3" hidden>
+            <label class="checkbox-inline">
+              {% if sub_category %}
+              <input type="checkbox" name="sub_category" value="1" checked="checked" />
+              {% else %}
+              <input type="checkbox" name="sub_category" value="1" />
+              {% endif %}
+            Search in subcategories</label>
+          </div>
+        </div>
+     
+     
+        <p hidden>
+          <label class="checkbox-inline" >
+            {% if description %}
+            <input type="checkbox" name="description" value="1" id="description" checked="checked" />
+            {% else %}
+            <input type="checkbox" name="description" value="1" id="description" />
+            {% endif %}
+          Search in product descriptions</label>
+        </p>
+
+      <input type="button" value="{{ button_search }}" id="button-search" class="btn btn-primary"  style="display:none" />
+
+      <h2>Products meeting the search criteria</h2>
+      {% if products %}
+     
+      <div class="row">
+        {% for product in products %}
+        <div class="product-layout product-list col-xs-4">
+          <div class="product-thumb">
+            <div class="image"><img src="{{ product.thumb }}" alt="{{ product.name }}" title="{{ product.name }}" class="img-responsive" /></div>
+            <div>
+              <div class="caption">
+                <h1>{{ product.name }}</h1>
+                <p>{{ product.description }}</p>
+                {% if product.price %}
+                <p class="price">
+                  {% if  not product.special %}
+                  {{ product.price }}
+                  {% else %}
+                  <span class="price-new">{{ product.special }}</span> <span class="price-old">{{ product.price }}</span>
+                  {% endif %}
+                  {% if product.tax %}
+                  <span class="price-tax">{{ text_tax }} {{ product.tax }}</span>
+                  {% endif %}
+                </p>
+                {% endif %}
+                {% if product.rating %}
+                <div class="rating">
+                  {% for i in 1..5 %}
+                  {% if product.rating < i %}
+                  <span class="fa fa-stack"><i class="fa fa-star-o fa-stack-2x"></i></span>
+                  {% else %}
+                  <span class="fa fa-stack"><i class="fa fa-star fa-stack-2x"></i><i class="fa fa-star-o fa-stack-2x"></i></span>
+                  {% endif %}
+                  {% endfor %}
+                </div>
+                {% endif %}
+
+            </div>
+
+        <div class="form-group required"  >
+        
+        <input type="text" name="quantity" value="{{ product.minimum }}"  id="{{product.product_id}}product" class="form-control"  style="display:none" />
+            
+        <input type="hidden" name="product_id" value="{{ product.product_id }}" />
+
+             </div>
+
+  <div class="button-grid"   id="{{product.product_id}}incdeccart"  >
+
+      {% if  product.product_id  in  key %}
+
+        <!-- <p>{{product.product_id}} </p>
+        -->
+
+        {% for cartProduct in openids %}
+
+        {% if cartProduct.product_id==product.product_id %}
+        
+        <div class="input-group"  style="margin-left: 0px; margin-top: 19px;"  id="{{product.product_id}}cartdatabtn"  >
+
+        <span class="input-group-btn">
+        <button  class="dec qtybtn btn btn-default btn-number minus" data-toggle="tooltip" title="decrement" id="{{product.product_id}}"   onclick="cartUPDATEUP('{{ product.product_id }}')"   >
+        <span class="glyphicon glyphicon-minus"></span>
+        </button>
+        </span>
+
+       <input  type="number" style ="margin-left:3px; width:84px;  margin-right:-65px"   name="quantity[{{ cartProduct.cart_id }}]" value="{{ cartProduct.quantity }}"  max="{{product.quantity}}"  id="{{product.product_id}}productquantity" class="form-control input-number"  disabled/>
+         
+        <span class="input-group-btn">
+      <button  class="incre qtybtn btn btn-default" data-toggle="tooltip" style="margin-left: -138px;"  title="increment"  id="{{product.product_id}}"  onclick="cartaddup('{{ product.product_id }}')" >
+      <span class="glyphicon glyphicon-plus"></span>
+      </button>
+        
+      </span>
+    
+        </div>  
+
+    {% endif %} 
+  
+    {% endfor %}
+
+      {% else %}
+
+          <h3 hidden> not in cart </h3>
+
+      <div class="button-group"   id="{{product.product_id}}" >
+
+      <button type="button" class="button-cart  btn btn-primary"  id="{{product.product_id}}"  > <i class="fa fa-shopping-cart"> </i> <span class="hidden-xs hidden-sm hidden-md"> {{ button_cart }} </span> </button >
+  
+      </div>
+
+         {% endif %} 
+         
+           </div>
+
+
+        <div class="button-group"   id="{{product.product_id}}dynamic"   hidden   >
+
+            <button type="button" class="button-cart2  btn btn-primary  "    id="{{product.product_id}}"> <i class="fa fa-shopping-cart"> </i> <span class="hidden-xs hidden-sm hidden-md"> {{ button_cart }} </span> </button >
+        
+           
+            </div>
+
+      </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+      <div class="row">
+        <div class="col-sm-6 text-left">{{ pagination }}</div>
+        <div class="col-sm-6 text-right">{{ results }}</div>
+      </div>
+      {% else %}
+
+      <p>There is no product that matches the search criteria.</p>
+      {% endif %}
+      {{ content_bottom }}</div>
+    {{ column_right }}</div>
+  </div>
+
+
+    {{ footer }}
+
+       
+          <!-- on load refresh page  update cart items -->
+    
+      <script type="text/javascript">
+
+          function cartUPDATEUP(id)
+          {
+                const currentId=id;
+              
+                var minsajax=$("#"+id+"productquantity").val();
+
+              let updatedValue=minsajax-1;
+
+              $("#"+id+"productquantity").val(parseInt(updatedValue));
+
+              if(updatedValue ==0)
+              { 
+                 let textbox=$("#"+id+"productquantity").val();
+
+                  $('#'+currentId+"cartdatabtn").hide(); 
+
+                 $("#"+id+"productquantity").val(parseInt(textbox)+1);
+       
+                $.ajax({
+                url: 'index.php?route=sale/poscart/remove&user_token={{ user_token }}',
+                type: 'post',
+                data: 'key=' + id ,
+                dataType: 'json',
+         
+               success: function(json) {
+      
+              if(json['success']) {
+
+                // alert(json['success']);
+
+                  $('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
+
+                $('#cart > ul ').load('index.php?route=sale/poscart/info&user_token={{ user_token }} ul li');
+
+                  }
+ 
+    
+              // $('#'+currentId+"incdeccart").hide();   
+
+                  $('#'+currentId+"dynamic").show(); 
+
+            }
+         });
+
+          }
+
+          if(updatedValue)
+          {
+
+          let input = document.querySelector(".input");  
+
+         //alert('input  value is '+input);
+     
+          let textbox=$("#"+id+"productquantity").val();
+
+           $.ajax({
+           url: 'index.php?route=sale/poscart/update&user_token={{ user_token }}',
+            type: 'post',
+            data: 'product_id=' + id + '&quantity=' + updatedValue,
+            dataType: 'json',
+          
+            success: function(json) {
+
+            if(json['success']) {
+
+              var productMinimum=json['minimum'];
+
+          // alert("minimum of this product is"+productMinimum);
+
+            if( parseInt(textbox) <json['minimum'] )
+            {
+
+               $('#'+currentId+"cartdatabtn").hide();      
+           
+                 //alert("less then minimum");
+
+              let textbox=$("#"+id+"productquantity").val();
+
+              $("#"+id+"productquantity").val(parseInt(textbox)+1);
+
+            $.ajax({
+            url: 'index.php?route=sale/poscart/remove&user_token={{ user_token }}',
+            type: 'post',
+            data: 'key=' + id ,
+            dataType: 'json',
+
+            success: function() {
+        
+            if(json['success'])
+            
+            {
+
+             $('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
+
+    	     $('#cart > ul ').load('index.php?route=sale/poscart/info&user_token={{ user_token }} ul li');
+
+              }
+
+          //  $('#'+currentId+"cartdatabtn").hide();       
+
+         // $('#'+currentId+"incdeccart").hide();   
+
+            $('#'+currentId+"dynamic").show(); 
+              }
+                   
+              });
+
+              }
+
+        else
+          {
+
+            $('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
+         
+        	$('#cart > ul ').load('index.php?route=sale/poscart/info&user_token={{ user_token }} ul li');
+
+        // location.reload();
+
+            }
+
+             }
+      
+            }
+
+
+           });
+
+           }
+
+         }
+                  
+
+     </script>
+
+
+   
+ 
+      <!-- on load refresh -->
+        
+    <script type="text/javascript">
+        function cartaddup(id)
+        {
+         // alert(' cartaddup  id is '+id);
+     
+        var  plusajax=$("#"+id+"productquantity").val();
+        
+        let updatedValue=(parseInt(plusajax)+1);
+
+       $("#"+id+"productquantity").val(parseInt(plusajax)+1);
+
+         if(updatedValue)
+          {
+            //alert('updatedvalue is ');
+             $.ajax({
+          url: 'index.php?route=sale/poscart/update&user_token={{ user_token }}',
+            type: 'post',
+            data: 'product_id=' + id + '&quantity=' + updatedValue,
+            dataType: 'json',
+            
+            success: function(json) { 
+
+            //  alert('success is '+id);
+        
+            if(json['success']) {
+
+             $('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
+
+       	$('#cart > ul ').load('index.php?route=sale/poscart/info&user_token={{ user_token }} ul li');
+               }
+
+               }
+
+             });
+
+            }
+
+            }
+
+     </script>
+
+ 
+    <script type="text/javascript">
+        function cartAdd(id)
+        {
+         // alert('id is '+id);
+         var  plusajax=$("#"+id+"productquantity").val();
+        
+        let updatedValue=(parseInt(plusajax)+1);
+
+        $("#"+id+"productquantity").val(parseInt(plusajax)+1);
+
+         if(updatedValue)
+          {
+            //alert('updatedvalue is ');
+             $.ajax({
+            url: 'index.php?route=sale/poscart/update&user_token={{ user_token }}',
+            type: 'post',
+            data: 'product_id=' + id + '&quantity=' + updatedValue,
+            dataType: 'json',
+            
+            success: function(json) { 
+
+            if(json['success']) 
+            {
+
+             $('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
+
+           	$('#cart > ul ').load('index.php?route=sale/poscart/info&user_token={{ user_token }} ul li');
+
+              }
+
+              }
+
+         });
+
+    }
+
+    }
+
+     </script>
+
+      
+      <script type="text/javascript">
+
+        function cartUPDATE(id)
+        {
+              const currentId=id;
+            
+              var minsajax=$("#"+id+"productquantity").val();
+
+              let updatedValue=minsajax-1;
+
+              $("#"+id+"productquantity").val(parseInt(updatedValue));
+
+          if(updatedValue ==0)
+          { 
+             $('#'+currentId+"auto").hide(); 
+
+              $.ajax({
+            url: 'index.php?route=sale/poscart/remove&user_token={{ user_token }}',
+          type: 'post',
+          data: 'key=' + id ,
+          dataType: 'json',
+         
+         success: function(json) {
+   
+            if(json['success']) 
+            {
+                $('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
+
+                $('#cart > ul').load('index.php?route=common/cart/info ul li');
+
+            }
+ 
+          
+           $('#'+currentId).show();
+
+          }
+               
+         });
+
+      }
+
+          if(updatedValue)
+          {
+
+          let input = document.querySelector(".input");  
+
+         //alert('input  value is '+input);
+     
+          let textbox=$("#"+id+"productquantity").val();
+
+          $.ajax({
+            url: 'index.php?route=sale/poscart/update&user_token={{ user_token }}',
+            type: 'post',
+            data: 'product_id=' + id + '&quantity=' + updatedValue,
+            dataType: 'json',
+          
+            success: function(json) {
+
+            if(json['success']) {
+
+            var productMinimum=json['minimum'];
+
+             if( parseInt(textbox) <json['minimum'] )
+            {
+                $('#'+currentId+"auto").hide(); 
+
+                 $.ajax({
+                url: 'index.php?route=sale/poscart/remove&user_token={{ user_token }}',
+                type: 'post',
+                data: 'key=' + id ,
+                dataType: 'json',
+
+           success: function(json) {
+      
+            if(json['success'])
+             {
+
+             $('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
+
+              	$('#cart > ul ').load('index.php?route=sale/poscart/info&user_token={{ user_token }} ul li');
+
+              }
+
+          $('#'+currentId).show();
+
+         //$('#'+currentId+"dynamic").show(); 
+
+              }
+                   
+              });
+
+              }
+
+           else
+             {
+
+                  $('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
+         
+         	$('#cart > ul ').load('index.php?route=sale/poscart/info&user_token={{ user_token }} ul li');
+
+            }
+
+            }
+      
+            }
+
+
+           });
+
+           }
+
+         }
+                  
+
+     </script>
+
+         
+<!--- after refreshing-->
+
+    <script type="text/javascript"><!--
+        $('.button-cart2').on('click', function() {
+
+        let varc=this.id;
+
+        $('#'+varc+"dynamic").hide();
+
+     // alert('varc is '+varc);
+
+       $.ajax({
+      url: 'index.php?route=sale/poscart/add&user_token={{ user_token }}',
+    type: 'post',
+    data: 'product_id=' + this.id + '&quantity=' + $("#"+this.id+"product").val() + '&customerid=' + {{ posCustomerId }} +   '&store_id=' + {{ store_id }} ,
+    dataType: 'json',
+         
+		success: function(json) {
+
+        if(json['producttotal'] )
+      {
+        var b=json['producttotal'];
+
+        var cartajaxid=json['productID'];
+
+        var quantityProduct=json['productQuantity'];  
+
+        var productMinimum=json['minimum'];  
+
+         $('#'+varc+"cartdatabtn").show();  
+      
+        }     
+
+      if (json['success'])
+      {
+
+        $('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
+
+        $('html, body').animate({ scrollTop: 30 }, 'slow');
+
+         	$('#cart > ul ').load('index.php?route=sale/poscart/info&user_token={{ user_token }} ul li');
+        }
+  
+      },
+
+          error: function(xhr, ajaxOptions, thrownError) {
+              alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+              }
+      });
+    });
+    //--></script> 
+
+
+
+  <script type="text/javascript">
+
+    $('.button-cart').on('click', function() {
+
+    let varc=this.id;
+
+      $('#'+varc).hide();
+
+    //alert('ajax id is '+varc);
+
+      $.ajax({
+      url: 'index.php?route=sale/poscart/add&user_token={{ user_token }}',
+      type: 'post',
+      data: 'product_id=' + this.id + '&quantity=' + $("#"+this.id+"product").val() + '&customerid=' + {{ posCustomerId }} +   '&store_id=' + {{ store_id }} ,
+      dataType: 'json',
+      
+      success:function(json)
+      {
+
+      var b=json['producttotal'];
+
+      var quantityProduct=json['productQuantity'];  
+
+      var cartajaxid=json['productID'];
+
+      //alert(json['success'])  // alert(json['productID']);  
+
+      //alert('demo');
+
+    $('#'+varc).after('<div class="input-group" id="'+json['productID']+'auto"   style="margin-top:-66px;"  >'+'<button  class="dec qtybtn btn btn-default btn-number minus"  id="'+json['productID']+'"  data-toggle="tooltip"  title="decrement" style="margin-top:43px; margin-left:2px;  width:55px"  onclick="cartUPDATE('+json['productID']+');" ><i class="glyphicon glyphicon-minus"></i></button>'+
+      '<span class="input-group-btn">'
+      +'<input type="number"  value="'+json['producttotal']+'"  id="'+json['productID']+'productquantity"  style="margin-top:40px; margin-left:-129px; width:132px ; "    class="input form-control" />'+
+      '<button  class="incre qtybtn btn btn-default"  id="'+json['productID']+'"  data-toggle="tooltip"   title="increment" style=" margin-right:25px;margin-top:39px; margin-left:6px; margin-bottom:31px;  width:40px"  onclick="cartAdd('+json['productID']+');"><i class="glyphicon glyphicon-plus"></i></button></span>'+'</div>');
+
+    $('#cart > button').html('<span id="cart-total"><i class="fa fa-shopping-cart"></i> ' + json['total'] + '</span>');
+
+     	$('#cart > ul ').load('index.php?route=sale/poscart/info&user_token={{ user_token }} ul li');
+   
+      }
+
+      });
+      });
+
+ </script>
+

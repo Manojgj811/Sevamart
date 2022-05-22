@@ -1,0 +1,201 @@
+
+   
+    {{ header }}{{ column_left }}
+    <style>
+    .v{
+
+        margin-left:870px; 
+        margin-top:-49px;  
+        font-size:21px
+
+    }
+    </style>
+
+    <div class="col-sm-4">{{ search }}</div>
+
+        <div class="col-sm-12">{{ cart }}</div>
+
+         <div class="col-sm-12 v">
+
+   <i class="fa fa-user-circle-o fa-fw"></i> <p >{{ customername }}</p>
+
+     </div>
+
+        <div class=" col-sm-12">{{ menu }}</div>
+
+    {{ footer }} 
+
+     
+
+          
+    <div id="myModal" class="modal fade" data-keyboard="false" data-backdrop="static">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color:#F5F5F5">
+                    <div class="pull-right"> 
+                        <a href=" {{ hrefDashboard }}"  data-toggle="tooltip" title="Click here for home page"><i class="fa fa-reply"></i></a>
+                    </div>
+                    <h3 class="modal-title"><strong>Register for walk in customer </strong></h3> 
+                        
+                    </div>
+                    <div class="modal-body"  id="myModal2">
+
+                        <form action="{{ add }}" method="post" id="form-review">
+                            
+                        <div class="form-group">
+                            <input type="text"  name="Number"   value="{{ Number }}"  class="form-control" id="number" placeholder="Email Mobile Number" maxlength="10">
+                        </div>
+                        <div class="form-group">
+                            <input type="text"  name="customername" value="{{ customername }}"  class="form-control" placeholder="Enter customerName" disabled>
+                        </div>
+                        <span id="error"></span>
+                       
+                        </form>
+                         <button  id="btn" data-toggle="tooltip" title="{{ button_submit }}" class="btn btn-primary">{{ button_submit }}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+         <div id="clearCartModal" class="modal fade" data-keyboard="false" data-backdrop="static">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header" style="background-color:#F5F5F5">
+                        <h3 class="modal-title"><i class="fa fa-shopping-cart"> </i><span> Clear cart ?</span></strong></h3>  
+                    </div>
+                    <div class="modal-body"  id="cartModal">
+
+                    <form action="{{ clearCart }}" method="post" id="form-cart">
+                
+                       
+        <button  type="submit" data-toggle="tooltip"  class="btn btn-primary"  >Yes</button>
+        <button  data-toggle="tooltip" title="{{ button_submit }}" class="btn btn-primary" data-dismiss="modal" >NO</button>
+
+              
+                   </form>
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <script type="text/javascript" src="view/javascript/jquery/jquery-2.1.1.min.js"></script>
+        <script type="text/javascript" src="view/javascript/bootstrap/js/bootstrap.min.js"></script>
+        <link href="view/stylesheet/bootstrap.css" type="text/css" rel="stylesheet" />
+
+      {% if productsInCart  %}
+        <script>
+                
+            $(document).ready(function(){
+                        
+            $("#clearCartModal").modal('show');
+
+           
+
+            });
+
+        </script>
+      {% else %}
+
+        <script>
+                
+            $(document).ready(function(){
+                        
+            $("#myModal").modal('show');
+
+            });
+
+        </script>
+        {% endif  %}
+
+    <script type="text/javascript">  
+  
+      $('#btn').on('click', function() {
+
+        var error = document.getElementById("error");
+        var customerPhone = $('input[name=\'Number\']').val();
+        var customerName = $('input[name=\'customername\']').val();
+        if (isNaN(customerPhone) || customerPhone.length < 10 ) 
+        {
+              
+            // Changing content and color of content
+            error.textContent = "Please enter a valid number";
+            error.style.color = "red";
+        }
+        else if(customerName.trim() == "" ){
+            error.textContent = "Please enter a customer name";
+            error.style.color = "red";
+        }
+        else{
+             error.textContent = "";
+             $( "#form-review" ).submit();
+        } 
+    });
+
+
+     $('#number').on('change', function() {
+
+      //alert($('input[name=\'Number\']').val());
+
+       $('input[name=\'customername\']').val('');
+       var customerPhone = $('input[name=\'Number\']').val();
+        var error = document.getElementById("error")
+        if (isNaN(customerPhone) || customerPhone.length < 10 ) 
+        {
+              
+            // Changing content and color of content
+            error.textContent = "Please enter a valid number"
+            error.style.color = "red"
+        }
+        else {
+            error.textContent = ""
+        
+            $.ajax({  
+                type: "POST",
+                url:'index.php?route=sale/pos/existingNumber&user_token={{ user_token }}',
+                data:'telephone='+customerPhone,
+                dataType: 'json',
+                success: function(json) {    
+                                        
+                    //alert('success');
+                    if(json['success']){
+
+                        $("input[name=\'customername\']").prop("disabled", true);
+                        $('input[name=\'customername\']').val(json['name']);
+                        error.textContent = "Existing Customer"
+                        error.style.color = "green"
+                    }
+                    else{
+                        $("input[name=\'customername\']").prop("disabled", false);
+                        error.textContent = "New Customer"
+                        error.style.color = "green"
+                    }
+                    
+
+                    },
+                    error: function(xhr, ajaxOptions, thrownError) {
+                    alert(thrownError + "\r\n" + xhr.statusText + "\r\n" + xhr.responseText);
+                    }
+                
+                });
+          
+     }
+       });
+     </script>
+
+
+       
+       
+       
+
+ 
+
+         
+
+       
+
+
+
+            

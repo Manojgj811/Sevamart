@@ -1,0 +1,401 @@
+
+
+  {{header}}
+
+  {{column_left}}
+   <style>
+  .col-sm-12, .col-md-12, .col-lg-12 {
+    position: relative;
+    min-height: 1px;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+.panel-default {
+    border: 1px solid #dcdcdc;
+    border-top: 1px solid #dcdcdc;
+}
+
+.panel {
+    border-radius: 0px;
+}
+
+#container {
+    min-height: 100%;
+    width: 100%;
+    position: relative;
+    background: #f6f6f6;
+    overflow: hidden;
+}
+
+
+.table-bordered {
+    border: 1px solid #ddd;
+}
+.table {
+    width: 100%;
+    max-width: 100%;
+    margin-bottom: 18px;
+}
+table {
+    background-color: transparent;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+.container-fluid {
+    padding: 0 20px;
+    
+}
+.container-fluid {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 156px;
+    padding-right: 15px;
+}
+
+.container-fluid:after {
+    clear: both;
+}
+.container-fluid:before, .container-fluid:after {
+    content: " ";
+    display: table;
+}
+
+.form-control{
+  width: 175px;
+    height: 32px;
+}
+.panel-title{
+font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 22px;
+    color:#1e91cf;
+    display: inline-block;
+    margin-bottom: 15px;
+    text-shadow: 0 1px #fff;
+
+
+}
+
+.panel-title1{
+font-family: 'Open Sans', sans-serif;
+    font-weight: 300;
+    font-size: 22px;
+    color:#545454;
+    display: inline-block;
+    margin-bottom: 15px;
+    text-shadow: 0 1px #545454;
+
+
+}
+input#btn {
+    float: right;
+}
+
+.col-form-label{
+  font-size:15px;
+}
+
+.table-responsive {
+   
+    width: 1060px;
+}
+
+.radio {
+    position: relative;
+    display: inline-flex;
+    padding: 9px;
+}
+.radio+.radio {
+    margin-top: -5px;
+}
+
+.checkbox, .radio {
+    position: relative;
+    display:  inline-flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+label {
+    min-height: 20px;
+    padding-left: 20px;
+    margin-bottom: 0;
+    font-weight: 400;
+    cursor: pointer;
+}
+label {
+    font-size: 14px;
+    font-weight: normal;
+  
+}
+label {
+    /* display: inline-block; */
+    /* max-width: 100%; */
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+.checkbox input[type=checkbox], .checkbox-inline input[type=checkbox], .radio input[type=radio], .radio-inline input[type=radio] {
+    position: absolute;
+    margin-top: 4px\9;
+    margin-left: -22px;
+    
+}
+
+
+{# input[type=checkbox], .radio input[type=radio], .radio-inline input[type=radio] {
+    position: absolute;
+    margin-top: 4px\9;
+    margin-left: -20px;
+}
+input[type=checkbox], input[type=radio] {
+    margin: 4px 0 0;
+    margin-top: 1px\9;
+    line-height: normal;
+}
+input[type=checkbox], input[type=radio] {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    padding: 0;
+} #}
+
+
+@media only screen and (max-width: 600px) {
+ .container-fluid {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 0px;
+    padding-right: 30px;
+}
+
+.panel-title{
+
+    font-size: 15px;
+   
+}
+
+
+div#posapporvalid {
+    display: none !important;
+}
+.col-form-label {
+    font-size: 13px;
+}
+
+.table-responsive {
+    width: 897px;
+}
+
+}
+
+
+
+  </style>
+
+   <div class ="container">
+   <div id="content">
+    <div class ="container-fluid">
+    <form action="{{ confirm }}" method="post" id="pos-checkoutreview"   onsubmit=" return ShowHideDiv()" >
+ <div class="panel-heading">
+   <h3 class="panel-title">Please select the preferred payment method to use on this order</h3>
+  </div>
+
+  <div class="radio">
+        <label class="shipping-label">
+          <input type="radio"  name="pos" id="chkNo" value="cash"   onclick="ShowHideDiv()" /> 
+    Cash 
+    </label>
+
+      </div>
+
+
+    <div class="radio"  >
+
+    
+    
+
+      <label class="shipping-label">
+    <input type="radio"  name="pos"   id="chkYes" value="card"   onclick="ShowHideDiv()" />
+    Card
+    </label>
+
+    </div>
+
+    
+
+    <div id="posapporvalid" class="form-group row" style="display:none;" >
+
+     <label for="staticEmail" class="col-sm-2 col-form-label">Enter Apporval id</label>
+    <input class="form-control col-sm-10" type="text" id="txtPassportNumber"  name="Apporval"  />
+    </div> 
+
+    
+
+     {# <div id="posapporvalid" class="form-group row" >
+            Enter Apporval id :
+            <input class="form-control" type="text" id="txtPassportNumber"  name="Apporval"  />
+          </div> #}
+
+     {# <form id="posapporvalid" >
+          <div class="form-group row"  id="posapporvalid">
+              <label for="staticEmail" class="col-sm-2 col-form-label">Enter Apporval id</label>
+            <div id="posapporvalid" class="col-sm-10">
+                 <input class="form-control" type="text" id="txtPassportNumber"  name="Apporval"  />
+              </div>
+            </div>
+        </form> #}
+
+    <script type="text/javascript">
+    function ShowHideDiv() 
+    {
+    var chkYes = document.getElementById("chkYes");
+    var dvPassport = document.getElementById("posapporvalid");
+    dvPassport.style.display = chkYes.checked ? "block" : "none";
+
+    var checked_radio= document.querySelector('input[name = "pos"]:checked');
+
+    if( checked_radio != null )
+    {  
+      //alert(checked_radio.value);
+    }
+
+    else 
+    {
+   // alert('Please select any one payment method '); 
+
+    return false;
+    }
+
+    }
+    </script>
+
+                
+    <div >
+
+    <table class="table table-bordered table-hover table-responsive"  >
+
+    <thead>
+
+    <tr>
+
+    <td class="text-left" rowspan="2">Product Name</td>
+
+    <td class="text-left"  rowspan="2">{{ column_quantity }}</td>
+
+    <td class="text-left"  rowspan="2">{{ column_price }}</td>
+    <td class="text-left"    rowspan="2">{{ column_total }}</td>
+    <th class="text-left" colspan="2">CGST AMOUNT</th>
+    <th class="text-left" colspan="2">SGST AMOUNT</th>
+    <th class="text-left">Gross Total(inc.GST)</th>
+                  
+          </tr>
+
+         <tr>
+          <th>Rate</th>
+          <th>Amount</th>
+         
+         <th>Rate</th>
+          <th>Amount</th>
+          </tr>
+      
+    </thead>
+
+<tbody>
+
+{% for product in posproducts %}
+<tr>
+<td class="text-left"><b>{{ product.name }}<b></td>
+<td class="text-right">{{ product.quantity }}</td>
+<td class="text-right">{{ product.price }}</td>
+<td class="text-right">{{ product.subtotal }}</td>
+<td class="text-right">{{product.cgstrate}}</td>
+<td class="text-right">{{product.cgstamount}}</td>
+<td class="text-right">{{product.sgstrate}}</td>
+
+<td class="text-right">{{product.sgstamount}}</td>
+
+<td class="text-right">{{ product.total}}</td>
+            
+</tr>
+{% endfor %}
+
+</tbody>
+
+
+<tr>
+<td class="text-left"  colspan="3">GRAND  TOTAL</td>
+
+<td class="text-right" >{{totalamountgrandtotal}}</td>  
+
+<td class="text-right" colspan="2" >{{cgstgrandtotal}}</td>
+
+<td class="text-right" colspan="2" >{{sgstgrandtotal}}</td>
+<td class="text-right">{{gstgrandtotal}}</td>
+
+
+  </tr>
+
+  <tfoot>
+
+    {% for subtotal in possubtotal %}
+    <tr>
+    <td colspan="8" class="text-right" ><strong >{{subtotal.name}}:</strong></td>
+
+    <td class="text-right">{{ subtotal.value }}</td>
+    </tr>
+    {% endfor %}
+
+
+
+    {% for cgst in cgstsumsuumary %}
+    <tr>
+    <td colspan="8" class="text-right" ><strong >{{cgst.name}}:</strong></td>
+
+    <td class="text-right">{{ cgst.value }}</td>
+    </tr>
+    {% endfor %}
+
+
+    {% for sgst in sgstsumsuumary %}
+    <tr>
+      <td colspan="8" class="text-right" ><strong >{{sgst.name}}:</strong></td>
+
+      <td class="text-right">{{ sgst.value }}</td>
+    </tr>
+    {% endfor %}
+
+
+    {% for total in grandtotal %}
+    <tr>
+    <td colspan="8" class="text-right" ><strong >{{total.name}}</strong></td>
+
+    <td class="text-right">{{ total.value }}</td>
+    </tr>
+    {% endfor %}
+
+
+</tfoot>
+
+</table>
+</div>
+
+   <input type="submit"  id="btn" value="CONFIRM ORDER"     class="btn btn-primary"    />
+
+     
+ 
+</form>
+  <a  href="{{ back }}"   data-toggle="tooltip" title="Back To Home"    class="btn btn-primary">  BACK </a>
+ 
+</div>
+</div>
+</div>
+
+
+
+
+ 

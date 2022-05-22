@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html dir="{{ direction }}" lang="{{ lang }}">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>{{ title }}</title>
+<base href="{{ base }}" />
+{% if description %}
+<meta name="description" content="{{ description }}" />
+{% endif %}
+{% if keywords %}
+<meta name="keywords" content="{{ keywords }}" />
+{% endif %}
+
+<link href="catalog/view/theme/default/css/style.css" rel="stylesheet">
+<link href="catalog/view/javascript/jquery/swiper/css/opencart.css" rel="stylesheet">
+<link href="catalog/view/javascript/jquery/swiper/css/swiper.css" rel="stylesheet">
+<link href="catalog/view/javascript/jquery/swiper/css/swiper.min.css" rel="stylesheet">
+
+<script src="catalog/view/javascript/jquery/swiper/js/swiper.js" type="text/javascript"></script>
+<script src="catalog/view/javascript/jquery/swiper/js/swiper.min.js" type="text/javascript"></script>
+<script src="catalog/view/javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
+<link href="catalog/view/javascript/homepage-bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+<script src="catalog/view/javascript/homepage-bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<link href="catalog/view/theme/default/css/style.css" rel="stylesheet">
+
+<script src="catalog/view/javascript/jquery/jquery-2.1.1.min.js" type="text/javascript"></script>
+<link href="catalog/view/javascript/bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen" />
+<script src="catalog/view/javascript/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+<link href="catalog/view/javascript/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+<link href="catalog/view/javascript/jquery/swiper/css/swiper.min.css" type="text/css" rel="stylesheet" media="screen">
+<script src="catalog/view/javascript/jquery/swiper/js/swiper.jquery.js" type="text/javascript"></script>
+<link href="catalog/view/javascript/jquery/swiper/css/opencart.css" type="text/css" rel="stylesheet" media="screen">
+<link href="//fonts.googleapis.com/css?family=Open+Sans:400,400i,300,700" rel="stylesheet" type="text/css" />
+
+<link href="catalog/view/javascript/jquery/swiper/css/swiper.min.css" type="text/css" rel="stylesheet" media="screen">
+<link href="catalog/view/javascript/jquery/swiper/css/opencart.css" type="text/css" rel="stylesheet" media="screen">
+<script src="catalog/view/javascript/jquery/swiper/js/swiper.jquery.js" type="text/javascript"></script>
+
+<link href="catalog/view/theme/default/stylesheet/stylesheet.css" rel="stylesheet">
+{% for style in styles %}
+<link href="{{ style.href }}" type="text/css" rel="{{ style.rel }}" media="{{ style.media }}" />
+{% endfor %}
+{% for script in scripts %}
+<script src="{{ script }}" type="text/javascript"></script>
+{% endfor %}
+<script src="catalog/view/javascript/common.js" type="text/javascript"></script>
+{% for link in links %}
+<link href="{{ link.href }}" rel="{{ link.rel }}" />
+{% endfor %}
+{% for analytic in analytics %}
+{{ analytic }}
+{% endfor %}
+
+<style>
+ html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+.container-fluid{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    width:100%;
+    padding: 0px 0px 0px 0px;
+  }
+  ul {
+    padding-left: 0rem;
+}
+  .form-control {
+    height: 36px;
+  }
+  #top .container {
+    padding: 0px 0px;
+}
+#logo {
+    margin: 0 0 0px 0;
+}
+  .logoimg {
+        width:130px;
+  }
+  .row.headrow{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+}
+li.location.btn {
+   color:black !important;
+   text-shadow:none !important;
+   padding: 10px 13px 10px 13px !important;
+}
+
+.list-inline>li {
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+div#pincodesearch {
+    width: 93%;
+}
+.close {
+    position: relative;
+    top: -2px;
+    font-size: 28px;
+    color: red;
+    opacity: .7;
+}
+.mb-2 {
+    margin-bottom: 0px !important;
+}
+
+.locbtn{
+     padding: 8.5px 12px;
+    font-size: 12px;
+    border: 0px solid #cccccc !important;
+    border-radius: 0px;
+    background-color: none;
+    box-shadow:none;
+
+}
+.menubar {
+    display: flex;
+    padding: 0px 0px;
+    align-items: center;
+    margin-bottom: 0px;
+    justify-content: flex-end;
+}
+.searchdiv {
+    position: relative;
+    left: 93px;
+}
+
+.dropdown-menu>li {
+    padding:7px 6px 0px 10px;
+
+}
+.dropdownhead{
+  color: black;
+    font-weight: 600;
+   font-size: 14px;
+}
+i.fa.fa-heart {
+    position: relative;
+    top: 1px;
+    right: 2px;
+    font-size: 15px;
+}
+#top-links .dropdown-menu a:hover {
+   color: #e47911;
+    text-decoration: underline;
+    background-color:transparent ;
+    background-image:none;
+    background-repeat: none;
+}
+.dropdown-menu>li>a {
+    display: block;
+    padding: 0px 0px;
+    font-size: 13px;
+}
+.fixed-top {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+     padding: 0px 0px 0px 0px;
+}
+#top {
+    padding: 10px 0px 10px 0px;
+}
+nav.fixed-top.shrink {
+ height: 78px;
+    display: flex;
+    align-items: center;
+}
+.dropdown-menu li, .dropdown-menu li a {
+    white-space: normal;
+    float: left;
+    width: 100%;
+    height: auto;
+    word-wrap: break-word;
+}
+ul.dropdown-menu.dropdown-menu-right.cntul {
+    width: 257px;
+    left: -7px;
+}
+img.img-responsive.cntimg {
+    max-width: 28%;
+}
+img.logoimg1 {
+    width: 32px;
+    height: 28px;
+}
+.dropdown-divider {
+    height: 0;
+    margin: 0.5rem 0;
+    overflow: hidden;
+    border-top: 1px solid rgba(0,0,0,.15);
+}
+.sp1 li:last-of-type, .sp1 li:nth-child(7){
+    margin-top: 6px;
+    border-top: 1px solid #efe6e6;
+}
+@media only screen and (width: 768px) and (height: 1024px) and (orientation:portrait) {
+ #top .container {
+    padding: 0px 16px 0px 0px;
+}
+}
+@media only screen and (min-device-width: 834px) and (orientation: portrait) {
+  #top .container {
+    padding: 0px 16px 0px 0px;
+}
+ }
+@media screen and (max-width: 600px){
+  img.logoimg1 {
+    width: 23px;
+    height: 18px;
+}
+img.img-responsive.cntimg {
+    max-width: 26%;
+}
+ul.dropdown-menu.dropdown-menu-right.cntul {
+    left: -120px;
+    width: 100%;
+}
+  li.location.btn{
+  background-color:none;
+}
+ #top .container {
+    width:90%;
+}
+.form-control {
+    height: 26px;
+}
+.input-group {
+    width: 78%;
+}
+
+.btn {
+    padding: 3.5px 5px;
+}
+.searchdiv {
+    position: relative;
+    left: 24px;
+}
+  body{
+    overflow-x:hidden;
+  }
+  .logocol {
+    padding-right: 0px !important;
+    padding-left: 5px!important;
+    position: relative;
+    right: 8px;
+}
+  .logoimg {
+        width:80px;
+  }
+ li.location.btn {
+    padding: 0px 8px 0px 1px !important;
+}
+.menugap {
+    padding: 0px 10px !important;
+}
+.list-inline>li {
+    padding-right: 0px !important;
+    padding-left: 0px!important;
+}
+.locbtn{
+     padding: 8.5px 12px;
+    font-size: 12px;
+    border: 0px solid #cccccc !important;
+    border-radius: 0px;
+    background-color: none;
+    box-shadow:none;
+
+}
+
+
+}
+</style>
+</head>
+
+<body>
+<div class="container-fluid">
+<nav id="top">
+ <div class="container">
+  <div class="row headrow">
+      <div class="col-sm-2 col-lg-2 col-xs-2 col-md-3 logocol">
+        <div id="logo">
+        <a href="{{ home }}"> <img src="image/homepage-banners/SevaMart_Logo.png"
+        class="logoimg"
+       alt="SevaMart">
+        </a>
+        </div>
+      </div>
+
+<div id="top-links" class="col-lg-10 col-md-9 col-sm-10 col-xs-10">
+<div class="row" style="display:flex; align-items: center;">
+  <div class="col-sm-5 col-lg-5 col-md-5 col-xs-7 searchdiv">{{ storenamesearch }}</div>
+  <div  class="col-sm-5 col-sm-offset-2 col-lg-6 col-lg-offset-1 col-md-3 col-md-offset-4 col-xs-5">
+       <ul class="list-inline menubar " >
+
+       <li
+       type="button"  class="location btn locbtn" class="btn btn-primary btn-lg" 
+       data-toggle="modal" data-target="#myModal">
+       <a><i class="fa fa-map-marker"></i></a> 
+       <span class="hidden-xs hidden-sm hidden-md">  Location not Selected</span></li>
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+
+			<div class="modal-header">
+				{{pincodesearch}}
+
+				<button type="button" class="close" data-dismiss="modal">&times;</button>
+
+			</div>
+			<div class="modal-body">
+
+				<h5 class="modal-title">Or</h5>
+				<a href={{ login }}>
+					<button type="button" class="btn log btn-primary">Login</button>
+				</a>
+
+			</div>
+
+			<div class="modal-footer">
+				<h4 class="footermodal" id="myModalLabel">Locality name or PIN code will show stores in your area</h4>
+			</div>
+
+		</div>
+	</div>
+</div>
+
+       
+
+
+
+
+
+       {% if logged %}
+         {% if customer_firstname %}
+        <li class="space dropdown sp1"><a title="{{ text_account }}" class="dropdown-toggle menugap" data-toggle="dropdown"><i class="fa fa-user"></i> <span class="hidden-xs hidden-sm hidden-md">{{ customer_firstname }}</span> </a>
+         {% endif  %}
+          <ul class="dropdown-menu dropdown-menu-right">
+            {# <li><a href="{{ account }}">{{ text_account }}</a></li> #}
+             <li class="dropdownhead">{{ text_account }}</li>
+               <li><a href="{{ edit }}">{{ text_edit }}</a></li>
+               <li><a href="{{ password }}">{{ text_password }}</a></li>
+              <li><a href="{{ address }}">{{ text_address }}</a></li>
+               <li><a href="{{ wishlist }}"><i class="fa fa-heart"></i> <span class="hidden-xs hidden-sm hidden-md">{{ text_wishlist }}</span></a></li>
+            <li><a href="{{ order }}">{{ text_order }}</a></li>
+            <li class="dropdownhead">{{ text_request }}</li>
+            <li><a href="{{ return }}">{{ text_return }}</a></li>
+            <li><a href="{{ cancel}}">{{ text_cancel_items }}</a></li>
+            <li><a href="{{ item_not_received }}">{{ text_item_not_received }}</a></li>
+            <li><a href="{{ track_items }}">{{ text_track_items }}</a></li>
+            <li><a href="{{ logout }}">{{ text_logout }}</a></li>
+        
+            {% else %}
+            <li class="space dropdown sp"><a  title="{{ text_account }}" class="dropdown-toggle menugap" data-toggle="dropdown"><i class="fa fa-user"></i> <span class="hidden-xs hidden-sm hidden-md">{{ text_account }}</span> </a>
+             <ul class="dropdown-menu dropdown-menu-right">
+            <li><a href="{{ register }}">{{ text_register }}</a></li>
+            <li><a href="{{ login }}">{{ text_login }}</a></li>
+            {% endif %}
+          </ul>
+        </li>
+
+    {% if customercartdetail %}
+        <li class="space dropdown">
+        <a title="{{ text_shopping_cart }}" class="dropdown-toggle" data-toggle="dropdown">
+
+        {# <img src="image/homepage-banners/shopping-cart.png"
+        class="logoimg1">  #}
+        <i class="fa fa-shopping-cart"></i> 
+        <span class="hidden-xs hidden-sm hidden-md">Continue Shopping</span></a>
+          <ul class="dropdown-menu dropdown-menu-right cntul">
+
+          {% for cart in customercartdetail %}
+
+        <li style="display:flex;" class="nav-item"><img  src="{{ cart.logo }}" alt="{{ cart.owner }}" class="img-responsive cntimg" /><a href="{{ cart.Storeurl }}">{{ cart.Storename }} </a></li>
+      
+           {% endfor %}
+           
+          </ul>
+        </li>
+         {% else %}
+
+      <li hidden class="dropdown" >
+      <a title="{{ text_shopping_cart }}" class="dropdown-toggle" data-toggle="dropdown">
+      <i class="fa fa-shopping-cart"></i> <span class="hidden-xs hidden-sm hidden-md">Continue Shopping</span></a>
+          <ul class="dropdown-menu dropdown-menu-right">
+
+          </ul>
+        </li>
+     {% endif %}
+       
+       </ul>
+        </li>
+      
+      </ul>
+      </div>
+  {# div top links-inside-row -col-end #}
+       </div>
+  {# div top links-inside-row-end #}
+  </div>
+  {# top links-end #}
+ </div>
+ {# row div-end #}
+</div>  
+{# container-end #}
+</nav>
+{# id top div-end #}
+</div>  
+{# container-fluid-end #}
+<script>
+// $(window).scroll(function() {
+//   if ($(document).scrollTop() > 50) {
+//     $('nav').addClass('shrink');
+//   } else {
+//     $('nav').removeClass('shrink');
+//   }
+// });
+// $('.dropdown').hover(function() {
+//     if (!($(this).hasClass('open'))) {
+//         $('.dropdown-toggle', this).trigger('click');
+//     }
+// }, function() {
+//     if ($(this).hasClass('open')) {
+//         $('.dropdown-toggle', this).trigger('click');
+//     }
+// });
+</script>
+
+
+
+

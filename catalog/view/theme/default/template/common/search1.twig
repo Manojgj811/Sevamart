@@ -1,0 +1,33 @@
+<div id="search1" class="input-group">
+  <input type="text" name="search1" value="{{ search1 }}"  placeholder="{{ text_search }}" class="form-control input-lg" />
+  <span class="input-group-btn">
+    <button type="button" id="btn" class="btn btn-default btn-lg"><i class="fa fa-search"></i></button>
+  </span>
+</div>
+
+
+
+<script type="text/javascript">
+
+$('#search1 input[name=\'search1\']').parent().find('button').on('click',function() {
+
+  	var url = $('base').attr('href') + 'index.php?route=common/stores';
+
+    var value = $('#search1 input[name=\'search1\']').val();
+
+
+		if (value) {
+			url += '&search1=' + encodeURIComponent(value);
+		}
+   
+		location = url;
+    
+});
+
+	$('#search1 input[name=\'search1\']').click(function(e) {
+		if (e.keyCode == 13) {
+			$('header1 #search1 input[name=\'search1\']').parent().find('button').trigger('click');
+		}
+	});
+  </script>
+ 

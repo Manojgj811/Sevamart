@@ -1,0 +1,36 @@
+
+<div id="storenamesearch" class=" input-group mb-2">
+ <input class="form-control me-2" type="search" name="storenamesearch"  value="{{ storenamesearch }}"  placeholder="{{ text_search }}">
+  <span class="input-group-btn">
+    <button type="button"  class="btn"><i class="fa fa-search"></i></button>
+  </span>
+</div>
+
+
+  <script type="text/javascript">
+  
+
+$('#storenamesearch input[name=\'storenamesearch\']').parent().find('button').on('click',function() {
+
+  	var url = $('base').attr('href') + 'index.php?route=common/stores';
+
+    var value = $('#storenamesearch input[name=\'storenamesearch\']').val();
+
+
+		if (value) {
+			url += '&storenamesearch=' + encodeURIComponent(value);
+		}
+   
+		location = url;
+    
+});
+
+	$('#storenamesearch input[name=\'storenamesearch\']').click(function(e) {
+		if (e.keyCode == 13) {
+			$('homepageheader #storenamesearch input[name=\'storenamesearch\']').parent().find('button').trigger('click');
+		}
+	});
+  </script>
+
+  
+ 

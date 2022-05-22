@@ -1,0 +1,465 @@
+2021-02-15 7:14:55 - PHP Warning:  mysqli::__construct(): (HY000/1049): Unknown database 'opencart' in D:\xampp\htdocs\opencart\upload\system\library\db\mysqli.php on line 7
+2021-02-15 7:14:55 - PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in D:\xampp\htdocs\opencart\upload\system\library\db\mysqli.php on line 10
+2021-02-15 7:14:55 - PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in D:\xampp\htdocs\opencart\upload\system\library\db\mysqli.php on line 10
+2021-02-15 7:14:55 - PHP Notice:  Undefined variable: mysql in D:\xampp\htdocs\opencart\upload\install\controller\install\step_3.php on line 280
+2021-02-15 7:14:55 - PHP Notice:  Trying to get property 'connect_error' of non-object in D:\xampp\htdocs\opencart\upload\install\controller\install\step_3.php on line 280
+2021-02-15 11:22:47 - PHP Notice:  Undefined index: storeid in D:\xampp\htdocs\opencart\upload\admin\controller\user\user.php on line 362
+2021-02-15 11:23:38 - PHP Notice:  Undefined index: storeid in D:\xampp\htdocs\opencart\upload\admin\controller\user\user.php on line 362
+2021-02-15 11:31:02 - PHP Notice:  Undefined index: storeid in D:\xampp\htdocs\opencart\upload\admin\controller\user\user.php on line 362
+2021-02-15 11:31:04 - PHP Notice:  Undefined index: storeid in D:\xampp\htdocs\opencart\upload\admin\controller\user\user.php on line 362
+2021-02-15 11:31:37 - PHP Notice:  Undefined index: storeid in D:\xampp\htdocs\opencart\upload\admin\controller\user\user.php on line 362
+2021-02-15 11:31:40 - PHP Notice:  Undefined index: storeid in D:\xampp\htdocs\opencart\upload\admin\controller\user\user.php on line 362
+2021-02-15 11:39:12 - PHP Notice:  Undefined index: storeid in D:\xampp\htdocs\opencart\upload\admin\controller\user\user.php on line 362
+2021-02-15 11:43:02 - PHP Notice:  Undefined index: storename in D:\xampp\htdocs\opencart\upload\admin\controller\user\user.php on line 178
+2021-02-15 11:43:05 - PHP Notice:  Undefined index: storeid in D:\xampp\htdocs\opencart\upload\admin\controller\user\user.php on line 362
+2021-02-15 11:43:13 - PHP Notice:  Undefined index: storename in D:\xampp\htdocs\opencart\upload\admin\controller\user\user.php on line 178
+2021-02-15 11:45:12 - PHP Notice:  Undefined index: storename in D:\xampp\htdocs\opencart\upload\admin\controller\user\user.php on line 178
+2021-02-15 11:45:12 - PHP Notice:  Undefined index: storename in D:\xampp\htdocs\opencart\upload\admin\controller\user\user.php on line 178
+2021-02-15 11:48:02 - PHP Notice:  Undefined index: storeid in D:\xampp\htdocs\opencart\upload\admin\controller\user\user.php on line 362
+2021-02-15 11:49:50 - PHP Notice:  Undefined index: storeid in D:\xampp\htdocs\opencart\upload\admin\controller\user\user.php on line 362
+2021-02-15 12:03:04 - PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in D:\xampp\htdocs\opencart\upload\system\library\mail\mail.php on line 77
+2021-02-16 6:23:29 - PHP Notice:  Undefined index: storeid in D:\xampp\htdocs\opencart\upload\admin\controller\user\user.php on line 362
+2021-02-16 6:34:13 - PHP Notice:  Undefined index: storeid in D:\xampp\htdocs\opencart\upload\admin\controller\user\user.php on line 362
+2021-02-16 6:37:32 - PHP Notice:  Undefined index: storeid in D:\xampp\htdocs\opencart\upload\admin\controller\user\user.php on line 362
+2021-02-16 6:39:16 - PHP Notice:  Undefined index: storeid in D:\xampp\htdocs\opencart\upload\admin\controller\user\user.php on line 362
+2021-02-16 6:59:05 - PHP Notice:  Undefined index: storeid in D:\xampp\htdocs\opencart\upload\admin\controller\user\user.php on line 368
+2021-02-16 7:01:16 - PHP Notice:  Undefined index: store_id in D:\xampp\htdocs\opencart\upload\admin\model\user\user.php on line 13
+2021-02-16 7:03:32 - PHP Notice:  Undefined index: store_id in D:\xampp\htdocs\opencart\upload\admin\model\user\user.php on line 5
+2021-02-16 7:09:54 - PHP Notice:  Undefined index: store_id in D:\xampp\htdocs\opencart\upload\admin\model\user\user.php on line 13
+2021-02-17 5:05:20 - PHP Warning:  mysqli::__construct(): (HY000/2002): No connection could be made because the target machine actively refused it.
+ in D:\xampp\htdocs\opencart\system\library\db\mysqli.php on line 7
+2021-02-17 5:05:20 - PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in D:\xampp\htdocs\opencart\system\library\db\mysqli.php on line 10
+2021-02-17 5:05:20 - PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in D:\xampp\htdocs\opencart\system\library\db\mysqli.php on line 10
+2021-02-17 5:43:48 - PHP Notice:  Trying to access array offset on value of type null in D:\xampp\htdocs\opencart\admin\controller\setting\store.php on line 349
+2021-02-17 5:44:17 - PHP Warning:  Use of undefined constant config_cash - assumed 'config_cash' (this will throw an Error in a future version of PHP) in D:\xampp\htdocs\opencart\admin\controller\setting\store.php on line 349
+2021-02-17 5:44:17 - PHP Notice:  Trying to access array offset on value of type null in D:\xampp\htdocs\opencart\admin\controller\setting\store.php on line 349
+2021-02-17 5:44:43 - PHP Notice:  Trying to access array offset on value of type null in D:\xampp\htdocs\opencart\admin\controller\setting\store.php on line 349
+2021-02-17 5:45:06 - PHP Notice:  Trying to access array offset on value of type null in D:\xampp\htdocs\opencart\admin\controller\setting\store.php on line 349
+2021-02-17 5:56:12 - PHP Notice:  Trying to access array offset on value of type null in D:\xampp\htdocs\opencart\admin\controller\setting\store.php on line 349
+2021-02-17 6:03:34 - PHP Notice:  Undefined index: config_account in D:\xampp\htdocs\opencart\admin\controller\setting\store.php on line 261
+2021-02-17 6:03:58 - PHP Notice:  Undefined offset: 2 in D:\xampp\htdocs\opencart\admin\controller\setting\store.php on line 261
+2021-02-17 6:04:11 - PHP Notice:  Undefined offset: 2 in D:\xampp\htdocs\opencart\admin\controller\setting\store.php on line 261
+2021-02-17 6:33:06 - PHP Notice:  Undefined index: l in D:\xampp\htdocs\opencart\admin\model\setting\setting.php on line 33
+2021-02-17 9:35:19 - PHP Notice:  Undefined variable: query in D:\xampp\htdocs\opencart\admin\model\setting\setting.php on line 9
+2021-02-17 9:35:19 - PHP Notice:  Trying to get property 'rows' of non-object in D:\xampp\htdocs\opencart\admin\model\setting\setting.php on line 9
+2021-02-17 9:35:19 - PHP Warning:  Invalid argument supplied for foreach() in D:\xampp\htdocs\opencart\admin\model\setting\setting.php on line 9
+2021-02-17 9:35:19 - PHP Notice:  Undefined variable: query in D:\xampp\htdocs\opencart\admin\model\setting\setting.php on line 9
+2021-02-17 9:35:19 - PHP Notice:  Trying to get property 'rows' of non-object in D:\xampp\htdocs\opencart\admin\model\setting\setting.php on line 9
+2021-02-17 9:35:19 - PHP Warning:  Invalid argument supplied for foreach() in D:\xampp\htdocs\opencart\admin\model\setting\setting.php on line 9
+2021-02-17 9:35:19 - PHP Notice:  Undefined variable: query in D:\xampp\htdocs\opencart\admin\model\setting\setting.php on line 9
+2021-02-17 9:35:19 - PHP Notice:  Trying to get property 'rows' of non-object in D:\xampp\htdocs\opencart\admin\model\setting\setting.php on line 9
+2021-02-17 9:35:19 - PHP Warning:  Invalid argument supplied for foreach() in D:\xampp\htdocs\opencart\admin\model\setting\setting.php on line 9
+2021-02-17 9:35:38 - PHP Notice:  Undefined variable: query in D:\xampp\htdocs\opencart\admin\model\setting\setting.php on line 9
+2021-02-17 9:35:38 - PHP Notice:  Trying to get property 'rows' of non-object in D:\xampp\htdocs\opencart\admin\model\setting\setting.php on line 9
+2021-02-17 9:35:38 - PHP Warning:  Invalid argument supplied for foreach() in D:\xampp\htdocs\opencart\admin\model\setting\setting.php on line 9
+2021-02-17 9:35:38 - PHP Notice:  Undefined variable: query in D:\xampp\htdocs\opencart\admin\model\setting\setting.php on line 9
+2021-02-17 9:35:38 - PHP Notice:  Trying to get property 'rows' of non-object in D:\xampp\htdocs\opencart\admin\model\setting\setting.php on line 9
+2021-02-17 9:35:38 - PHP Warning:  Invalid argument supplied for foreach() in D:\xampp\htdocs\opencart\admin\model\setting\setting.php on line 9
+2021-02-17 9:35:38 - PHP Notice:  Undefined variable: query in D:\xampp\htdocs\opencart\admin\model\setting\setting.php on line 9
+2021-02-17 9:35:38 - PHP Notice:  Trying to get property 'rows' of non-object in D:\xampp\htdocs\opencart\admin\model\setting\setting.php on line 9
+2021-02-17 9:35:38 - PHP Warning:  Invalid argument supplied for foreach() in D:\xampp\htdocs\opencart\admin\model\setting\setting.php on line 9
+2021-02-18 5:58:04 - PHP Warning:  Use of undefined constant var_dump - assumed 'var_dump' (this will throw an Error in a future version of PHP) in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 16
+2021-02-18 5:58:04 - PHP Warning:  Illegal string offset '$storeresults' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 16
+2021-02-18 5:58:33 - PHP Warning:  Use of undefined constant var_dump - assumed 'var_dump' (this will throw an Error in a future version of PHP) in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 16
+2021-02-18 5:58:33 - PHP Warning:  Illegal string offset '$storeresults' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 16
+2021-02-18 7:35:57 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 36
+2021-02-18 7:36:27 - PHP Warning:  Use of undefined constant config_logo - assumed 'config_logo' (this will throw an Error in a future version of PHP) in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 36
+2021-02-18 7:36:27 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 36
+2021-02-18 7:41:54 - PHP Warning:  Invalid argument supplied for foreach() in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 36
+2021-02-18 7:42:15 - PHP Warning:  Invalid argument supplied for foreach() in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 36
+2021-02-18 7:44:21 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 36
+2021-02-18 7:44:40 - PHP Warning:  Use of undefined constant config_logo - assumed 'config_logo' (this will throw an Error in a future version of PHP) in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 36
+2021-02-18 7:44:40 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 36
+2021-02-18 7:45:07 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 36
+2021-02-18 7:48:54 - PHP Warning:  Invalid argument supplied for foreach() in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 36
+2021-02-18 7:49:54 - PHP Warning:  Invalid argument supplied for foreach() in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 36
+2021-02-18 8:31:29 - PHP Warning:  Invalid argument supplied for foreach() in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 37
+2021-02-18 8:31:50 - PHP Warning:  Invalid argument supplied for foreach() in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 37
+2021-02-18 8:31:53 - PHP Warning:  Invalid argument supplied for foreach() in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 37
+2021-02-18 8:31:54 - PHP Warning:  Invalid argument supplied for foreach() in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 37
+2021-02-18 8:31:55 - PHP Warning:  Invalid argument supplied for foreach() in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 37
+2021-02-18 8:42:11 - PHP Warning:  Invalid argument supplied for foreach() in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 37
+2021-02-18 8:56:13 - PHP Warning:  Invalid argument supplied for foreach() in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 38
+2021-02-18 9:19:05 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 39
+2021-02-18 9:19:23 - PHP Warning:  Illegal string offset 'key' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 39
+2021-02-18 9:29:18 - PHP Warning:  Illegal string offset '' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 39
+2021-02-18 9:29:50 - PHP Warning:  Use of undefined constant value - assumed 'value' (this will throw an Error in a future version of PHP) in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 39
+2021-02-18 9:29:50 - PHP Warning:  Illegal string offset 'value' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 39
+2021-02-18 9:30:09 - PHP Warning:  Illegal string offset 'value' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 39
+2021-02-18 9:31:53 - PHP Warning:  Illegal string offset '' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 39
+2021-02-18 9:42:14 - PHP Warning:  Illegal string offset 'Store_id' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 39
+2021-02-18 9:42:36 - PHP Warning:  Illegal string offset 'store_id' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 39
+2021-02-18 9:47:45 - PHP Warning:  Invalid argument supplied for foreach() in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 37
+2021-02-18 9:51:09 - PHP Warning:  Invalid argument supplied for foreach() in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 37
+2021-02-18 9:52:38 - PHP Warning:  Invalid argument supplied for foreach() in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 37
+2021-02-18 9:54:00 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 38
+2021-02-18 9:55:27 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 38
+2021-02-18 9:55:27 - PHP Notice:  Uninitialized string offset: 4 in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 38
+2021-02-18 9:55:46 - PHP Warning:  Illegal string offset '' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 38
+2021-02-18 9:59:06 - PHP Warning:  Invalid argument supplied for foreach() in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 41
+2021-02-18 9:59:56 - PHP Warning:  Invalid argument supplied for foreach() in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 41
+2021-02-18 10:03:42 - PHP Warning:  Invalid argument supplied for foreach() in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 41
+2021-02-18 10:05:35 - PHP Warning:  Invalid argument supplied for foreach() in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 41
+2021-02-18 10:05:36 - PHP Warning:  Invalid argument supplied for foreach() in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 41
+2021-02-18 10:05:37 - PHP Warning:  Invalid argument supplied for foreach() in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 41
+2021-02-18 10:05:37 - PHP Warning:  Invalid argument supplied for foreach() in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 41
+2021-02-18 10:05:37 - PHP Warning:  Invalid argument supplied for foreach() in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 41
+2021-02-18 10:27:44 - PHP Warning:  Invalid argument supplied for foreach() in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 41
+2021-02-18 10:27:48 - PHP Warning:  Invalid argument supplied for foreach() in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 41
+2021-02-18 10:28:11 - PHP Warning:  Invalid argument supplied for foreach() in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 41
+2021-02-18 10:28:39 - PHP Warning:  Invalid argument supplied for foreach() in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 41
+2021-02-18 10:36:03 - PHP Warning:  Invalid argument supplied for foreach() in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 41
+2021-02-18 12:15:41 - PHP Notice:  Undefined index: config_account in D:\xampp\htdocs\opencart\catalog\controller\extension\payment\razorpay.php on line 99
+2021-02-18 12:15:41 - PHP Notice:  Undefined index: config_payment in D:\xampp\htdocs\opencart\catalog\controller\extension\payment\razorpay.php on line 100
+2021-02-18 12:15:41 - Exactly one of account, account_code & customer to be passed.
+2021-02-18 12:26:24 - PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in D:\xampp\htdocs\opencart\system\library\mail\mail.php on line 77
+2021-02-18 12:26:26 - PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in D:\xampp\htdocs\opencart\system\library\mail\mail.php on line 77
+2021-02-19 4:28:14 - PHP Warning:  mysqli::query(): (HY000/1194): Table 'oc_customer' is marked as crashed and should be repaired in D:\xampp\htdocs\opencart\system\library\db\mysqli.php on line 18
+2021-02-19 4:30:50 - PHP Warning:  mysqli::query(): (HY000/1194): Table 'oc_customer' is marked as crashed and should be repaired in D:\xampp\htdocs\opencart\system\library\db\mysqli.php on line 18
+2021-02-19 4:31:06 - PHP Warning:  mysqli::query(): (HY000/1194): Table 'oc_customer' is marked as crashed and should be repaired in D:\xampp\htdocs\opencart\system\library\db\mysqli.php on line 18
+2021-02-19 4:36:57 - PHP Warning:  mysqli::query(): (HY000/1194): Table 'oc_customer' is marked as crashed and should be repaired in D:\xampp\htdocs\opencart\system\library\db\mysqli.php on line 18
+2021-02-19 4:53:08 - PHP Warning:  mysqli::query(): (HY000/1194): Table 'oc_customer' is marked as crashed and should be repaired in D:\xampp\htdocs\opencart\system\library\db\mysqli.php on line 18
+2021-02-19 5:02:44 - PHP Warning:  mysqli::query(): (HY000/1194): Table 'oc_customer' is marked as crashed and should be repaired in D:\xampp\htdocs\opencart\system\library\db\mysqli.php on line 18
+2021-02-19 5:03:15 - PHP Warning:  mysqli::query(): (HY000/1194): Table 'oc_customer' is marked as crashed and should be repaired in D:\xampp\htdocs\opencart\system\library\db\mysqli.php on line 18
+2021-02-19 5:03:52 - PHP Warning:  mysqli::query(): (HY000/1194): Table 'oc_customer' is marked as crashed and should be repaired in D:\xampp\htdocs\opencart\system\library\db\mysqli.php on line 18
+2021-02-19 5:04:05 - PHP Warning:  mysqli::query(): (HY000/1194): Table 'oc_customer' is marked as crashed and should be repaired in D:\xampp\htdocs\opencart\system\library\db\mysqli.php on line 18
+2021-02-19 5:08:07 - PHP Warning:  mysqli::query(): (HY000/1194): Table 'oc_customer' is marked as crashed and should be repaired in D:\xampp\htdocs\opencart\system\library\db\mysqli.php on line 18
+2021-02-19 5:39:01 - PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in D:\xampp\htdocs\opencart\system\library\mail\mail.php on line 77
+2021-02-19 5:41:36 - PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in D:\xampp\htdocs\opencart\system\library\mail\mail.php on line 77
+2021-02-19 5:44:16 - PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in D:\xampp\htdocs\opencart\system\library\mail\mail.php on line 77
+2021-02-19 7:27:17 - PHP Notice:  Undefined index: storeid in D:\xampp\htdocs\opencart\admin\controller\user\user.php on line 378
+2021-02-19 7:27:21 - PHP Notice:  Undefined index: storeid in D:\xampp\htdocs\opencart\admin\controller\user\user.php on line 378
+2021-02-19 7:28:32 - PHP Notice:  Undefined index: storeid in D:\xampp\htdocs\opencart\admin\controller\user\user.php on line 378
+2021-02-19 7:32:03 - PHP Notice:  Undefined index: storeid in D:\xampp\htdocs\opencart\admin\controller\user\user.php on line 378
+2021-02-19 10:02:46 - PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in D:\xampp\htdocs\opencart\system\library\mail\mail.php on line 77
+2021-02-19 10:05:26 - PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in D:\xampp\htdocs\opencart\system\library\mail\mail.php on line 77
+2021-02-19 10:05:28 - PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in D:\xampp\htdocs\opencart\system\library\mail\mail.php on line 77
+2021-02-19 11:34:06 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:06 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:06 - PHP Notice:  Uninitialized string offset: 0 in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:06 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:06 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:06 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:06 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:06 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:06 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:06 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:06 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:06 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:06 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:06 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:06 - PHP Notice:  Uninitialized string offset: 0 in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:06 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:06 - PHP Notice:  Uninitialized string offset: 0 in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:06 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:06 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:06 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:06 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:06 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:06 - PHP Notice:  Uninitialized string offset: 0 in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:06 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:06 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:06 - PHP Notice:  Uninitialized string offset: 0 in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:06 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:06 - PHP Notice:  Uninitialized string offset: 0 in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:06 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:06 - PHP Notice:  Uninitialized string offset: 0 in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:06 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:06 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:06 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:06 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:06 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:06 - PHP Notice:  Uninitialized string offset: 0 in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:06 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:06 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:06 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:06 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:06 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:06 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:06 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:06 - PHP Notice:  Uninitialized string offset: 0 in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:06 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:06 - PHP Notice:  Uninitialized string offset: 0 in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:06 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:06 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:06 - PHP Notice:  Uninitialized string offset: 0 in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:06 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:36 - PHP Warning:  Illegal string offset 'config' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:36 - PHP Warning:  Illegal string offset 'config' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:36 - PHP Notice:  Uninitialized string offset: 0 in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:36 - PHP Warning:  Illegal string offset 'config' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:36 - PHP Warning:  Illegal string offset 'config' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:36 - PHP Warning:  Illegal string offset 'config' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:36 - PHP Warning:  Illegal string offset 'config' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:36 - PHP Warning:  Illegal string offset 'config' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:36 - PHP Warning:  Illegal string offset 'config' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:36 - PHP Warning:  Illegal string offset 'config' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:36 - PHP Warning:  Illegal string offset 'config' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:36 - PHP Warning:  Illegal string offset 'config' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:36 - PHP Warning:  Illegal string offset 'config' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:36 - PHP Warning:  Illegal string offset 'config' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:36 - PHP Notice:  Uninitialized string offset: 0 in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:36 - PHP Warning:  Illegal string offset 'config' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:36 - PHP Notice:  Uninitialized string offset: 0 in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:36 - PHP Warning:  Illegal string offset 'config' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:36 - PHP Warning:  Illegal string offset 'config' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:36 - PHP Warning:  Illegal string offset 'config' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:36 - PHP Warning:  Illegal string offset 'config' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:36 - PHP Warning:  Illegal string offset 'config' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:36 - PHP Notice:  Uninitialized string offset: 0 in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:36 - PHP Warning:  Illegal string offset 'config' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:36 - PHP Warning:  Illegal string offset 'config' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:36 - PHP Notice:  Uninitialized string offset: 0 in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:36 - PHP Warning:  Illegal string offset 'config' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:36 - PHP Notice:  Uninitialized string offset: 0 in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:36 - PHP Warning:  Illegal string offset 'config' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:36 - PHP Notice:  Uninitialized string offset: 0 in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:37 - PHP Warning:  Illegal string offset 'config' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:37 - PHP Warning:  Illegal string offset 'config' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:37 - PHP Warning:  Illegal string offset 'config' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:37 - PHP Warning:  Illegal string offset 'config' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:37 - PHP Warning:  Illegal string offset 'config' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:37 - PHP Notice:  Uninitialized string offset: 0 in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:37 - PHP Warning:  Illegal string offset 'config' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:37 - PHP Warning:  Illegal string offset 'config' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:37 - PHP Warning:  Illegal string offset 'config' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:37 - PHP Warning:  Illegal string offset 'config' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:37 - PHP Warning:  Illegal string offset 'config' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:37 - PHP Warning:  Illegal string offset 'config' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:37 - PHP Warning:  Illegal string offset 'config' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:37 - PHP Notice:  Uninitialized string offset: 0 in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:37 - PHP Warning:  Illegal string offset 'config' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:37 - PHP Notice:  Uninitialized string offset: 0 in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:37 - PHP Warning:  Illegal string offset 'config' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:37 - PHP Warning:  Illegal string offset 'config' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:37 - PHP Notice:  Uninitialized string offset: 0 in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 11:34:37 - PHP Warning:  Illegal string offset 'config' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 45
+2021-02-19 12:31:14 - PHP Notice:  Undefined index: store_id in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 19
+2021-02-19 12:32:41 - PHP Notice:  Undefined index: store_id in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 19
+2021-02-24 7:57:48 - PHP Notice:  Undefined index: storeid in D:\xampp\htdocs\opencart\admin\controller\user\user.php on line 378
+2021-02-24 7:57:57 - PHP Notice:  Undefined index: storeid in D:\xampp\htdocs\opencart\admin\controller\user\user.php on line 378
+2021-02-24 7:58:03 - PHP Notice:  Undefined index: storeid in D:\xampp\htdocs\opencart\admin\controller\user\user.php on line 378
+2021-02-24 7:58:09 - PHP Notice:  Undefined index: storeid in D:\xampp\htdocs\opencart\admin\controller\user\user.php on line 378
+2021-02-24 8:00:52 - PHP Notice:  Undefined index: storeid in D:\xampp\htdocs\opencart\admin\controller\user\user.php on line 376
+2021-02-24 8:06:47 - PHP Notice:  Undefined index: storeid in D:\xampp\htdocs\opencart\admin\controller\user\user.php on line 376
+2021-02-24 8:06:56 - PHP Notice:  Undefined index: storeid in D:\xampp\htdocs\opencart\admin\controller\user\user.php on line 376
+2021-02-24 8:07:03 - PHP Notice:  Undefined index: storeid in D:\xampp\htdocs\opencart\admin\controller\user\user.php on line 376
+2021-02-25 5:24:08 - PHP Notice:  Undefined index: storename in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 44
+2021-02-25 5:24:09 - PHP Notice:  Undefined index: storename in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 44
+2021-02-25 5:24:09 - PHP Notice:  Undefined index: storename in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 44
+2021-02-25 5:56:29 - PHP Warning:  Use of undefined constant id - assumed 'id' (this will throw an Error in a future version of PHP) in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 33
+2021-02-25 5:56:29 - PHP Warning:  Use of undefined constant id - assumed 'id' (this will throw an Error in a future version of PHP) in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 33
+2021-02-25 5:56:29 - PHP Warning:  Use of undefined constant id - assumed 'id' (this will throw an Error in a future version of PHP) in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 33
+2021-02-25 6:01:11 - PHP Warning:  Illegal string offset 'config_name' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 38
+2021-02-25 6:01:11 - PHP Warning:  Illegal string offset 'config_owner' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 39
+2021-02-25 6:01:11 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 43
+2021-02-25 6:01:11 - PHP Warning:  Illegal string offset 'config_name' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 38
+2021-02-25 6:01:11 - PHP Warning:  Illegal string offset 'config_owner' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 39
+2021-02-25 6:01:11 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 43
+2021-02-25 6:01:11 - PHP Warning:  Illegal string offset 'config_name' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 38
+2021-02-25 6:01:11 - PHP Warning:  Illegal string offset 'config_owner' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 39
+2021-02-25 6:01:11 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 43
+2021-02-25 6:04:12 - PHP Warning:  Illegal string offset 'config_name' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 38
+2021-02-25 6:04:12 - PHP Warning:  Illegal string offset 'config_owner' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 39
+2021-02-25 6:04:12 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 43
+2021-02-25 6:04:12 - PHP Warning:  Illegal string offset 'config_name' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 38
+2021-02-25 6:04:12 - PHP Warning:  Illegal string offset 'config_owner' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 39
+2021-02-25 6:04:12 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 43
+2021-02-25 6:04:12 - PHP Warning:  Illegal string offset 'config_name' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 38
+2021-02-25 6:04:12 - PHP Warning:  Illegal string offset 'config_owner' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 39
+2021-02-25 6:04:12 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 43
+2021-02-25 6:49:15 - PHP Notice:  Undefined variable: storeid in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 35
+2021-02-25 6:49:15 - PHP Notice:  Undefined variable: storeid in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 35
+2021-02-25 6:49:15 - PHP Notice:  Undefined variable: storeid in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 35
+2021-02-25 6:54:26 - PHP Warning:  Illegal string offset 'config_name' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 41
+2021-02-25 6:54:26 - PHP Warning:  Illegal string offset 'config_owner' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 42
+2021-02-25 6:54:26 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 46
+2021-02-25 6:54:26 - PHP Warning:  Illegal string offset 'config_name' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 41
+2021-02-25 6:54:26 - PHP Warning:  Illegal string offset 'config_owner' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 42
+2021-02-25 6:54:26 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 46
+2021-02-25 6:54:26 - PHP Warning:  Illegal string offset 'config_name' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 41
+2021-02-25 6:54:26 - PHP Warning:  Illegal string offset 'config_owner' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 42
+2021-02-25 6:54:26 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 46
+2021-02-25 7:06:41 - PHP Warning:  Use of undefined constant config - assumed 'config' (this will throw an Error in a future version of PHP) in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 36
+2021-02-25 7:06:41 - PHP Warning:  Use of undefined constant config - assumed 'config' (this will throw an Error in a future version of PHP) in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 36
+2021-02-25 7:06:41 - PHP Warning:  Use of undefined constant config - assumed 'config' (this will throw an Error in a future version of PHP) in D:\xampp\htdocs\opencart\catalog\controller\common\stores.php on line 36
+2021-02-26 10:29:15 - PHP Notice:  Undefined index: config_account in D:\xampp\htdocs\opencart\catalog\controller\extension\payment\razorpay.php on line 99
+2021-02-26 10:29:15 - PHP Notice:  Undefined index: config_payment in D:\xampp\htdocs\opencart\catalog\controller\extension\payment\razorpay.php on line 100
+2021-02-26 10:29:16 - Exactly one of account, account_code & customer to be passed.
+2021-02-26 10:29:41 - PHP Notice:  Undefined index: config_account in D:\xampp\htdocs\opencart\catalog\controller\extension\payment\razorpay.php on line 99
+2021-02-26 10:29:41 - PHP Notice:  Undefined index: config_payment in D:\xampp\htdocs\opencart\catalog\controller\extension\payment\razorpay.php on line 100
+2021-02-26 10:29:41 - Exactly one of account, account_code & customer to be passed.
+2021-02-26 10:33:21 - PHP Notice:  Undefined index: config_account in D:\xampp\htdocs\opencart\catalog\controller\extension\payment\razorpay.php on line 99
+2021-02-26 10:33:21 - PHP Notice:  Undefined index: config_payment in D:\xampp\htdocs\opencart\catalog\controller\extension\payment\razorpay.php on line 100
+2021-02-26 10:33:22 - Exactly one of account, account_code & customer to be passed.
+2021-02-26 12:29:32 - PHP Notice:  Undefined index: config_account in D:\xampp\htdocs\opencart\catalog\controller\extension\payment\razorpay.php on line 99
+2021-02-26 12:29:32 - PHP Notice:  Undefined index: config_payment in D:\xampp\htdocs\opencart\catalog\controller\extension\payment\razorpay.php on line 100
+2021-02-26 12:29:32 - Exactly one of account, account_code & customer to be passed.
+2021-02-27 5:55:47 - PHP Warning:  mysqli::__construct(): (HY000/2002): No connection could be made because the target machine actively refused it.
+ in D:\xampp\htdocs\opencart\system\library\db\mysqli.php on line 7
+2021-02-27 5:55:47 - PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in D:\xampp\htdocs\opencart\system\library\db\mysqli.php on line 10
+2021-02-27 5:55:47 - PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in D:\xampp\htdocs\opencart\system\library\db\mysqli.php on line 10
+2021-02-27 6:04:30 - The account must be 18 characters.
+2021-02-27 6:15:18 - PHP Warning:  mysqli::__construct(): (HY000/2002): No connection could be made because the target machine actively refused it.
+ in D:\xampp\htdocs\opencart\system\library\db\mysqli.php on line 7
+2021-02-27 6:15:18 - PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in D:\xampp\htdocs\opencart\system\library\db\mysqli.php on line 10
+2021-02-27 6:15:18 - PHP Warning:  DB\MySQLi::__construct(): Couldn't fetch mysqli in D:\xampp\htdocs\opencart\system\library\db\mysqli.php on line 10
+2021-02-27 6:53:27 - PHP Notice:  Undefined index: config_account in D:\xampp\htdocs\opencart\catalog\controller\extension\payment\razorpay.php on line 99
+2021-02-27 6:53:27 - PHP Notice:  Undefined index: config_payment in D:\xampp\htdocs\opencart\catalog\controller\extension\payment\razorpay.php on line 100
+2021-02-27 6:53:28 - Exactly one of account, account_code & customer to be passed.
+2021-02-27 6:58:04 - PHP Notice:  Undefined index: config_account in D:\xampp\htdocs\opencart\catalog\controller\extension\payment\razorpay.php on line 99
+2021-02-27 6:58:04 - PHP Notice:  Undefined index: config_payment in D:\xampp\htdocs\opencart\catalog\controller\extension\payment\razorpay.php on line 100
+2021-02-27 6:58:05 - The currency should be INR for transfers
+2021-02-27 7:09:01 - The account must be 18 characters.
+2021-02-27 7:18:27 - PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in D:\xampp\htdocs\opencart\system\library\mail\mail.php on line 77
+2021-02-27 7:18:29 - PHP Warning:  mail(): Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() in D:\xampp\htdocs\opencart\system\library\mail\mail.php on line 77
+2021-03-03 5:41:20 - PHP Notice:  Trying to access array offset on value of type bool in D:\xampp\htdocs\opencart\catalog\controller\startup\startup.php on line 166
+2021-03-03 5:41:20 - PHP Notice:  Trying to access array offset on value of type bool in D:\xampp\htdocs\opencart\catalog\controller\startup\startup.php on line 166
+2021-03-03 5:41:41 - PHP Notice:  Trying to access array offset on value of type bool in D:\xampp\htdocs\opencart\catalog\controller\startup\startup.php on line 166
+2021-03-03 5:41:41 - PHP Notice:  Trying to access array offset on value of type bool in D:\xampp\htdocs\opencart\catalog\controller\startup\startup.php on line 166
+2021-03-03 5:41:46 - PHP Notice:  Trying to access array offset on value of type bool in D:\xampp\htdocs\opencart\catalog\controller\startup\startup.php on line 166
+2021-03-03 5:41:46 - PHP Notice:  Trying to access array offset on value of type bool in D:\xampp\htdocs\opencart\catalog\controller\startup\startup.php on line 166
+2021-03-03 5:41:50 - PHP Notice:  Trying to access array offset on value of type bool in D:\xampp\htdocs\opencart\catalog\controller\startup\startup.php on line 166
+2021-03-03 5:41:50 - PHP Notice:  Trying to access array offset on value of type bool in D:\xampp\htdocs\opencart\catalog\controller\startup\startup.php on line 166
+2021-03-03 5:42:06 - PHP Notice:  Trying to access array offset on value of type bool in D:\xampp\htdocs\opencart\catalog\controller\startup\startup.php on line 166
+2021-03-03 5:42:06 - PHP Notice:  Trying to access array offset on value of type bool in D:\xampp\htdocs\opencart\catalog\controller\startup\startup.php on line 166
+2021-03-03 5:42:09 - PHP Notice:  Trying to access array offset on value of type bool in D:\xampp\htdocs\opencart\catalog\controller\startup\startup.php on line 166
+2021-03-03 5:42:09 - PHP Notice:  Trying to access array offset on value of type bool in D:\xampp\htdocs\opencart\catalog\controller\startup\startup.php on line 166
+2021-03-03 5:42:20 - PHP Notice:  Trying to access array offset on value of type bool in D:\xampp\htdocs\opencart\catalog\controller\startup\startup.php on line 166
+2021-03-03 5:42:20 - PHP Notice:  Trying to access array offset on value of type bool in D:\xampp\htdocs\opencart\catalog\controller\startup\startup.php on line 166
+2021-03-03 5:42:26 - PHP Notice:  Trying to access array offset on value of type bool in D:\xampp\htdocs\opencart\catalog\controller\startup\startup.php on line 166
+2021-03-03 5:42:26 - PHP Notice:  Trying to access array offset on value of type bool in D:\xampp\htdocs\opencart\catalog\controller\startup\startup.php on line 166
+2021-03-03 5:42:52 - PHP Notice:  Trying to access array offset on value of type bool in D:\xampp\htdocs\opencart\catalog\controller\startup\startup.php on line 166
+2021-03-03 5:42:52 - PHP Notice:  Trying to access array offset on value of type bool in D:\xampp\htdocs\opencart\catalog\controller\startup\startup.php on line 166
+2021-03-03 5:54:43 - PHP Notice:  Trying to access array offset on value of type bool in D:\xampp\htdocs\opencart\catalog\controller\startup\startup.php on line 166
+2021-03-03 5:54:43 - PHP Notice:  Trying to access array offset on value of type bool in D:\xampp\htdocs\opencart\catalog\controller\startup\startup.php on line 166
+2021-03-03 5:56:43 - PHP Notice:  Trying to access array offset on value of type bool in D:\xampp\htdocs\opencart\catalog\controller\startup\startup.php on line 166
+2021-03-03 5:56:43 - PHP Notice:  Trying to access array offset on value of type bool in D:\xampp\htdocs\opencart\catalog\controller\startup\startup.php on line 166
+2021-03-03 5:58:58 - PHP Notice:  Trying to access array offset on value of type bool in D:\xampp\htdocs\opencart\catalog\controller\startup\startup.php on line 166
+2021-03-03 5:58:58 - PHP Notice:  Trying to access array offset on value of type bool in D:\xampp\htdocs\opencart\catalog\controller\startup\startup.php on line 166
+2021-03-03 6:03:17 - PHP Notice:  Trying to access array offset on value of type bool in D:\xampp\htdocs\opencart\catalog\controller\startup\startup.php on line 166
+2021-03-03 6:03:17 - PHP Notice:  Trying to access array offset on value of type bool in D:\xampp\htdocs\opencart\catalog\controller\startup\startup.php on line 166
+2021-03-03 6:05:05 - PHP Notice:  Trying to access array offset on value of type bool in D:\xampp\htdocs\opencart\catalog\controller\startup\startup.php on line 166
+2021-03-03 6:05:05 - PHP Notice:  Trying to access array offset on value of type bool in D:\xampp\htdocs\opencart\catalog\controller\startup\startup.php on line 166
+2021-03-03 6:05:20 - PHP Notice:  Trying to access array offset on value of type bool in D:\xampp\htdocs\opencart\catalog\controller\startup\startup.php on line 166
+2021-03-03 6:05:20 - PHP Notice:  Trying to access array offset on value of type bool in D:\xampp\htdocs\opencart\catalog\controller\startup\startup.php on line 166
+2021-03-03 6:05:59 - PHP Notice:  Trying to access array offset on value of type bool in D:\xampp\htdocs\opencart\catalog\controller\startup\startup.php on line 166
+2021-03-03 6:05:59 - PHP Notice:  Trying to access array offset on value of type bool in D:\xampp\htdocs\opencart\catalog\controller\startup\startup.php on line 166
+2021-03-03 6:11:05 - PHP Notice:  Trying to access array offset on value of type bool in D:\xampp\htdocs\opencart\catalog\controller\startup\startup.php on line 167
+2021-03-03 6:11:05 - PHP Notice:  Trying to access array offset on value of type bool in D:\xampp\htdocs\opencart\catalog\controller\startup\startup.php on line 167
+2021-03-03 6:14:31 - PHP Notice:  Trying to access array offset on value of type bool in D:\xampp\htdocs\opencart\catalog\controller\startup\startup.php on line 167
+2021-03-03 6:14:31 - PHP Notice:  Trying to access array offset on value of type bool in D:\xampp\htdocs\opencart\catalog\controller\startup\startup.php on line 167
+2021-03-03 7:05:38 - PHP Warning:  Illegal string offset 'lastname' in D:\xampp\htdocs\opencart\catalog\controller\account\account.php on line 76
+2021-03-03 7:05:38 - PHP Notice:  Indirect modification of overloaded property ControllerAccountAccount::$data has no effect in D:\xampp\htdocs\opencart\catalog\controller\account\account.php on line 76
+2021-03-03 7:06:20 - PHP Notice:  Indirect modification of overloaded property ControllerAccountAccount::$data has no effect in D:\xampp\htdocs\opencart\catalog\controller\account\account.php on line 76
+2021-03-03 7:40:17 - PHP Notice:  Indirect modification of overloaded property ControllerAccountAccount::$data has no effect in D:\xampp\htdocs\opencart\catalog\controller\account\account.php on line 77
+2021-03-03 9:32:07 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 65
+2021-03-03 9:42:46 - PHP Notice:  Undefined index: name in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 65
+2021-03-03 9:43:16 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 65
+2021-03-03 10:25:40 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 70
+2021-03-03 10:26:57 - PHP Warning:  Illegal string offset 'firstname' in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 72
+2021-03-03 10:28:44 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-03 10:29:52 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-03 10:30:06 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-03 10:30:41 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-03 10:30:45 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-03 10:52:19 - PHP Notice:  Undefined variable: storeid in D:\xampp\htdocs\opencart\admin\controller\common\header.php on line 83
+2021-03-03 11:15:09 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\admin\controller\common\header.php on line 94
+2021-03-03 11:15:09 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\admin\controller\common\header.php on line 94
+2021-03-03 11:15:09 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\admin\controller\common\header.php on line 94
+2021-03-03 11:15:09 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\admin\controller\common\header.php on line 94
+2021-03-03 11:15:09 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\admin\controller\common\header.php on line 94
+2021-03-03 11:15:09 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\admin\controller\common\header.php on line 94
+2021-03-03 11:15:09 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\admin\controller\common\header.php on line 94
+2021-03-03 11:15:09 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\admin\controller\common\header.php on line 94
+2021-03-03 11:17:51 - PHP Warning:  Use of undefined constant config_logo - assumed 'config_logo' (this will throw an Error in a future version of PHP) in D:\xampp\htdocs\opencart\admin\controller\common\header.php on line 86
+2021-03-03 11:17:51 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\admin\controller\common\header.php on line 91
+2021-03-03 11:17:51 - PHP Warning:  Use of undefined constant config_logo - assumed 'config_logo' (this will throw an Error in a future version of PHP) in D:\xampp\htdocs\opencart\admin\controller\common\header.php on line 86
+2021-03-03 11:17:51 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\admin\controller\common\header.php on line 91
+2021-03-03 11:17:51 - PHP Warning:  Use of undefined constant config_logo - assumed 'config_logo' (this will throw an Error in a future version of PHP) in D:\xampp\htdocs\opencart\admin\controller\common\header.php on line 86
+2021-03-03 11:17:51 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\admin\controller\common\header.php on line 91
+2021-03-03 11:17:51 - PHP Warning:  Use of undefined constant config_logo - assumed 'config_logo' (this will throw an Error in a future version of PHP) in D:\xampp\htdocs\opencart\admin\controller\common\header.php on line 86
+2021-03-03 11:17:51 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\admin\controller\common\header.php on line 91
+2021-03-03 11:17:51 - PHP Warning:  Use of undefined constant config_logo - assumed 'config_logo' (this will throw an Error in a future version of PHP) in D:\xampp\htdocs\opencart\admin\controller\common\header.php on line 86
+2021-03-03 11:17:51 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\admin\controller\common\header.php on line 91
+2021-03-03 11:17:51 - PHP Warning:  Use of undefined constant config_logo - assumed 'config_logo' (this will throw an Error in a future version of PHP) in D:\xampp\htdocs\opencart\admin\controller\common\header.php on line 86
+2021-03-03 11:17:51 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\admin\controller\common\header.php on line 91
+2021-03-03 11:17:51 - PHP Warning:  Use of undefined constant config_logo - assumed 'config_logo' (this will throw an Error in a future version of PHP) in D:\xampp\htdocs\opencart\admin\controller\common\header.php on line 86
+2021-03-03 11:17:51 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\admin\controller\common\header.php on line 91
+2021-03-03 11:17:51 - PHP Warning:  Use of undefined constant config_logo - assumed 'config_logo' (this will throw an Error in a future version of PHP) in D:\xampp\htdocs\opencart\admin\controller\common\header.php on line 86
+2021-03-03 11:17:51 - PHP Warning:  Illegal string offset 'config_logo' in D:\xampp\htdocs\opencart\admin\controller\common\header.php on line 91
+2021-03-03 11:35:39 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-03 11:35:48 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-03 11:50:37 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-03 11:52:54 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-03 11:54:16 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-03 12:05:48 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-03 12:14:10 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-03 12:22:50 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-03 12:25:47 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-03 12:29:34 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-03 12:29:35 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-03 12:29:47 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-03 12:30:06 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-03 12:38:00 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-03 12:58:24 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-04 5:17:53 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-04 5:18:16 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-04 5:24:17 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-04 5:33:41 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-04 6:02:23 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-04 6:23:17 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-04 6:25:09 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-04 6:25:33 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-04 6:25:49 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-04 6:35:32 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-04 6:36:11 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-04 6:36:46 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-04 6:37:12 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-04 6:38:03 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-04 6:51:24 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-04 6:52:02 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-04 6:52:31 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-04 6:52:42 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-04 6:52:56 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-04 6:53:05 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-04 6:53:25 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-04 6:53:27 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-04 6:53:29 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-04 6:53:39 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-04 6:53:48 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-04 6:54:04 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-04 6:54:12 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-04 6:54:28 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-04 6:54:35 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-04 6:54:46 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-04 6:55:03 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-04 9:58:02 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 70
+2021-03-04 9:58:33 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 70
+2021-03-04 9:58:49 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 70
+2021-03-04 10:43:26 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 70
+2021-03-04 10:44:12 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 70
+2021-03-04 11:30:18 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 70
+2021-03-04 11:30:25 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 70
+2021-03-04 11:40:01 - PHP Notice:  Undefined index: customer_username in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 71
+2021-03-04 11:55:32 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 64
+2021-03-04 11:55:36 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 64
+2021-03-04 11:56:30 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 64
+2021-03-04 11:56:33 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 64
+2021-03-04 12:19:39 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 64
+2021-03-04 12:19:42 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 64
+2021-03-04 12:20:12 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 64
+2021-03-04 12:20:27 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 64
+2021-03-04 12:21:56 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 64
+2021-03-04 12:22:22 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 64
+2021-03-04 12:22:49 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 64
+2021-03-04 12:22:56 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 64
+2021-03-04 12:26:40 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 64
+2021-03-04 12:27:50 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 64
+2021-03-04 12:29:00 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 64
+2021-03-04 12:45:48 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 64
+2021-03-04 12:45:57 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 64
+2021-03-04 12:47:42 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 64
+2021-03-04 12:48:33 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 64
+2021-03-04 12:49:07 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 64
+2021-03-04 12:49:28 - PHP Notice:  Undefined index: firstname in D:\xampp\htdocs\opencart\catalog\controller\common\header.php on line 64

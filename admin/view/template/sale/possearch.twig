@@ -1,0 +1,72 @@
+<style>
+
+/* search */
+#search {
+	margin-bottom: 10px;
+}
+#search .input-lg {
+	height: 40px;
+	line-height: 20px;
+	padding: 0 10px;
+}
+#search .btn-lg {
+	font-size: 15px;
+	line-height: 18px;
+	padding: 10px 35px;
+	text-shadow: 0 1px 0 #FFF;
+}
+
+#search .btn-lg {
+    font-size: 15px;
+    line-height: 18px;
+    padding: 10px 35px;
+    text-shadow: 0 1px 0 #fff;
+}
+
+.btn-default {
+    color: #777;
+    text-shadow: 0 1px 0 rgb(255 255 255 / 50%);
+    background-color: #e7e7e7;
+    background-image: linear-gradient(to bottom,#eeeeee,#dddddd);
+    background-repeat: repeat-x;
+    border-color: #ddd #ddd #b3b3b3 #b7b7b7;
+}
+
+</style>
+<div id="search" class="input-group">
+
+<!-- 
+style="margin-left:400px ; margin-top:10px  " />
+
+-->
+<input type="text" name="search" value="{{ search }}"  placeholder="Search for Products" class="form-control input-lg" style="margin-left:360px ; margin-top:9px ;font-size:12px;  " />
+
+
+<span class="input-group-btn">
+<button type="button" class="btn btn-default btn-lg"  style="margin-left:360px ; margin-top:10px"   ><i class="fa fa-search"  style="height:23px; width :15px; "></i></button>
+</span>
+</div>
+
+        <script type="text/javascript">    
+
+        $('#search input[name=\'search\']').parent().find('button').on('click', function() {
+
+        var url = $('base').attr('href') + 'index.php?route=product/search&user_token={{ user_token }}';
+
+        // alert(url);
+
+        var value = $(' #search input[name=\'search\']').val();
+
+        // alert('entered value is '+value);
+
+        if (value) 
+        {
+        url += '&search=' + (value);
+
+        }
+
+        location = url;
+        });
+
+
+        </script>

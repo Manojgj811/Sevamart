@@ -1,0 +1,558 @@
+
+<div class="row">
+    <div id="filter-report" class="col-md-3 col-md-push-9 col-sm-12 hidden-sm hidden-xs">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"><i class="fa fa-filter"></i> {{ text_filter }}</h3>
+        </div>
+        <div class="panel-body">
+          <div class="form-group">
+            <label class="control-label" for="input-date-start">{{ entry_date_start }}</label>
+            <div class="input-group date">
+              <input type="text" name="filter_date_start" value="{{ filter_date_start }}" placeholder="{{ entry_date_start }}" data-date-format="YYYY-MM-DD" id="input-date-start" class="form-control" />
+              <span class="input-group-btn">
+              <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
+              </span></div>
+          </div>
+          <div class="form-group">
+            <label class="control-label" for="input-date-end">{{ entry_date_end }}</label>
+            <div class="input-group date">
+              <input type="text" name="filter_date_end" value="{{ filter_date_end }}" placeholder="{{ entry_date_end }}" data-date-format="YYYY-MM-DD" id="input-date-end" class="form-control" />
+              <span class="input-group-btn">
+              <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
+              </span></div>
+          </div>
+  
+  
+          <div class="form-group">
+            <label class="control-label" for="input-group">{{ entry_group }}</label>
+            <select name="filter_group" id="input-group" class="form-control">
+              
+              <option value="">None</option>
+                {% for group in groups %}
+                    {% if group.value == filter_group %}
+                    
+              <option value="{{ group.value }}" selected="selected">{{ group.text }}</option>
+              
+              
+              
+            
+                    {% else %}
+                    
+            
+              
+              
+              <option value="{{ group.value }}">{{ group.text }}</option>
+              
+              
+              
+            
+                    {% endif %}
+                    {% endfor %}
+                  
+          
+            
+            
+            </select>
+          </div>
+          <div class="form-group">
+            <label class="control-label" for="input-status">{{ entry_status }}</label>
+            <select name="filter_order_status_id" class="form-control">
+              <option value="0">{{ text_all_status }}</option>
+              
+              
+              
+            
+                    {% for order_status in order_statuses %}
+                    {% if order_status.order_status_id == filter_order_status_id %}
+                    
+            
+              
+              
+              <option value="{{ order_status.order_status_id }}" selected="selected">{{ order_status.name }}</option>
+              
+              
+              
+            
+                    {% else %}
+                    
+            
+              
+              
+              <option value="{{ order_status.order_status_id }}">{{ order_status.name }}</option>
+              
+              
+              
+            
+                    {% endif %}
+                    {% endfor %}
+                  
+          
+            
+            
+            </select>
+          </div>
+          <div class="form-group text-right">
+            <button type="button" id="button-filter" class="btn btn-default"><i class="fa fa-filter"></i> {{ button_filter }}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  
+               {% if user_group==1%}
+                  <p>stores</p>
+           <select name="storeid" id="storeids" >
+              <option value="" selected></option>
+      
+              {% for store in stores %}
+             
+              <option value="{{store.storeid}}" >{{store.name}}</option>
+  
+              {% endfor %}
+          </select>
+               {% endif %}
+  
+  
+            <script type="text/javascript">
+             var customerData;
+             $(document).ready(function () {
+              var tableData = showTableData("myTable");
+              customerData = tableData;
+             });
+  
+  
+           $(document).ready(function () {
+              $("#storeids").change(function () {
+              var id = $(this).val();
+              var myTable = document.getElementById("myTable");
+              var rowCount = myTable.rows.length;
+              var rows=myTable.rows;
+                
+  
+               for (var x=rowCount-1; x>0; x--) 
+                {
+                  myTable.deleteRow(x);
+                }
+  
+  //
+                   for (var i = 0; i < customerData.length; i++) 
+                  {
+                      if(customerData[i][19]==id)
+                    {
+                      var row = myTable.insertRow(-1);
+
+                        for (var j = 0; j < customerData[i].length; j++)
+                         {
+                             var cell = row.insertCell(-1);
+
+                            cell.innerHTML = customerData[i][j];
+
+                          }
+                           
+                                var sum_sub_total               = 0;
+                                var sum_cgst_order_amount       = 0;
+                                var sum_sgst_order_amount       = 0;
+                                var sum_cgst_delivery_amount    = 0;
+                                var sum_sgst_delivery_amount    = 0;
+                                var sum_commission_amount       = 0;
+                                var sum_cgst_commission_amount  = 0;
+                                var sum_sgst_commission_amount  = 0;
+                                var sum_total_commission_amount = 0;
+                            
+                        for (var k = 1; k<myTable.rows.length; k++) 
+                        {
+                          sum_sub_total               = sum_sub_total               + parseFloat(myTable.rows[k].cells[4].innerHTML);      
+                          sum_cgst_order_amount       = sum_cgst_order_amount       + parseFloat(myTable.rows[k].cells[5].innerHTML);
+                          sum_sgst_order_amount       = sum_sgst_order_amount       + parseFloat(myTable.rows[k].cells[6].innerHTML);
+                          sum_cgst_delivery_amount    = sum_cgst_delivery_amount    + parseFloat(myTable.rows[k].cells[9].innerHTML);
+                          sum_sgst_delivery_amount    = sum_sgst_delivery_amount    + parseFloat(myTable.rows[k].cells[11].innerHTML);
+                          sum_commission_amount       = sum_commission_amount       + parseFloat(myTable.rows[k].cells[13].innerHTML);
+                          sum_cgst_commission_amount  = sum_cgst_commission_amount  + parseFloat(myTable.rows[k].cells[15].innerHTML);
+                          sum_sgst_commission_amount  = sum_sgst_commission_amount  + parseFloat(myTable.rows[k].cells[17].innerHTML);
+                          sum_total_commission_amount = sum_total_commission_amount + parseFloat(myTable.rows[k].cells[18].innerHTML);
+
+
+
+                        }
+      
+                    row.deleteCell(19);
+                        }
+                      
+                    }
+  
+                     document.getElementById('sub_total').innerHTML               = sum_sub_total ; 
+                     document.getElementById('cgst_order_amount').innerHTML       = sum_cgst_order_amount ; 
+                     document.getElementById('sgst_order_amount').innerHTML       = sum_sgst_order_amount ; 
+                     document.getElementById('cgst_delivery_amount').innerHTML    = sum_cgst_delivery_amount ; 
+                     document.getElementById('sgst_delivery_amount').innerHTML    = sum_sgst_delivery_amount ; 
+                     document.getElementById('commission_amount').innerHTML       = sum_commission_amount ;
+                     document.getElementById('cgst_commission_amount').innerHTML  = sum_cgst_commission_amount;
+                     document.getElementById('sgst_commission_amount').innerHTML  = sum_sgst_commission_amount ; 
+                     document.getElementById('total_commission_amount').innerHTML = sum_total_commission_amount ;  
+
+                     var sub_total               = document.getElementById('sub_total').innerHTML; 
+                     var cgst_order_amount       = document.getElementById('cgst_order_amount').innerHTML; 
+                     var sgst_order_amount       = document.getElementById('sgst_order_amount').innerHTML; 
+                     var cgst_delivery_amount    = document.getElementById('cgst_delivery_amount').innerHTML; 
+                     var sgst_delivery_amount    = document.getElementById('sgst_delivery_amount').innerHTML; 
+                     var commission_amount       = document.getElementById('commission_amount').innerHTML; 
+                     var cgst_commission_amount  = document.getElementById('cgst_commission_amount').innerHTML; 
+                     var sgst_commission_amount  = document.getElementById('sgst_commission_amount').innerHTML;
+                     var total_commission_amount = document.getElementById('total_commission_amount').innerHTML;               
+
+            $("#myTable").append('<tr><td colspan= 4>GrandTotal</td><td>'+sub_total+'</td><td>'+cgst_order_amount+'</td><td>'+sgst_order_amount+'</td><td>'+ 0+'</td><td>'+ 0+'</td><td>'+cgst_delivery_amount+'</td> <td>'+ 0+'</td><td>'+sgst_delivery_amount+'</td><td>'+ 0+'</td><td>'+commission_amount+'</td><td>'+ 0+'</td><td>'+cgst_commission_amount+'</td><td>'+ 0+'</td><td>'+sgst_commission_amount+'</td> <td>'+total_commission_amount+'</td></tr>');
+
+            });
+        });
+  
+  function showTableData(id) {
+            var info= [];
+              var myTab = document.getElementById(id);
+  
+              // LOOP THROUGH EACH ROW OF THE TABLE AFTER HEADER.
+              for (i = 1; i < myTab.rows.length; i++) {
+  
+                  // GET THE CELLS COLLECTION OF THE CURRENT ROW.
+                  var objCells = myTab.rows.item(i).cells;
+                  var rowData = [];
+                  // LOOP THROUGH EACH CELL OF THE CURENT ROW TO READ CELL VALUES.
+                  for (var j = 0; j < objCells.length; j++) {
+                   // alert(objCells.item(j).innerHTML);
+                      rowData.push(objCells.item(j).innerHTML);
+  
+                  }
+                  info.push(rowData);
+                    
+              }
+              return info;
+          }
+  
+  
+      </script>
+     
+  
+       
+   
+      {%if user_group==1%}
+  
+    <div class="col-md-9 col-md-pull-3 col-sm-12" >
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title"><i class="fa fa-bar-chart"></i> {{ heading_title }}</h3>
+        </div>
+        <div class="panel-body">
+          <div class="table-responsive">
+            <table   id="myTable"   class="table table-bordered">
+              <thead>
+                <tr>
+                   <td class="text-left">{{ column_orderid                    }}</td>
+                   <td class="text-left">{{ column_order_date_start           }}</td>
+                   <td class="text-left">{{ column_invoice                    }}</td>
+                   <td class="text-left">{{ column_mode_of_payment            }}</td>
+                   <td class="text-left">{{ column_sub_total                  }}</td>
+                   <td class="text-left">{{ column_cgst_order_amount          }}</td>  
+                   <td class="text-left">{{ column_sgst_order_amount          }}</td>
+                   <td class="text-left">{{ column_delivery_charge            }}</td>
+                   <td class="text-left">{{ column_cgst_delivery_percentage   }}</td>   
+                   <td class="text-left">{{ column_cgst_delivery_amount       }}</td>
+                   <td class="text-left">{{ column_sgst_delivery_percentage   }}</td>
+                   <td class="text-left">{{ column_sgst_delivery_amount       }}</td>
+                   <td class="text-left">{{ column_commission_percentage      }}</td>
+                   <td class="text-left">{{ column_commission_amount          }}</td>
+                   <td class="text-left">{{ column_cgst_commission_percentage }}</td>  
+                   <td class="text-left">{{ column_cgst_commission_amount     }}</td> 
+                   <td class="text-left">{{ column_sgst_commission_percentage }}</td>
+                   <td class="text-left">{{ column_sgst_commission_amount     }}</td>
+                   <td class="text-left">{{ column_total_commission_amount    }}</td>
+                   <td class="text-left" hidden>{{ storeidnumber              }}</td>
+                
+                </tr>
+              </thead>
+              <tbody>
+              
+              {% if orders %}
+  
+              {% for order in orders %}
+              <tr   id="rowids"   >
+                  
+                          <td class="text-left">{{ order.orderid                    }}</td>
+                          <td class="text-left">{{ order.date_start                 }}</td>
+                          <td class="text-left">{{ order.invoice                    }}</td>
+                          <td class="text-left">{{ order.payment_method             }}</td>
+                          <td class="text-left">{{ order.sub_total                  }}</td>
+                          <td class="text-left">{{ order.cgst_order_amount          }}</td>
+                          <td class="text-left">{{ order.sgst_order_amount          }}</td>
+                          <td class="text-left">{{ order.delivery_charge            }}</td>
+                          <td class="text-left">{{ order.cgst_delivery_percentage   }}</td>   
+                          <td class="text-left">{{ order.cgst_delivery_amount       }}</td>
+                          <td class="text-left">{{ order.sgst_delivery_percentage   }}</td>
+                          <td class="text-left">{{ order.sgst_delivery_amount       }}</td>
+                          <td class="text-left">{{ order.commission_percentage      }}</td>
+                          <td class="text-left">{{ order.commission_amount          }}</td>
+                          <td class="text-left">{{ order.cgst_commission_percentage }}</td>
+                          <td class="text-left">{{ order.cgst_commission_amount     }}</td>
+                          <td class="text-left">{{ order.sgst_commission_percentage }}</td>
+                          <td class="text-left">{{ order.sgst_commission_amount     }}</td>
+                          <td class="text-left">{{ order.total_commission_amount    }}</td>
+                          <td class="text-left"  hidden >{{ order.store             }}</td>  
+             </tr>
+                  {% else %}
+                       <tr>
+                        <td class="text-center" colspan="5">{{ text_no_results }}</td>
+                      </tr>
+  
+                   {% endfor %}
+                  {% endif %}
+
+                   </tbody>
+  
+                     <tr>
+                          <td class="text-left"  colspan="4">GRAND  TOTAL</td>
+                          <td class="text-left" >{{ sub_total               }}</td>
+                          <td class="text-left" >{{ cgst_order_amount       }}</td>
+                          <td class="text-left" >{{ sgst_order_amount       }}</td>
+                          <td class="text-left" >{{ blank1                  }}</td>
+                          <td class="text-left" >{{ blank2                  }}</td>
+                          <td class="text-left" >{{ cgst_delivery_amount    }}</td>
+                          <td class="text-left" >{{ blank3                  }}</td>
+                          <td class="text-left" >{{ sgst_delivery_amount    }}</td>
+                          <td class="text-left" >{{ blank4                  }}</td>
+                          <td class="text-left" >{{ commission_amount       }}</td>
+                          <td class="text-left" >{{ blank5                  }}</td>
+                          <td class="text-left" >{{ cgst_commission_amount  }}</td>
+                          <td class="text-left" >{{ blank6                  }}</td>
+                          <td class="text-left" >{{ sgst_commission_amount  }}</td>
+                          <td class="text-left" >{{ total_commission_amount }}</td>
+                    </tr>
+                 </table>
+  
+                  
+            </div>
+            <div class="row">
+            <div class="col-sm-6 text-left">{{ pagination }}</div>
+            <div class="col-sm-6 text-right">{{ results }}</div>
+          </div>
+           
+             </div>
+             </div>
+          </div>
+  
+               {% endif %} 
+  
+
+            <p id ='sub_total' hidden></p> 
+            <p id ='cgst_order_amount' hidden></p>
+            <p id ='sgst_order_amount' hidden></p> 
+            <p id ='sgst_delivery_amount' hidden></p>   
+            <p id ='cgst_delivery_amount' hidden></p>
+            <p id ='commission_amount' hidden></p> 
+            <p id ='cgst_commission_amount' hidden></p>
+            <p id ='sgst_commission_amount' hidden></p>
+            <p id ='total_commission_amount' hidden></p>
+            
+      
+      
+     
+      
+     
+       
+  
+  <script type="text/javascript">
+  function exportToExcel(tableID, filename = ''){
+      var downloadurl;
+      var dataFileType = 'application/vnd.ms-excel';
+      var tableSelect = document.getElementById(tableID);
+      var tableHTMLData = tableSelect.outerHTML.replace(/ /g, '%20');
+      
+      // Specify file name
+      filename = filename?filename+'.xls':'export_excel_data.xls';
+      
+      // Create download link element
+      downloadurl = document.createElement("a");
+      
+      document.body.appendChild(downloadurl);
+      
+      if(navigator.msSaveOrOpenBlob){
+          var blob = new Blob(['\ufeff', tableHTMLData], {
+              type: dataFileType
+          });
+          navigator.msSaveOrOpenBlob( blob, filename);
+      }else{
+          // Create a link to the file
+          downloadurl.href = 'data:' + dataFileType + ', ' + tableHTMLData;
+      
+          // Setting the file name
+          downloadurl.download = filename;
+          
+          //triggering the function
+          downloadurl.click();
+      }
+  }
+    
+  
+    </script>
+  
+  
+  
+  
+         
+            {%if user_group!=1%}
+
+            <div class="col-md-9 col-md-pull-3 col-sm-12">
+              <div class="panel panel-default">
+                <div class="panel-heading">
+                  <h3 class="panel-title"><i class="fa fa-bar-chart"></i> {{ heading_title }}</h3>
+                </div>
+
+      <div class="panel-body">
+        <div class="table-responsive">
+        <table id="myTable" class="table table-bordered">
+           <thead>
+               <tr>
+          
+                   <td class="text-left">{{ column_orderid                    }}</td>
+                   <td class="text-left">{{ column_order_date_start           }}</td>
+                   <td class="text-left">{{ column_invoice                    }}</td>
+                   <td class="text-left">{{ column_mode_of_payment            }}</td>
+                   <td class="text-left">{{ column_sub_total                  }}</td>
+                   <td class="text-left">{{ column_cgst_order_amount          }}</td>  
+                   <td class="text-left">{{ column_sgst_order_amount          }}</td>
+                   <td class="text-left">{{ column_delivery_charge            }}</td>
+                   <td class="text-left">{{ column_cgst_delivery_percentage   }}</td>   
+                   <td class="text-left">{{ column_cgst_delivery_amount       }}</td>
+                   <td class="text-left">{{ column_sgst_delivery_percentage   }}</td>
+                   <td class="text-left">{{ column_sgst_delivery_amount       }}</td>
+                   <td class="text-left">{{ column_commission_percentage      }}</td>
+                   <td class="text-left">{{ column_commission_amount          }}</td>
+                   <td class="text-left">{{ column_cgst_commission_percentage }}</td>  
+                   <td class="text-left">{{ column_cgst_commission_amount     }}</td> 
+                   <td class="text-left">{{ column_sgst_commission_percentage }}</td>
+                   <td class="text-left">{{ column_sgst_commission_amount     }}</td>
+                   <td class="text-left">{{ column_total_commission_amount    }}</td>
+                   <td class="text-left" hidden>{{ storeidnumber              }}</td>
+                        
+                </tr>
+            </thead>
+          <tbody>
+            
+                          {% if orders %}
+                          {% for order in orders %}
+                          <tr>
+                          <td class="text-left">{{ order.orderid                    }}</td>
+                          <td class="text-left">{{ order.date_start                 }}</td>
+                          <td class="text-left">{{ order.invoice                    }}</td>
+                          <td class="text-left">{{ order.payment_method             }}</td>
+                          <td class="text-left">{{ order.sub_total                  }}</td>
+                          <td class="text-left">{{ order.cgst_order_amount          }}</td>
+                          <td class="text-left">{{ order.sgst_order_amount          }}</td>
+                          <td class="text-left">{{ order.delivery_charge            }}</td>
+                          <td class="text-left">{{ order.cgst_delivery_percentage   }}</td>   
+                          <td class="text-left">{{ order.cgst_delivery_amount       }}</td>
+                          <td class="text-left">{{ order.sgst_delivery_percentage   }}</td>
+                          <td class="text-left">{{ order.sgst_delivery_amount       }}</td>
+                          <td class="text-left">{{ order.commission_percentage      }}</td>
+                          <td class="text-left">{{ order.commission_amount          }}</td>
+                          <td class="text-left">{{ order.cgst_commission_percentage }}</td>
+                          <td class="text-left">{{ order.cgst_commission_amount     }}</td>
+                          <td class="text-left">{{ order.sgst_commission_percentage }}</td>
+                          <td class="text-left">{{ order.sgst_commission_amount     }}</td>
+                          <td class="text-left">{{ order.total_commission_amount    }}</td>
+                          <td class="text-left" hidden>{{ order.STORE               }}</td>
+                           
+                          </tr>
+                          {% endfor %}
+                          {% else %}
+                            <tr>
+                              <td class="text-center" colspan="5">{{ text_no_results }}</td>
+                            </tr>
+                          {% endif %}
+    
+            </tbody>
+               <tfoot>
+                   <tr>
+                
+                  
+                          <td class="text-left"  colspan="4">GRAND  TOTAL</td>
+                          <td class="text-left" >{{ sub_total               }}</td>
+                          <td class="text-left" >{{ cgst_order_amount       }}</td>
+                          <td class="text-left" >{{ sgst_order_amount       }}</td>
+                          <td class="text-left" >{{ blank1                  }}</td>
+                          <td class="text-left" >{{ blank2                  }}</td>
+                          <td class="text-left" >{{ cgst_delivery_amount    }}</td>
+                          <td class="text-left" >{{ blank3                  }}</td>
+                          <td class="text-left" >{{ sgst_delivery_amount    }}</td>
+                          <td class="text-left" >{{ blank4                  }}</td>
+                          <td class="text-left" >{{ commission_amount       }}</td>
+                          <td class="text-left" >{{ blank5                  }}</td>
+                          <td class="text-left" >{{ cgst_commission_amount  }}</td>
+                          <td class="text-left" >{{ blank6                  }}</td>
+                          <td class="text-left" >{{ sgst_commission_amount  }}</td>
+                          <td class="text-left" >{{ total_commission_amount }}</td>
+                  </tr>
+                      </tfoot>
+                  </table> 
+                </div>
+                    
+  
+             <div class="row">
+            <div class="col-sm-6 text-left">{{ pagination }}</div>
+            <div class="col-sm-6 text-right">{{ results }}</div>
+          </div>
+        </div>
+          </div>
+      </div>
+       {% endif %} 
+      </div>
+  
+  
+  
+  
+  
+  <!--
+  var filter_group = $('select[name=\'filter_group\']').val();
+      
+      if (filter_group) {
+          url += '&filter_group=' + encodeURIComponent(filter_group);
+      }
+      -->
+  
+  
+  <script type="text/javascript"><!--
+  $('#button-filter').on('click', function() {
+      var url = '';
+      
+      var filter_date_start = $('input[name=\'filter_date_start\']').val();
+      
+      if (filter_date_start) {
+          url += '&filter_date_start=' + encodeURIComponent(filter_date_start);
+      }
+  
+      var filter_date_end = $('input[name=\'filter_date_end\']').val();
+      
+      if (filter_date_end) {
+          url += '&filter_date_end=' + encodeURIComponent(filter_date_end);
+      }
+          
+  var filter_group = $('select[name=\'filter_group\']').val();
+      
+      if (filter_group) {
+          url += '&filter_group=' + encodeURIComponent(filter_group);
+      }
+      
+      var filter_order_status_id = $('select[name=\'filter_order_status_id\']').val();
+      
+      if (filter_order_status_id != 0) {
+          url += '&filter_order_status_id=' + encodeURIComponent(filter_order_status_id);
+      }	
+  
+      location = 'index.php?route=report/report&code=commission_percentage&user_token={{ user_token }}' + url;
+  });
+  //--></script> 
+  <script type="text/javascript"><!--
+  $('.date').datetimepicker({
+      language: '{{ datepicker }}',
+      pickTime: false
+  });
+  //--></script>
+  </html>

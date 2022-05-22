@@ -1,0 +1,156 @@
+{{ header }}{{ column_left }}
+<div id="content">
+  <div class="page-header">
+    <div class="container-fluid">
+      <div class="pull-right">
+        <button type="submit"  form="form-filter" data-toggle="tooltip" title="{{ button_save }}" class="btn btn-primary"><i class="fa fa-save"></i></button>
+        <a href="{{ cancel }}" data-toggle="tooltip" title="{{ button_cancel }}" class="btn btn-default"><i class="fa fa-reply"></i></a></div>
+      <h1>{{ heading_title }}</h1>
+      <ul class="breadcrumb">
+        
+      </ul>
+    </div>
+  </div>
+  <div class="container-fluid"> {% if error_warning %}
+    <div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+    {% endif %}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title"><i class="fa fa-pencil"></i> {{text_form}}</h3>
+      </div>
+      <div class="panel-body">
+        <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-filter" class="form-horizontal">
+
+        <fieldset id="option-value">
+            <legend>{{ text_value }}</legend>
+
+            <table id="filter" class="table table-striped table-bordered table-hover">
+              <thead>
+                <tr>
+                  <td class="text-left required">{{ entry_name }}</td>
+                  <td class="text-right">{{ entry_delivery }}</td>
+                  <td class="text-right">{{ entry_gst }}</td>
+				 
+                  <td></td>
+                </tr>
+              </thead>
+              <tbody>
+
+
+
+          {% set filter_row = 0 %}
+          {% for servicearea in option_values %}
+        
+        <tr id="filter-row{{ filter_row }}">
+             <td class="text-left">
+                <input type="hidden" name="" value="" />
+                  <div class="input-group"><span class="input-group-addon"></span>
+                         
+          <input type="text" id="pin" name="servicearea[{{filter_row }}][pincode_no]"     value="{{servicearea.pincode_no}}" placeholder="{{ entry_name }}" class="form-control" />  
+                 
+                  </div>
+                  {% if error_name %}
+                    <div class="text-danger">{{ error_name }}</div>
+                    {% endif %}
+   
+                  
+                </td>
+                
+                 
+    <td class="text-right ">
+    <input type="text" name="servicearea[{{filter_row }}][delivery_charges]"  value="{{servicearea.delivery_charges}}" placeholder="{{ entry_delivery }}" class="form-control" />
+              </div>
+              
+    </td>
+
+    <td class="text-right ">
+    <select name="servicearea[{{filter_row }}][tax_class_id]" value="{{servicearea.tax_class_id}}" id="input-tax-class" class="form-control">
+                        <option value="0">{{ text_none }}</option>
+
+                    {% for tax_class in tax_classes %}
+                      {% if tax_class.title == servicearea.title %}
+
+                        <option value="{{ tax_class.tax_class_id }}" selected="selected">{{ tax_class.title }}</option>
+
+                      {% else %}
+
+                        <option value="{{ tax_class.tax_class_id }}">{{ tax_class.title }}</option>
+
+                      {% endif %}
+                    {% endfor %}
+      </select>
+      </td>
+
+
+    
+                <td class="text-right"><button type="button" onclick="$('#filter-row{{ filter_row }}').remove();" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>
+              </tr>
+          {% set filter_row = filter_row + 1 %}
+            {% endfor %}
+                </tbody>
+                    
+              <tfoot>
+                <tr>
+                  <td colspan="3"></td>
+                  <td class="text-right"><button type="button" onclick="addFilterRow();" data-toggle="tooltip" title="{{ button_filter_add }}" class="btn btn-primary"><i class="fa fa-plus-circle"></i></button></td>
+                </tr>
+              </tfoot>
+            </table>
+          </fieldset>
+ 
+        </form>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript">
+
+  var filter_row = {{ filter_row }};
+
+        function addFilterRow() {
+          html  = '<tr id="filter-row' + filter_row + '">';
+          html += '  <td class="text-left text-right"><input type="hidden" name="" value="" />';
+          
+          html += '  <div class="input-group">';
+          html += '    <span class="input-group-addon"></span><input type="text" name="servicearea[' + filter_row + '][pincode_no]"  value="" placeholder="{{ entry_name }}" class="form-control" />';
+          html += '  </div>';
+          
+         html += '  </td>';
+      	 html += '  <td class="text-right"><input type="text" name="servicearea[' + filter_row + '][delivery_charges]" value="" placeholder="{{ entry_delivery }}"  class="form-control" /></td>';
+         html += '  <td class="text-left"><select name="servicearea[' + filter_row + '][tax_class_id]" class="form-control">';
+         
+         {% for tax_class in tax_classes %}
+        html += '    <option value="{{ tax_class.tax_class_id }}">{{ tax_class.title|escape('js') }}</option>';
+        {% endfor %}
+         html += '  <td class="text-right"><button type="button" onclick="$(\'#filter-row' + filter_row + '\').remove();" data-toggle="tooltip" title="{{ button_remove }}" class="btn btn-danger"><i class="fa fa-minus-circle"></i></button></td>';
+         html += '</tr>';
+
+          $('#filter tbody').append(html);
+
+          filter_row++;
+        }
+
+
+
+</script> 
+
+</div>
+
+{{ footer }} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 

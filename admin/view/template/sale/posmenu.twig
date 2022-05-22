@@ -1,0 +1,357 @@
+<style>
+
+
+
+/* menu */
+
+.dropdown-menu ul li ul{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    font-size: 14px;
+    text-align: left;
+    list-style: none;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.15);
+    border-radius: 4px;
+    box-shadow: 0 6px 12px rgb(0 0 0 / 18%);
+}
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+#menu .nav > li > a {
+	color: #fff;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	padding: 10px 15px 10px 15px;
+	min-height: 15px;
+	background-color: transparent;
+}
+#menu .nav > li > a:hover, #menu .nav > li.open > a {
+	background-color: rgba(0, 0, 0, 0.1);
+}
+#menu .dropdown-menu {
+
+	padding-bottom: 0;
+}
+#menu .dropdown-inner {
+	display: block;
+}
+#menu .dropdown-inner a {
+ min-width: 140px;
+	display: block;
+	padding: 3px 20px;
+	clear: both;
+	line-height: 20px;
+	color: #333333;
+	font-size: 12px;
+
+}
+#menu .dropdown-subinner li{
+	list-style-type: none;
+}
+#menu .dropdown-subinner  {
+	display: none;
+}
+#menu .list-unstyled li {
+	position: relative;
+}
+#menu .dropdown-inner li:hover .dropdown-subinner 
+{
+	position: absolute;
+	top: 0px;
+	left: 100%;
+	display: block;
+	padding-left:0px;
+	background-color: white;	
+}
+#menu .dropdown-subsubinner  {
+	display: none;
+}
+#menu .dropdown-subinner li:hover  .dropdown-subsubinner{
+	position: absolute;
+	top: 0px;
+	left: 100%;
+	display: block;
+	padding-left:0px;
+	
+}
+
+#menu .dropdown-subsubinner1  {
+	display: none;
+}
+#menu .dropdown-subsubinner li:hover  .dropdown-subsubinner1{
+	position: absolute;
+	top: 0px;
+	left: 100%;
+	display: block;
+	padding-left:0px;
+	
+}
+
+#menu .dropdown-inner li a:hover {
+	color: #FFFFFF;
+}
+#menu .see-all {
+	display: block;
+	margin-top: 0.5em;
+	border-top: 1px solid #DDD;
+	padding: 3px 20px;
+	-webkit-border-radius: 0 0 4px 4px;
+	-moz-border-radius: 0 0 4px 4px;
+	border-radius: 0 0 3px 3px;
+	font-size: 12px;
+}
+#menu .see-all:hover, #menu .see-all:focus {
+	text-decoration: none;
+	color: #ffffff;
+	background-color: #229ac8;
+	background-image: linear-gradient(to bottom, #23a1d1, #1f90bb);
+	background-repeat: repeat-x;
+}
+#menu #category {
+	float: left;
+	padding-left: 15px;
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 40px;
+	color: #fff;
+	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+}
+#menu .btn-navbar {
+	font-size: 15px;
+	font-stretch: expanded;
+	color: #FFF;
+	padding: 2px 18px;
+	float: right;
+	background-color: #229ac8;
+	background-image: linear-gradient(to bottom, #23a1d1, #1f90bb);
+	background-repeat: repeat-x;
+	border-color: #1f90bb #1f90bb #145e7a;
+}
+#menu .btn-navbar:hover, #menu .btn-navbar:focus, #menu .btn-navbar:active, 
+#menu .btn-navbar.disabled, #menu .btn-navbar[disabled] {
+	color: #ffffff;
+	background-color: #229ac8;
+}
+
+@media (min-width: 768px) {
+	#menu .dropdown:hover .dropdown-menu {
+		display: block;
+	}
+}
+@media (max-width: 767px) {
+	#menu {
+		border-radius: 4px;
+	}
+	#menu div.dropdown-inner > ul.list-unstyled {
+		display: block;
+	}
+	#menu div.dropdown-menu {
+		margin-left: 0 !important;
+		padding-bottom: 10px;
+		background-color: rgba(0, 0, 0, 0.1);
+	}
+	#menu .dropdown-inner {
+		display: block;
+	}
+	#menu .dropdown-inner a {
+		width: 100%;
+		color: #fff;
+	}
+	#menu .dropdown-menu a:hover,
+	#menu .dropdown-menu ul li a:hover {
+		background: rgba(0, 0, 0, 0.1);
+	}
+	#menu .see-all {
+		margin-top: 0;
+		border: none;
+		border-radius: 0;
+		color: #fff;
+	}
+}
+
+
+/* NEW 2nd-Level Dropdown CSS END */
+
+.menu {
+	background-color: #229ac8;
+	background-image: linear-gradient(to bottom, #23a1d1, #1f90bb);
+	background-repeat: repeat-x;
+	border-color: #1f90bb #1f90bb #145e7a;
+	min-height: 40px;
+}
+.menu .nav > li > a {
+	color: #fff;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	padding: 10px 15px 10px 15px;
+	min-height: 15px;
+	background-color: transparent;
+}
+.menu {
+	background-color: #229ac8;
+	background-image: linear-gradient(to bottom, #23a1d1, #1f90bb);
+	background-repeat: repeat-x;
+	border-color: #1f90bb #1f90bb #145e7a;
+	min-height: 40px;
+}
+.menu .nav > li > a {
+	color: #fff;
+	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+	padding: 10px 15px 10px 15px;
+	min-height: 15px;
+	background-color: transparent;
+}
+.menu .nav > li > a:hover, .menu .nav > li.open > a {
+	background-color: rgba(0, 0, 0, 0.1);
+}
+.menu .dropdown-menu {
+	padding-bottom: 0;
+}
+
+
+.menu .dropdown-inner a {
+	min-width: 160px;
+	display: block;
+	padding: 3px 20px;
+	clear: both;
+	line-height: 20px;
+	color: #333333;
+	font-size: 12px;
+}
+.menu .dropdown-inner li a:hover {
+	color: #FFFFFF;
+}
+.menu .see-all {
+	display: block;
+	margin-top: 0.5em;
+	border-top: 1px solid #DDD;
+	padding: 3px 20px;
+	-webkit-border-radius: 0 0 4px 4px;
+	-moz-border-radius: 0 0 4px 4px;
+	border-radius: 0 0 3px 3px;
+	font-size: 12px;
+}
+.menu .see-all:hover, .menu .see-all:focus {
+	text-decoration: none;
+	color: #ffffff;
+	background-color: #229ac8;
+	background-image: linear-gradient(to bottom, #23a1d1, #1f90bb);
+	background-repeat: repeat-x;
+}
+.menu #category {
+	float: left;
+	padding-left: 15px;
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 40px;
+	color: #fff;
+	text-shadow: 0 1px 0 rgba(0, 0, 0, 0.2);
+}
+.menu .btn-navbar {
+    
+ 
+
+	font-size: 15px;
+	font-stretch: expanded;
+	color: #FFF;
+	padding: 2px 18px;
+	float: right;
+	background-color: #229ac8;
+	background-image: linear-gradient(to bottom, #23a1d1, #1f90bb);
+	background-repeat: repeat-x;
+	border-color: #1f90bb #1f90bb #145e7a;
+}
+.menu .btn-navbar:hover, .menu .btn-navbar:focus, .menu .btn-navbar:active, .menu .btn-navbar.disabled, .menu .btn-navbar[disabled] {
+	color: #ffffff;
+	background-color: #229ac8;
+}
+
+.aa li li a:hover {
+    color: #FFFFFF;
+    background-color: #229ac8;
+}
+
+.aa li li.active > a {
+    color: #0b91d2;
+    background-color: #229ac8;
+}
+
+</style>
+
+{% if categories %}
+<div class="container" style=  " padding-left: 147px;">
+  <nav id="menu" class="navbar aa" style="background-color: #229ac8; background-image: linear-gradient(to bottom, #23a1d1, #1f90bb);background-repeat: repeat-x;border-color: #1f90bb #1f90bb #145e7a;min-height: 40px;">
+    <div class="navbar-header"><span id="category" class="visible-xs">{{ text_category }}</span>
+      <button type="button" class="btn btn-navbar navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse"><i class="fa fa-bars"></i></button>
+    </div>
+    <div class="collapse navbar-collapse navbar-ex1-collapse">
+      <ul class="nav navbar-nav">
+        {% for category in categories %}
+        {% if category.children %}
+        <li class="dropdown"><a href="{{ category.href }}" class="dropdown-toggle" data-toggle="dropdown">{{ category.name }}</a>
+          <div class="dropdown-menu">
+            <div class="dropdown-inner">
+             {% for children in category.children|batch(category.children|length / category.column|round(1, 'ceil')) %}
+              <ul class="list-unstyled">
+                {% for parent in children %}
+                    <li><a href="{{ parent.href }}">{{ parent.name }}</a>
+                        {% if parent.children %}
+                            <ul  class="dropdown-subinner">
+                                {% for child in parent.children %}
+                                    <li><a href="{{ child.href }}">{{ child.name }}</a>
+                                   
+                                         {% if child.children %}
+                                             <ul class="dropdown-subsubinner">
+                                            {% for child1 in child.children %}
+                                                 <li><a href="{{ child1.href }}">{{ child1.name }}</a>
+                                                 {% if child1.children %}
+                                                  <ul class="dropdown-subsubinner1">
+                                                    {% for child2 in child1.children %}
+                                                       <li><a href="{{ child2.href }}">{{ child2.name }}</a>
+                                                    {% endfor %}
+                                                     </ul> 
+                                                   {% endif %}
+                                                 </li>
+                                            {% endfor %}
+                                            </ul> 
+                                           
+                                         {% endif %}
+                                   
+                                    </li>
+                                {% endfor %}
+                            </ul>
+                        {% endif %}
+                    </li>
+                {% endfor %}
+              </ul>
+              {% endfor %}</div>
+            <a href="{{ category.href }}" class="see-all">{{ text_all }} {{ category.name }}</a> </div>
+        </li>
+        {% else %}
+        <li><a href="{{ category.href }}">{{ category.name }}</a></li>
+        {% endif %}
+        {% endfor %}
+      </ul>
+    </div>
+  </nav>
+</div>
+{% endif %} 
+
+
+
+
+
+
+
+
+ 

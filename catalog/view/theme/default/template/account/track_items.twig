@@ -1,0 +1,333 @@
+{{ header }}
+<style>
+.faq .panel-title > a:before {
+    float: right !important;
+    font-family: FontAwesome;
+    content: "\f056";
+    padding-right: 10px;
+    
+}
+.faq .panel-title > a.collapsed:before {
+    float: right !important;
+    content: "\f055";
+    
+}
+.faq h2 {
+    color: #ff9800;
+}
+.faq a {
+    text-decoration: none;
+    display: block;
+}
+.faq .panel-default>.panel-heading {
+    
+    border-color: #ff9800;
+}
+
+h4.panelbodyhead{
+ line-height:27px; 
+ font-size: 14px;
+ margin:0px;
+}
+.panelcol{
+    padding-right: 0px; 
+    padding-left: 15px; 
+}
+.storename{
+  margin-left: 56px;
+}
+.cancelreq{
+padding-right:26px;
+}
+
+@media (max-width:600px)  {
+  .storename{
+  margin-left: 0px;
+}
+.cancelreq{
+padding-right:6px;
+}
+.Request{
+  padding: 5px 3px;
+  font-size: 9px;
+}
+h4.panelbodyhead1 {
+    line-height: 17px;
+    font-size: 11px;
+    margin: 0px;
+}
+h4.panelbodyhead{
+ line-height:16px;
+ font-size: 9px;
+}
+h4.panelbodyhead1 {
+    line-height: 13px;
+}
+.panelcol{
+    padding-right: 3px !important; 
+    padding-left: 4px !important; 
+    
+}
+
+}
+@media only screen and (min-device-width: 834px) and (orientation: portrait) {
+  .storename{
+  margin-left: 22px;
+}
+.cancelreq {
+    padding-right: 54px;
+}
+}
+/* ipad */
+@media only screen and (width: 768px) and (height: 1024px) and (orientation:portrait) {
+  .cancelreq {
+    padding-right: 39px;
+}
+}
+
+
+</style>
+<div id="account-return" class="container">
+  <ul class="breadcrumb">
+    {% for breadcrumb in breadcrumbs %}
+    <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+    {% endfor %}
+  </ul>
+  <div class="row">{{ column_left }}
+    {% if column_left and column_right %}
+    {% set class = 'col-sm-6' %}
+    {% elseif column_left or column_right %}
+    {% set class = 'col-sm-9' %}
+    {% else %}
+    {% set class = 'col-sm-12' %}
+    {% endif %}
+ 
+<div class="container">
+ <h1>{{ heading_title_track_items }}</h1>
+ <hr>
+        <div class="row">
+            <div class="col-md-12 col-xs-12">
+                <div class="faq">
+                    
+                    <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+
+                     {% for store in stores %}
+                      {% if true %}
+                        <div class="panel panel-default">
+
+                          <div class="panel-heading" role="tab" id="{{ store.store_name }}headingOne">
+                              
+                            <div class="row" style="display:flex; align-items: center;">
+                              
+                               <div class="col-md-2  col-sm-2  col-xs-3">
+                                  <img src="{{ store.store_logo }}" alt="" title="" class="img-responsive" />
+                               </div>
+                               
+                               <div class="col-md-2 col-md-offset-8  col-sm-3  col-sm-offset-7  col-xs-5 col-xs-offset-4">
+                                <h3 class="panel-title">
+                                <a class="collapsed" 
+                                 data-toggle="collapse" 
+                                 data-parent="#accordion" 
+                                 href="#store{{ store.store_id }}" 
+                                 aria-expanded="false" 
+                                 aria-controls="{{ store.store_name }}">
+                                 <strong  class="storename">{{ store.store_name }}</strong></a>
+                                </h3>
+                                </div>
+                            </div>
+                          </div>
+
+
+
+
+                            <div id="store{{ store.store_id }}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="{{ store.store_name }}headingOne">
+                                <div class="panel-body">
+                               <form action="{{ action }}" method="post" enctype="multipart/form-data" id="form-product-return">
+                                {% for product in productsList  %}
+                                   {% if product.store_id == store.store_id  %}
+
+                                    <div class="row"  style="display:flex; align-items: flex-start;">
+                                       
+                                        <div class="col-lg-4 col-md-4 col-sm-4 col-xs-4 panelcol">
+                                          <div class="image"><img src="{{ product.image }}" alt="" title="" class="img-responsive" /></div>
+                                            <div class="caption">
+                                             <h4  class="panelbodyhead panelbodyhead1">{{ product.name }}</h4>
+                                            </div>  
+                                        </div>
+
+                                        <div class="col-lg-3 col-lg-offset-1 col-md-3 col-md-offset-1  col-sm-3 col-xs-4 panelcol">
+                                          <div class="radio"  style="margin:0px">
+                                            <label>
+                                              <h4  class="panelbodyhead"><strong>Quantity :</strong> {{ product.quantity }}</h4>
+                                               
+                                              <h4  class="panelbodyhead"><strong>TOTAL :</strong>&#x20b9;{{ product.total }}</h4>
+                                            </label>
+                                          </div>   
+                                        </div>
+                                        
+                                        
+                                             <div class="col-lg-3 col-lg-offset-1 col-md-4  col-sm-5 col-xs-4 panelcol" >
+                                                <div class="radio" style="margin:0px">
+                                           
+                                                    <label>
+                                                       <h4 class="panelbodyhead"><strong>Status :</strong> {{ product.status }}</h4>
+                                                    </label>
+                                                
+                                                 </div>
+                                        
+                                          
+                                              </div>
+                                       
+                                     </div> 
+                                          {% if product.status != 'Delivered' and product.status != 'Accepted' and product.status != 'Refunded' %}
+                                          <div class="row"> 
+                                          <div class="radio">
+                                                <div class="pull-right cancelreq"><input type="button" id="{{ product.product_id }}button{{ product.order_id }}" value="Cancel Request" class="btn btn-danger Request" /></div>
+                                          </div>
+                                          </div> 
+                                          {% endif %}
+                                     <hr>  
+                                     {% endif %}
+                                     {% endfor %}
+                                     
+                                      </form>
+
+                                                                                                        
+
+                                </div>
+                            </div>
+                        </div>
+                      {% endif %}
+                      {% endfor %}
+                       
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+     
+    <!--<div id="content" class="{{ class }}">{{ content_top }}-->
+    <!--<h1>{{ heading_title_request_list }}</h1>
+<hr>
+    <h2>{{ heading_title_open_request_list }}</h2>
+  
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+          <thead>
+           <tr>
+              <td class="text-center">{{ column_return_id }}</td>
+               <td class="text-center">#{{ column_order_id}}</td>
+               <td class="text-center">{{ column_order_store }}</td>
+              <td class="text-center">{{ column_customer }}</td>
+              <td class="text-center">{{ column_status }}</td>
+              <td class="text-center">{{ column_date_requested }}</td>
+              <td></td>
+            </tr>
+          </thead>
+          <tbody>
+          {% if open_request %}
+          {% for opened in open_request %}
+          {% if opened.status == 'Request Submitted' %}
+          <tr>
+              <td class="text-center">#{{ opened.return_id }}</td
+              <td class="text-center">#{{ opened.order_id }}</td>
+            
+              <td class="text-center">{{ column_order_store }}</td> 
+              <td class="text-center">{{ opened.name }}</td>
+              <td class="text-center"> Opened </td>
+              <td class="text-center">{{ opened.date_added }}</td>
+              <td class="text-right"><a href="{{ opened.href }}" data-toggle="tooltip" title="{{ button_view }}" class="btn btn-info"><i class="fa fa-eye"></i></a></td>
+
+            </tr>
+            {% endif %}
+          {% endfor %}
+            </tbody>
+          
+        </table>
+      </div>
+      <div class="row">
+        <div class="col-sm-6 text-left">{{ pagination2 }}</div>
+        <div class="col-sm-6 text-right"></div>
+      </div>
+      {% else %}
+       <tr>
+              <td class="text-center" colspan="8">No pending Requests</td>
+              
+            </tr>
+            </tbody>
+          
+        </table>
+      </div>
+      {% endif %}-->
+
+
+
+     <!-- <h2>{{ heading_title_order_list }}</h2>
+      {% if returns %}
+      <div class="table-responsive">
+        <table class="table table-bordered table-hover">
+          <thead>
+           <tr>
+              <td class="text-right">{{ column_order_id }}</td>
+               <td class="text-right">{{ column_order_store }}</td>
+              <td class="text-right">{{ column_customer }}</td>
+              <td class="text-right">{{ column_no_product }}</td>
+              <td class="text-right">{{ column_status }}</td>
+              <td class="text-right">{{ column_total }}</td>
+              <td class="text-right">{{ column_date_added }}</td>
+              <td></td>
+            </tr>
+          </thead>
+          <tbody>
+          
+          {% for return in returns %}
+          {% if return.status == 'Delivered' %}
+          <tr>
+              <td class="text-right">#{{ return.order_id }}</td>
+              <td class="text-right">{{ return.store_name }}</td>
+              <td class="text-left">{{ return.name }}</td>
+              <td class="text-right">{{ return.products }}</td>
+              <td class="text-left">{{ return.status }}</td>
+              <td class="text-right">{{ return.total }}</td>
+              <td class="text-left">{{ return.date_added }}</td>
+              <td class="text-right"><a href="{{ return.view }}" data-toggle="tooltip" title="{{ button_view }}" class="btn btn-info"><i class="fa fa-eye"></i></a></td>
+            </tr>
+            {% endif %}
+          {% endfor %}
+            </tbody>
+          
+        </table>
+      </div>-->
+      <!--<div class="row">
+        <div class="col-sm-6 text-left">{{ pagination }}</div>
+        <div class="col-sm-6 text-right">{{ results }}</div>
+      </div>
+      {% else %}
+      <p>{{ text_empty }}</p>
+      {% endif %}
+      <div class="buttons clearfix">
+        <div class="pull-right"><a href="{{ continue }}" class="btn btn-primary">{{ button_continue }}</a></div>
+      </div>-->
+      <!--</div>-->
+    </div>
+<script type="text/javascript"><!--
+
+
+$(".cancel").on('change', function() {
+
+  var id = this.name.split('method');
+  if(this.checked){
+  $("#"+id[0]+"reason"+id[1] ).prop('disabled', false);
+  }
+  else{
+     $("#"+id[0]+"reason"+id[1]).prop('disabled', true);
+     $("#"+id[0]+"reason"+id[1]).val('Select Reason');
+  }
+
+});
+
+
+//--></script></div>
+{{ footer }} 
